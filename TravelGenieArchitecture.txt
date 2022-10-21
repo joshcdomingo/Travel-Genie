@@ -35,6 +35,9 @@ src
 │   │           │       CityJdbcTemplateRepository.java
 │   │           │       EntertainmentJdbcTemplateRepository.java
 │   │           │       WishListJdbcTemplateRepository.java
+│   │           │       CityFileRepository.java
+│   │           │       EntertainmentFileRepository.java
+│   │           │       WishListFileRepository.java
 │   │           │
 │   │           ├───domain
 │   │           │       CityService.java
