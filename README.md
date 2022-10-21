@@ -1,39 +1,5 @@
 # Task List
 
-## Create tables diagram: 1 hour
-
-    -country
-        -id
-        -name
-    -city
-        -id
-        -name
-        -fk: country_id
-        -fk: scenery
-    -scenery
-        -id
-        -name
-    -entertainment
-        -id
-        -name
-        -activity_level
-        -kid_friendly
-        -price_range
-    -city_to_entertainment
-        -fk: city_id
-        -fk: entertainment_id
-    -user
-        -id
-        -name
-        -nickname
-        -password
-    -wish_list
-        -id
-        -fk: user_id
-        -fk: city_id
-        -fk: entertainment_id
-    
-## Schema creation: 2 hours
 ## DML: 2 hours
 
 ## Models & Enum: 4 hours
@@ -123,13 +89,13 @@ TOTAL: 27 hours
 
 * Testing for WishListService 
 
-  * [ ] Positive tests: 8 hours 
-    * shouldRead
-    * shouldCreate
-    * shouldUpdate
-    * shouldDeleteById
+  * [ ] Positive tests
+    * shouldRead -- 2 hours
+    * shouldCreate -- 2 hours
+    * shouldUpdate -- 2 hours
+    * shouldDeleteById -- 2 hours
 
-  * [ ] Negative tests: 12 hours
+  * [ ] Negative tests: 4 hours
     * shouldNotReadNonExisting
     * shouldNotCreateWithoutScenery
     * shouldNotCreateWithoutCountry
@@ -143,7 +109,7 @@ TOTAL: 27 hours
     * shouldNotUpdateNullPriceRange
     * shouldNotDeleteNonExistingId
 
-TOTAL: 25 hours
+TOTAL: 12 hours
 
 ### Controller
 * [ ] GlobalExceptionHandler: 2 hours
@@ -205,20 +171,6 @@ TOTAL: 9 hours
   * [ ] Not found (404 error page) -- 2 hours
 TOTAL: 23 hours
 
-* Create a task for component wireframes
-  * [ ] App -- 1 hour
-  * [ ] Navigation -- 1 hour
-  * [ ] Home -- 1 hour
-  * [ ] User -- 1 hour
-  * [ ] Registration form -- 1 hour
-  * [ ] Login form -- 1 hour
-  * [ ] WishList -- 1 hour
-  * [ ] Make wish game -- 1 hour
-  * [ ] WishList details -- 1 hour
-  * [ ] Genie -- 1 hour
-  * [ ] Not found -- 1 hour
-TOTAL: 12 hours
-
 * A React Router task
   * [ ] App.js react router -- 1 hour
 TOTAL: 1 hour
@@ -260,8 +212,8 @@ TOTAL: 17 hours
 * Research -- 4 hours
 * Decide where to use it -- 1 hour
 * Design -- 4 hours
-* Writing code - 2 hours
-TOTAL: 11 hours
+* Writing code - 4 hours
+TOTAL: 13 hours
 
 ### Daily Group Communication
 * Stand up -- 1 hour
@@ -273,7 +225,7 @@ TOTAL: 11 hours
 * Database -- 4 hours
 TOTAL: 12 hours
 
-GRAND TOTAL: 206 HOURS
+GRAND TOTAL: 185 HOURS
 
 ### Spring dependency injection: 4 hours
 
