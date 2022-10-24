@@ -1,6 +1,7 @@
 package learn.capstone.data.mappers;
 
 import learn.capstone.models.City;
+import learn.capstone.models.Scenery;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
@@ -12,6 +13,8 @@ public class CityMapper implements RowMapper<City> {
         City city = new City();
         city.setCityId(rs.getInt("city_id"));
         city.setCityName(rs.getString("city_name"));
+        city.setCountryName(rs.getString("country_name"));
+        city.setScenery(Scenery.valueOf(rs.getString("scenery")));
 
         return city;
     }
