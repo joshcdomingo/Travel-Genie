@@ -2,9 +2,10 @@ package learn.capstone.domain;
 
 import learn.capstone.data.CityFileRepository;
 import learn.capstone.models.City;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class CityService {
 
     private final CityFileRepository repository;

@@ -12,7 +12,7 @@ public class WishMapper implements RowMapper<Wish> {
         Wish wish = new Wish();
         wish.setWishId(rs.getInt("wish_id"));
         wish.setAppUserId(rs.getInt("app_user_id"));
-        wish.setCity(rs.getString("city"));
+//        wish.setCity(rs.getString("city"));
 
         return wish;
     }
