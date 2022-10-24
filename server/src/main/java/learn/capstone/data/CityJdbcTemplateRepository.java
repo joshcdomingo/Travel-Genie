@@ -32,46 +32,14 @@ public class CityJdbcTemplateRepository implements CityFileRepository {
         return city;
     }
 
-    @Override
-    public City findBySceneryId(int cityId) {
-        final String sql = "select c.city_id, c.city_name, "
-                + "co.country_id, co.country_name, "
-                + "s.scenery_id, s.scenery_name "
-                + "from city c "
-                + "inner join country co on c.country_id = co.country_id "
-                + "inner join scenery s on c.scenery_id = s.scenery_id "
-                + "where c.scenery_id = ?;";
 
-
-        City city = jdbcTemplate.query(sql, new CityMapper(), cityId)
-                .stream()
-                .findFirst().orElse(null);
-
-        return city;
-    }
-
-    @Override
-    public City findByEntertainmentId(int cityId) {
-        final String sql = "select c.city_id, c.city_name, "
-                + "co.country_id, co.country_name, "
-                + "s.scenery_id, s.scenery_name "
-                + "from city c "
-                + "inner join country co on c.country_id = co.country_id "
-                + "inner join scenery s on c.scenery_id = s.scenery_id "
-                + "where c.entertainment_id = ?;";
-
-
-        City city = jdbcTemplate.query(sql, new CityMapper(), cityId)
-                .stream()
-                .findFirst().orElse(null);
-
-        return city;
-    }
 
     @Override
     public List<City> findAll() {
-        final String sql = "select city_id, city_name, country_id, scenery_id "
-                + "from city;";
+        final String sql = "select c.city_id, c.city_name, co.country_name, s.scenery_name "
+                + "from city c "
+                + "inner join country co on c.country_id = co.country_id "
+                + "inner join scenery s on c.scenery_id = s.scenery_id;";
 
         return jdbcTemplate.query(sql, new CityMapper());
     }

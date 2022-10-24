@@ -14,7 +14,9 @@ public class CityMapper implements RowMapper<City> {
         city.setCityId(rs.getInt("city_id"));
         city.setCityName(rs.getString("city_name"));
         city.setCountryName(rs.getString("country_name"));
-        city.setScenery(Scenery.valueOf(rs.getString("scenery")));
+
+        Scenery scenery = Scenery.valueOf(rs.getString("scenery_name"));
+        city.setScenery(scenery);
 
         return city;
     }
