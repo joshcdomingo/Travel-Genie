@@ -38,20 +38,6 @@ class CityJdbcTemplateRepositoryTest {
         assertNotNull(actual);
     }
 
-    @Test
-    void shouldFindByEntertainmentId() {
-        City actual = repository.findByEntertainmentId(1);
-
-        assertNotNull(actual);
-    }
-
-    @Test
-    void shouldFindBySceneryId() {
-        City actual = repository.findBySceneryId(1);
-
-        assertNotNull(actual);
-    }
-
 
 
 }
