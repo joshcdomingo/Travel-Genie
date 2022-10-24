@@ -1,144 +1,99 @@
-drop database if exists field_agent;
-create database field_agent;
-use field_agent;
+drop database if exists travel_genie;
+create database travel_genie;
+use travel_genie;
 
 -- create tables and relationships
-create table agency (
-    agency_id int primary key auto_increment,
-    short_name varchar(25) not null,
-    long_name varchar(250) not null
+create table app_user (
+    app_user_id int primary key auto_increment,
+    username varchar(25) not null,
+    nickname varchar(250) not null,
+    password_hash varchar(1024),
+    enabled boolean not null default true
 );
 
-create table location (
-    location_id int primary key auto_increment,
-    `name` varchar(25) not null,
-    address varchar(125) not null,
+create table wish_list (
+    wishlist_id int primary key auto_increment,
+    app_user_id int primary key auto_increment,
     city varchar(50) not null,
-	region varchar(25) null,
-    country_code varchar(5) not null,
-    postal_code varchar(15) not null,
-    agency_id int not null,
-    constraint fk_location_agency_id
-        foreign key (agency_id)
-        references agency(agency_id)
+    constraint fk_entertainment_id
+        foreign key (entertainment_id)
+        references entertainment(entertainment_id)
 );
 
-create table agent (
-    agent_id int primary key auto_increment,
-    first_name varchar(50) not null,
-    middle_name varchar(50) null,
-    last_name varchar(50) not null,
-    dob date null,
-    height_in_inches int not null
+create table entertainment (
+	entertainment_id int primary key auto_increment,
+    entertainment_name varchar(50),
+    kid_friendly tinyint(1),
+    price_range varchar(50)
 );
 
-create table security_clearance (
-    security_clearance_id int primary key auto_increment,
-    `name` varchar(50) not null
+create table city_to_entertainment (
+    constraint fk_city_id
+        foreign key (city_id)
+        references city(city_id),
+	constraint fk_entertainment_id
+        foreign key (entertainment_id)
+        references entertainment(entertainment_id)
 );
 
-create table mission (
-    mission_id int primary key auto_increment,
-    code_name varchar(50) not null,
-    notes text,
-    start_date date not null,
-    projected_end_date date not null,
-    actual_end_date date null,
-    operational_cost decimal(10,2) not null,
-    agency_id int not null,
-    constraint fk_mission_agency_id
-        foreign key(agency_id)
-        references agency(agency_id)
+create table city (
+    city_id int primary key auto_increment,
+    city_name varchar(50) not null,
+    constraint fk_entertainment_id
+        foreign key (entertainment_id)
+        references entertainment(entertainment_id),
+	constraint fk_entertainment_id
+        foreign key (entertainment_id)
+        references entertainment(entertainment_id)
 );
 
-create table agency_agent (
-    agency_id int not null,
-    agent_id int not null,
-    identifier varchar(50) not null,
-    security_clearance_id int not null,
-    activation_date date not null,
-    is_active bit not null default 1,
-    constraint pk_agency_agent
-        primary key (agency_id, agent_id),
-    constraint fk_agency_agent_agency_id
-        foreign key (agency_id)
-        references agency(agency_id),
-    constraint fk_agency_agent_agent_id
-        foreign key (agent_id)
-        references agent(agent_id),
-    constraint fk_agency_agent_security_clearance_id
-        foreign key (security_clearance_id)
-        references security_clearance(security_clearance_id),
-    constraint uq_agency_agent_identifier_agency_id
-        unique (identifier, agency_id)
+create table scenery (
+    scenery_id int primary key auto_increment,
+    scenery_name varchar(50) not null
 );
 
-create table mission_agent (
-    mission_id int not null,
-    agent_id int not null,
-    constraint pk_mission_agent
-        primary key(mission_id, agent_id),
-    constraint fk_mission_agent_mission_id
-        foreign key (mission_id)
-        references mission(mission_id),
-    constraint fk_mission_agent_agent_id
-        foreign key (agent_id)
-        references agent(agent_id)
-);
-
-create table alias (
-    alias_id int primary key auto_increment,
-    `name` varchar(125) not null,
-    persona varchar(2048) null,
-    agent_id int not null,
-    constraint fk_alias_agent_id
-        foreign key (agent_id)
-        references agent(agent_id)
+create table country (
+    country_id int not null,
+    country_name varchar(50) not null
 );
 
 -- data
-insert into security_clearance values
-	(1, 'Secret'),
-    (2, 'Top Secret');
-    
-     insert into agency(agency_id, short_name, long_name) values
-        (1, 'ACME', 'Agency to Classify & Monitor Evildoers'),
-        (2, 'MASK', 'Mobile Armored Strike Kommand'),
-        (3, 'ODIN', 'Organization of Democratic Intelligence Networks');
+insert into app_user (app_user_id, username, password_hash) values
+    (1, 'user', '$2a$10$O07BeyVEy.eGy9zmJQR/WeIDdb5Q6PMDbTZlUXOMQ0B.EAkbiuUK6'),
+    (2, 'admin', '$2a$10$z8mwVv2mOjkWkFuzxYUFcO6SH1FaEftCw4M2Ltv6/5x7nigwEJKIO');
+
         
-	insert into location (location_id, name, address, city, region, country_code, postal_code, agency_id)
-		values
-	(1, 'HQ', '123 Elm', 'Des Moines', 'IA', 'USA', '55555', 1),
-    (2, 'Safe House #1', 'A One Ave.', 'Walla Walla', 'WA', 'USA', '54321-1234', 1),
-    (3, 'HQ', '123 Elm', 'Test', 'WI', 'USA', '55555', 2),
-	(4, 'Remote', '999 Nine St.', 'Test', 'WI', 'USA', '55555', 2),
-	(5, 'HQ', '123 Elm', 'Test', 'WI', 'USA', '55555', 3), -- for delete tests
-	(6, 'Remote', '999 Nine St.', 'Test', 'WI', 'USA', '55555', 3);
-        
-	insert into agent 
-		(first_name, middle_name, last_name, dob, height_in_inches) 
+insert into wish_list (wishlist_id, app_user_id, city)
 	values
-		('Hazel','C','Sauven','1954-09-16',76),
-		('Claudian','C','O''Lynn','1956-11-09',41),
-		('Winn','V','Puckrin','1999-10-21',60),
-		('Kiab','U','Whitham','1960-07-29',52),
-		('Min','E','Dearle','1967-04-18',44),
-		('Urban','H','Carwithen',null,58),
-		('Ulises','B','Muhammad','2008-04-01',80),
-		('Phylys','Y','Howitt','1979-03-28',68);
+	(1, 1, 'Barcelona'),
+    (2, 2, 'New York City'),
+	(3, 3, 'Santa Monica'),
+    (4, 4, 'Palm Springs'),
+    (5, 5, 'Cairo');
+    
+insert into entertainment (entertainment_id, entertainment_name, kid_friendly, price_range)
+	values
+	(1, 'relaxing on the beach', 'true', '$'),
+    (2, 'bowling', 'true', '$'),
+    (3, 'bar hopping', 'false', '$$'),
+    (4, 'fancy dinner', 'false', '$$$'),
+    (5, 'city tour', 'true', '$$');
         
-	insert into agency_agent 
-		(agency_id, agent_id, identifier, security_clearance_id, activation_date)
-    select
-        agency.agency_id,                              -- agency_id
-        agent.agent_id,                                -- agent_id
-        concat(agency.agency_id, '-', agent.agent_id), -- identifier
-        1,                                             -- security_clearance_id
-        date_add(agent.dob, interval 10 year)          -- activation_date
-    from agency
-    inner join agent
-    where agent.agent_id not in (6, 8)
-    and agency.agency_id != 2;
+insert into city (city_id, city_name) 
+	values
+	(1, 'Barcelona'),
+    (2, 'New York City'),
+	(3, 'Santa Monica'),
+    (4, 'Palm Springs'),
+    (5, 'Cairo');
+	
+insert into scenery (scenery_id, scenery_name) 
+	values
+	(1, 'Beach'),
+    (2, 'Urban'),
+	(3, 'Mountains'),
+    (4, 'Desert'),
+    (5, 'Snow');
 
 end //
 -- 4. Change the statement terminator back to the original.
