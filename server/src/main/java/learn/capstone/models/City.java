@@ -2,17 +2,17 @@ package learn.capstone.models;
 
 public class City {
     int cityId;
-    int countryId;
-    int sceneryId;
+    String countryName;
+    Scenery scenery;
     String cityName;
 
     public City() {
     }
 
-    public City(int cityId, int countryId, int sceneryId, String cityName) {
+    public City(int cityId, String countryName, Scenery scenery, String cityName) {
         this.cityId = cityId;
-        this.countryId = countryId;
-        this.sceneryId = sceneryId;
+        this.countryName = countryName;
+        this.scenery = scenery;
         this.cityName = cityName;
     }
 
@@ -24,20 +24,20 @@ public class City {
         this.cityId = cityId;
     }
 
-    public int getCountryId() {
-        return countryId;
+    public String getCountryName() {
+        return countryName;
     }
 
-    public void setCountryId(int countryId) {
-        this.countryId = countryId;
+    public void setCountryName(String countryName) {
+        this.countryName = countryName;
     }
 
-    public int getSceneryId() {
-        return sceneryId;
+    public Scenery getScenery() {
+        return scenery;
     }
 
-    public void setSceneryId(int sceneryId) {
-        this.sceneryId = sceneryId;
+    public void setScenery(Scenery scenery) {
+        this.scenery = scenery;
     }
 
     public String getCityName() {
@@ -48,3 +48,6 @@ public class City {
         this.cityName = cityName;
     }
 }
+
+
+
