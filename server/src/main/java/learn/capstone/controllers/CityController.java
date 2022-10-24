@@ -31,13 +31,4 @@ public class CityController {
         return service.findById(cityId);
     }
 
-    @GetMapping("/{entertainmentId}")
-    public City findByEntertainmentId(@PathVariable int entertainmentId) {
-        return service.findById(entertainmentId);
-    }
-
-    @GetMapping("/{sceneryId}")
-    public City findBySceneryId(@PathVariable int sceneryId) {
-        return service.findById(sceneryId);
-    }
 }
