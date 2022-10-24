@@ -41,8 +41,8 @@ create table city (
         references scenery(scenery_id)
 );
 
-create table wish_list (
-    wishlist_id int primary key auto_increment,
+create table wish (
+    wish_id int primary key auto_increment,
     app_user_id int not null,
     constraint fk_app_user_id
         foreign key (app_user_id)
@@ -73,8 +73,8 @@ create procedure set_known_good_state()
 begin
 
 	delete from city_to_entertainment;
-	delete from wish_list;
-    alter table wish_list auto_increment = 1;
+	delete from wish;
+    alter table wish auto_increment = 1;
     delete from city;
 	delete from entertainment;
     delete from country;
@@ -124,7 +124,7 @@ begin
         (5, 3),
         (5, 5);
         
-    insert into wish_list (wishlist_id, app_user_id, city_id, entertainment_id) values
+    insert into wish (wish_id, app_user_id, city_id, entertainment_id) values
 		(1, 1, 1, 2),
 		(2, 2, 2, 2),
         (3, 3, 3, 3);

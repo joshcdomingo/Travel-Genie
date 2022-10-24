@@ -4,10 +4,8 @@ import java.util.List;
 
 public class Wish {
     private int wishId;
-
     private int appUserId;
     private int cityId;
-
     private int entertainmentId;
 
     public Wish(){
