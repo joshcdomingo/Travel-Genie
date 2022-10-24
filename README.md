@@ -2,7 +2,12 @@
 
 # Task List
 
-## DML: 2 hours
+## Database
+* DDL -- 2 hours
+* DML -- 2 hours
+* Populating Test Data -- 2 hours
+* Populating Production Data -- 2hours
+TOTAL: 8 hours
 
 ## Models & Enum: 4 hours
 
@@ -227,7 +232,7 @@ TOTAL: 13 hours
 * Database -- 4 hours
 TOTAL: 12 hours
 
-GRAND TOTAL: 185 HOURS
+GRAND TOTAL: 191 HOURS
 
 ### Spring dependency injection: 4 hours
 
