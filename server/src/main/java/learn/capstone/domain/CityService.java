@@ -22,12 +22,5 @@ public class CityService {
         return repository.findById(cityId);
     }
 
-    public City findByEntertainmentId(int entertainmentId) {
-        return repository.findById(entertainmentId);
-    }
-
-    public City findBySceneryId(int sceneryId) {
-        return repository.findById(sceneryId);
-    }
 
 }
