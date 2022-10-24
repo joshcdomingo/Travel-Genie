@@ -1,4 +1,4 @@
 package learn.capstone.controllers;
 
-public class WishListController {
+public class WishController {
 }

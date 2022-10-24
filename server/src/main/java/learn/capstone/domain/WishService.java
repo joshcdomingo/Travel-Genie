@@ -1,4 +1,4 @@
 package learn.capstone.domain;
 
-public class WishListService {
+public class WishService {
 }
