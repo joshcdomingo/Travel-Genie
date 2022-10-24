@@ -4,18 +4,20 @@ import java.util.List;
 
 public class Wish {
     private int wishId;
-    private City city;
-    private List<Entertainment> entertainmentList;
+
     private int appUserId;
+    private int cityId;
+
+    private int entertainmentId;
 
     public Wish(){
 
     }
 
-    public Wish(int wishId, City city, List<Entertainment> entertainmentList, int appUserId) {
+    public Wish(int wishId,  int cityId, int entertainmentId, int appUserId) {
         this.wishId = wishId;
-        this.city = city;
-        this.entertainmentList = entertainmentList;
+        this.cityId = cityId;
+        this.entertainmentId = entertainmentId;
         this.appUserId = appUserId;
     }
 
@@ -27,27 +29,28 @@ public class Wish {
         this.wishId = wishId;
     }
 
-    public City getCity() {
-        return city;
-    }
-
-    public void setCity(City city) {
-        this.city = city;
-    }
-
-    public List<Entertainment> getEntertainmentList() {
-        return entertainmentList;
-    }
-
-    public void setEntertainmentList(List<Entertainment> entertainmentList) {
-        this.entertainmentList = entertainmentList;
-    }
-
     public int getAppUserId() {
         return appUserId;
     }
 
     public void setAppUserId(int appUserId) {
         this.appUserId = appUserId;
+    }
+
+    public int getCityId() {
+        return cityId;
+    }
+
+    public void setCityId(int cityId) {
+        this.cityId = cityId;
+    }
+
+
+    public int getEntertainmentId() {
+        return entertainmentId;
+    }
+
+    public void setEntertainmentId(int entertainmentId) {
+        this.entertainmentId = entertainmentId;
     }
 }
