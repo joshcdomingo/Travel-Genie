@@ -1,10 +1,10 @@
 package learn.capstone.models;
 
 public class City {
-    int cityId;
-    String countryName;
-    Scenery scenery;
-    String cityName;
+    private int cityId;
+    private String countryName;
+    private Scenery scenery;
+    private String cityName;
 
     public City() {
     }

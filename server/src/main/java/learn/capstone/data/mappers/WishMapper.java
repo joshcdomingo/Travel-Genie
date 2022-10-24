@@ -9,6 +9,11 @@ import java.sql.SQLException;
 public class WishMapper implements RowMapper<Wish> {
     @Override
     public Wish mapRow(ResultSet rs, int rowNum) throws SQLException {
-        return null;
+        Wish wish = new Wish();
+        wish.setWishId(rs.getInt("wish_id"));
+        wish.setAppUserId(rs.getInt("app_user_id"));
+        wish.setCity(rs.getString("city"));
+
+        return wish;
     }
 }

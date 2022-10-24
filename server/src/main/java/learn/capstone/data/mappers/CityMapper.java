@@ -9,6 +9,10 @@ import java.sql.SQLException;
 public class CityMapper implements RowMapper<City> {
     @Override
     public City mapRow(ResultSet rs, int rowNum) throws SQLException {
-        return null;
+        City city = new City();
+        city.setCityId(rs.getInt("city_id"));
+        city.setCityName(rs.getString("city_name"));
+
+        return city;
     }
 }
