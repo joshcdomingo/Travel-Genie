@@ -2,9 +2,11 @@ package learn.capstone.domain;
 
 import learn.capstone.data.WishFileRepository;
 import learn.capstone.models.Wish;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class WishService {
     private final WishFileRepository repository;
 
@@ -37,17 +39,11 @@ public class WishService {
             return result;
         }
 
-        if (wish.getAppUserId() != 0) {
-            result.addMessage("AppUser Id cannot be less than or equal to zero", ResultType.INVALID);
-            return result;
-        }
-
-        if (wish.getCityId() != 0) {
-            result.addMessage("City Id cannot be less than or equal to zero", ResultType.NOT_FOUND);
-            return result;
-        }
-
         wish = repository.add(wish);
+        if (wish.getWishId() == 0) {
+            result.addMessage("Wish Id cannot be equal to zero", ResultType.BAD_REQUEST);
+            return result;
+        }
         result.setPayload(wish);
         return result;
     }
@@ -75,8 +71,13 @@ public class WishService {
         return repository.findAll();
     }
 
-    boolean deleteById(int agentId) {
-        return repository.deleteById(agentId);
+    boolean deleteById(int wishId) {
+        Result<Wish> result = new Result<>();
+        if (wishId <= 0) {
+            result.addMessage("Wish Id cannot be less than or equal to zero", ResultType.INVALID);
+            return result.isSuccess();
+        }
+        return repository.deleteById(wishId);
     }
 
     private Result<Wish> validate(Wish wish) {
@@ -86,8 +87,18 @@ public class WishService {
             return result;
         }
 
-        if (wish.getWishId() != 0) {
-            result.addMessage("Wish Id cannot be less than or equal to zero", ResultType.INVALID);
+        if (wish.getAppUserId() <= 0) {
+            result.addMessage("AppUser Id cannot be less than or equal to zero", ResultType.INVALID);
+            return result;
+        }
+
+        if (wish.getCityId() <= 0) {
+            result.addMessage("City Id cannot be less than or equal to zero", ResultType.NOT_FOUND);
+            return result;
+        }
+
+        if (wish.getEntertainmentId() <= 0) {
+            result.addMessage("Entertainment Id cannot be less than or equal to zero", ResultType.NOT_FOUND);
             return result;
         }
 

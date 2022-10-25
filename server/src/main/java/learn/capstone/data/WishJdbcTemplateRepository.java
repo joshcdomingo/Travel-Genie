@@ -71,7 +71,7 @@ public class WishJdbcTemplateRepository implements WishFileRepository {
     }
 
     @Override
-    public boolean deleteById(int agentId) {
-        return jdbcTemplate.update("delete from wish where wish_id = ?;", agentId) > 0;
+    public boolean deleteById(int wishId) {
+        return jdbcTemplate.update("delete from wish where wish_id = ?;", wishId) > 0;
     }
 }
