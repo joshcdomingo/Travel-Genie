@@ -67,11 +67,11 @@ public class WishService {
         return result;
     }
 
-    List<Wish> findAll() {
+    public List<Wish> findAll() {
         return repository.findAll();
     }
 
-    boolean deleteById(int wishId) {
+    public boolean deleteById(int wishId) {
         Result<Wish> result = new Result<>();
         if (wishId <= 0) {
             result.addMessage("Wish Id cannot be less than or equal to zero", ResultType.INVALID);
