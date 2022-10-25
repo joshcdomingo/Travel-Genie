@@ -30,12 +30,12 @@ public class WishJdbcTemplateRepository implements WishFileRepository {
     }
 
     @Override
-    public Wish findByAppUserId(int app_userId) {
+    public List<Wish> findByAppUserId(int app_userId) {
         final String sql = "select wish_id, app_user_id, city_id, entertainment_id " +
                 "from wish " +
                 "where app_user_id = ?";
 
-        return jdbcTemplate.query(sql, new WishMapper(), app_userId).stream().findFirst().orElse(null);
+        return jdbcTemplate.query(sql, new WishMapper(), app_userId);
     }
 
 
@@ -71,7 +71,7 @@ public class WishJdbcTemplateRepository implements WishFileRepository {
     }
 
     @Override
-    public boolean deleteById(int agentId) {
-        return jdbcTemplate.update("delete from wish where wish_id = ?;", agentId) > 0;
+    public boolean deleteById(int wishId) {
+        return jdbcTemplate.update("delete from wish where wish_id = ?;", wishId) > 0;
     }
 }

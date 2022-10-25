@@ -44,14 +44,14 @@ class WishJdbcTemplateRepositoryTest {
 
     @Test
     void shouldFindByAppUserId() {
-        Wish actual = repository.findByAppUserId(1);
-        assertEquals(2, actual.getEntertainmentId());
+        List<Wish> actual = repository.findByAppUserId(1);
+        assertEquals(2, actual.get(0).getEntertainmentId());
     }
 
     @Test
     void shouldNotFindByNoneExistingAppUserId() {
-        Wish actual = repository.findByAppUserId(0);
-        assertNull(actual);
+        List<Wish> actual = repository.findByAppUserId(0);
+        assertEquals(0, actual.size());
     }
 
     @Test
