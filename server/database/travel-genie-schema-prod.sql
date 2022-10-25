@@ -63,37 +63,46 @@ insert into app_user (app_user_id, username, password_hash) values
     (2, 'admin', '$2a$10$z8mwVv2mOjkWkFuzxYUFcO6SH1FaEftCw4M2Ltv6/5x7nigwEJKIO');
 
         
-insert into wish_list (wishlist_id, app_user_id, city)
-	values
-	(1, 1, 'Barcelona'),
-    (2, 2, 'New York City'),
-	(3, 3, 'Santa Monica'),
-    (4, 4, 'Palm Springs'),
-    (5, 5, 'Cairo');
-    
-insert into entertainment (entertainment_id, entertainment_name, kid_friendly, price_range)
-	values
-	(1, 'relaxing on the beach', 'true', '$'),
-    (2, 'bowling', 'true', '$'),
-    (3, 'bar hopping', 'false', '$$'),
-    (4, 'fancy dinner', 'false', '$$$'),
-    (5, 'city tour', 'true', '$$');
-        
-insert into city (city_id, city_name) 
-	values
-	(1, 'Barcelona'),
-    (2, 'New York City'),
-	(3, 'Santa Monica'),
-    (4, 'Palm Springs'),
-    (5, 'Cairo');
-	
-insert into scenery (scenery_id, scenery_name) 
-	values
-	(1, 'Beach'),
-    (2, 'Urban'),
-	(3, 'Mountains'),
-    (4, 'Desert'),
-    (5, 'Snow');
+insert into scenery (scenery_id, scenery_name) values
+    (1, 'METROPOLITAN'),
+    (2, 'BEACH'),
+    (3, 'MOUNTAIN'),
+    (4, 'DESERT'),
+    (5, 'SNOW');
+
+insert into country (country_id, country_name) values
+    (1, 'United States');
+
+insert into entertainment (entertainment_id, entertainment_name, activity_level, price_range, kid_friendly) values
+	(1, 'Sun Bathing', 'LOW', '$', true),
+    (2, 'Sight Seeing', 'MEDIUM', '$', true),
+    (3, 'Hiking', 'HIGH', '$', false),
+    (4, 'Casino', 'LOW', '$$$', false),
+    (5, 'Skiing', 'MEDIUM', '$$', true);
+
+insert into city (city_id, city_name, country_id, scenery_id) values
+	(1, 'Washington DC', 1, 1),
+	(2, 'Santa Monica', 1, 2),
+	(3, 'Ashville', 1, 3),
+	(4, 'Las Vegas', 1, 4),
+	(5, 'Portland', 1, 5);
+
+insert into city_to_entertainment (city_id, entertainment_id) values
+	(1, 2),
+    (2, 1),
+    (2, 2),
+    (3, 2),
+    (3, 3),
+    (4, 2),
+    (4, 4),
+    (5, 2),
+    (5, 3),
+    (5, 5);
+
+insert into wish (wish_id, app_user_id, city_id, entertainment_id) values
+	(1, 1, 1, 2),
+	(2, 2, 2, 1),
+    (3, 3, 3, 3);
 
 end //
 -- 4. Change the statement terminator back to the original.

@@ -92,18 +92,18 @@ begin
         (1, 'METROPOLITAN'),
         (2, 'BEACH'),
         (3, 'MOUNTAIN'),
-        (4, 'DESSERT'),
+        (4, 'DESERT'),
         (5, 'SNOW');
     
     insert into country (country_id, country_name) values
-        (1, 'American');
+        (1, 'United States');
         
 	insert into entertainment (entertainment_id, entertainment_name, activity_level, price_range, kid_friendly) values
 		(1, 'Sun Bathing', 'LOW', '$', true),
         (2, 'Sight Seeing', 'MEDIUM', '$', true),
         (3, 'Hiking', 'HIGH', '$', false),
         (4, 'Casino', 'LOW', '$$$', false),
-        (5, 'Ski', 'MEDIUM', '$$', true);
+        (5, 'Skiing', 'MEDIUM', '$$', true);
         
 	insert into city (city_id, city_name, country_id, scenery_id) values
 		(1, 'Washington DC', 1, 1),
