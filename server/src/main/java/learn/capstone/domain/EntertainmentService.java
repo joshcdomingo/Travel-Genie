@@ -2,9 +2,11 @@ package learn.capstone.domain;
 
 import learn.capstone.data.EntertainmentFileRepository;
 import learn.capstone.models.Entertainment;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class EntertainmentService {
     private final EntertainmentFileRepository repository;
 
