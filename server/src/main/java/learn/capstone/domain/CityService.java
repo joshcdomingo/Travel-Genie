@@ -39,10 +39,19 @@ public class CityService {
         return result;
     }
 
-    public List<City> findByScenery(String sceneryName){
-        return repository.findAll().stream()
-                .filter(i -> i.getScenery().name().matches(sceneryName))
-                .collect(Collectors.toList());
+    public Result<City> findByScenery(String sceneryName){
+        Result<City> result = new Result<>();
+
+        if (sceneryName == null || sceneryName.trim().isEmpty()){
+            result.addMessage("scenery cannot be empty or null", ResultType.NOT_FOUND);
+            return result;
+        }
+
+        List<City> scenery = repository.findByScenery(sceneryName);
+
+        result.setPayload((City) scenery);
+        return result;
+
     }
 
 }
