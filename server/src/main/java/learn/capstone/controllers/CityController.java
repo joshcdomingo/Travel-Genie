@@ -2,6 +2,7 @@ package learn.capstone.controllers;
 
 import learn.capstone.domain.CityService;
 import learn.capstone.domain.Result;
+import learn.capstone.domain.ResultType;
 import learn.capstone.models.City;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,8 +12,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins = {"http://localhost:3000"})
-//@CrossOrigin(origins = {"http://127.0.0.1:5500"})
-@RequestMapping("/api/travelgenie")
+@RequestMapping("/api/travelgenie/city")
 public class CityController {
 
     private final CityService service;
@@ -26,9 +26,21 @@ public class CityController {
         return service.findAll();
     }
 
-//    @GetMapping("/{cityId}")
-//    public City findById(@PathVariable int cityId) {
-//        return service.findById(cityId);
-//    }
+//    Success: 200 OK
+//    Invalid Input: 400 Bad Request
+//    Failure (cannot be found): 404 Not Found
+    @GetMapping("/{cityId}")
+    public ResponseEntity<?> findById(@PathVariable int cityId) {
+        Result<City> result = service.findById(cityId);
+        if (result.isSuccess()) {
+            return new ResponseEntity<>(result.getPayload(), HttpStatus.OK);
+        }
+        return ErrorResponse.build(result);
+    }
+    @GetMapping("/scenery/{sceneryName}")
+    public List<City> findByScenery(@PathVariable String sceneryName) {
+        return service.findByScenery(sceneryName);
+    }
+
 
 }

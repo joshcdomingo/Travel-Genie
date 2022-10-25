@@ -10,7 +10,7 @@ public class Wish {
 
     }
 
-    public Wish(int wishId,  int cityId, int entertainmentId, int appUserId) {
+    public Wish(int wishId,  int appUserId, int cityId, int entertainmentId) {
         this.wishId = wishId;
         this.cityId = cityId;
         this.entertainmentId = entertainmentId;

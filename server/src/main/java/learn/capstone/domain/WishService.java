@@ -40,31 +40,12 @@ public class WishService {
         }
 
         wish = repository.add(wish);
-        if (wish.getWishId() == 0) {
-            result.addMessage("Wish Id cannot be equal to zero", ResultType.BAD_REQUEST);
-            return result;
-        }
         result.setPayload(wish);
         return result;
     }
 
-    public Result<Wish> findByAppUserId(int app_userId) {
-        Result<Wish> result = new Result<>();
-
-        if (app_userId <= 0) {
-            result.addMessage("AppUser Id cannot be less than or equal to zero", ResultType.INVALID);
-            return result;
-        }
-
-        Wish wish = repository.findByAppUserId(app_userId);
-
-        if (wish == null) {
-            result.addMessage("Wish Id was not found.", ResultType.NOT_FOUND);
-            return result;
-        }
-
-        result.setPayload(wish);
-        return result;
+    public List<Wish> findByAppUserId(int app_userId) {
+        return repository.findByAppUserId(app_userId);
     }
 
     public List<Wish> findAll() {
@@ -83,7 +64,7 @@ public class WishService {
     private Result<Wish> validate(Wish wish) {
         Result<Wish> result = new Result<>();
         if (wish == null) {
-            result.addMessage("Wish Id was not found.", ResultType.NOT_FOUND);
+            result.addMessage("Wish Id was not found.", ResultType.INVALID);
             return result;
         }
 
@@ -93,12 +74,12 @@ public class WishService {
         }
 
         if (wish.getCityId() <= 0) {
-            result.addMessage("City Id cannot be less than or equal to zero", ResultType.NOT_FOUND);
+            result.addMessage("City Id cannot be less than or equal to zero", ResultType.INVALID);
             return result;
         }
 
         if (wish.getEntertainmentId() <= 0) {
-            result.addMessage("Entertainment Id cannot be less than or equal to zero", ResultType.NOT_FOUND);
+            result.addMessage("Entertainment Id cannot be less than or equal to zero", ResultType.INVALID);
             return result;
         }
 
