@@ -33,10 +33,5 @@ class CityServiceTest {
         assertEquals(ResultType.NOT_FOUND, actual.getType());
     }
 
-    @Test
-    void shouldNotFindByInvalidScenery() {
-        Result<City> actual = cityService.findByScenery("");
-        assertEquals(ResultType.NOT_FOUND, actual.getType());
-    }
 
 }
