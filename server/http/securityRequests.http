@@ -31,7 +31,7 @@ POST http://localhost:8080/authenticate HTTP/1.1
 Content-Type: application/json
 
 {
-    "username": "user3",
+    "username": "user4",
     "password": "P@ssw0rd!"
 }
 
@@ -40,4 +40,4 @@ Content-Type: application/json
 ### GET all entertainment after token created
 
 GET {{url}} HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUcmF2ZWwtR2VuaWUiLCJzdWIiOiJzdGFyIiwiYXBwX3VzZXJfaWQiOjMsImF1dGhvcml0aWVzIjoiVVNFUiIsImV4cCI6MTY2Njc0MDIxMn0.9hnzEtXy2Tbg0Fi_dbhFazDCx-co85jM9aFsL-hUYGY
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUcmF2ZWwtR2VuaWUiLCJzdWIiOiJOZXcgVXNlciIsImFwcF91c2VyX2lkIjo0LCJhdXRob3JpdGllcyI6IlVTRVIiLCJleHAiOjE2NjY3NDA4ODd9.k6tNQtRnmz-h99fIozRWKJEo45jqt8E967T2vegsEpo
