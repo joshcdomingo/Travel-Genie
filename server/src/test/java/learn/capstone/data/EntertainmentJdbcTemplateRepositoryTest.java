@@ -37,4 +37,23 @@ class EntertainmentJdbcTemplateRepositoryTest {
 
         assertNotNull(actual);
     }
+
+    @Test
+    void shouldNotFindByNoneExistingId() {
+        Entertainment actual = repository.findById(0);
+
+        assertNull(actual);
+    }
+
+    @Test
+    void shouldFindByCityId() {
+        List<Entertainment> actual = repository.findByCityId(1);
+        assertEquals(1, actual.size());
+    }
+
+    @Test
+    void shouldNotFindByNoneExitingCityId() {
+        List<Entertainment> actual = repository.findByCityId(0);
+        assertEquals(0, actual.size());
+    }
 }

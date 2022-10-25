@@ -7,5 +7,7 @@ import java.util.List;
 public interface CityFileRepository {
     City findById(int cityId);
 
+    List<City> findByScenery(String sceneryName);
+
     List<City> findAll();
 }

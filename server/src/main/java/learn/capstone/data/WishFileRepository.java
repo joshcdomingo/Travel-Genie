@@ -9,6 +9,8 @@ public interface WishFileRepository {
 
     Wish add(Wish wish);
 
+    Wish findByAppUserId(int app_userId);
+
     List<Wish> findAll();
 
     boolean deleteById(int agentId);

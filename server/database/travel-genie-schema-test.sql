@@ -44,7 +44,7 @@ create table city (
 create table wish (
     wish_id int primary key auto_increment,
     app_user_id int not null,
-    constraint fk_app_user_id
+    constraint fk_wish_list_app_user_id
         foreign key (app_user_id)
         references app_user(app_user_id),
     city_id int not null,
@@ -126,7 +126,7 @@ begin
         
     insert into wish (wish_id, app_user_id, city_id, entertainment_id) values
 		(1, 1, 1, 2),
-		(2, 2, 2, 2),
+		(2, 2, 2, 1),
         (3, 3, 3, 3);
         
 end //

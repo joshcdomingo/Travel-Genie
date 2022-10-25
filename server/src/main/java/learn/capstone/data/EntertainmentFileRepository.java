@@ -8,5 +8,7 @@ import java.util.List;
 public interface EntertainmentFileRepository {
     Entertainment findById(int entertainmentId);
 
+    List<Entertainment> findByCityId(int cityId);
+
     List<Entertainment> findAll();
 }

@@ -38,6 +38,24 @@ class CityJdbcTemplateRepositoryTest {
         assertNotNull(actual);
     }
 
+    @Test
+    void shouldNotFindByNoneExistingId() {
+        City actual = repository.findById(0);
 
+        assertNull(actual);
+    }
 
+    @Test
+    void shouldFindByScenery() {
+        List<City> actual = repository.findByScenery("BEACH");
+
+        assertEquals(1, actual.size());
+    }
+
+    @Test
+    void shouldNotFindByNoneExistingScenery() {
+        List<City> actual = repository.findByScenery("Test");
+
+        assertEquals(0, actual.size());
+    }
 }

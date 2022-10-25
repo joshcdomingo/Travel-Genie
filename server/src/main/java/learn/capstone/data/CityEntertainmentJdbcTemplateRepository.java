@@ -23,5 +23,4 @@ public class CityEntertainmentJdbcTemplateRepository implements CityEntertainmen
 
         return jdbcTemplate.query(sql, new CityEntertainmentMapper());
     }
-
 }

@@ -16,15 +16,25 @@ public class CityJdbcTemplateRepository implements CityFileRepository {
 
     @Override
     public City findById(int cityId) {
-        for(City city : findAll()){
-            if(city.getCityId() == cityId){
-                return city;
-            }
-        }
-        return null;
+        final String sql = "select c.city_id, c.city_name, co.country_name, s.scenery_name "
+                + "from city c "
+                + "inner join country co on c.country_id = co.country_id "
+                + "inner join scenery s on c.scenery_id = s.scenery_id "
+                + "where c.city_id = ?";
+
+        return jdbcTemplate.query(sql, new CityMapper(), cityId).stream().findFirst().orElse(null);
     }
 
+    @Override
+    public List<City> findByScenery(String sceneryName) {
+        final String sql = "select c.city_id, c.city_name, co.country_name, s.scenery_name "
+                + "from city c "
+                + "inner join country co on c.country_id = co.country_id "
+                + "inner join scenery s on c.scenery_id = s.scenery_id "
+                + "where s.scenery_name = ?";
 
+        return jdbcTemplate.query(sql, new CityMapper(), sceneryName);
+    }
 
     @Override
     public List<City> findAll() {

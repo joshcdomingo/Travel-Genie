@@ -30,6 +30,16 @@ public class WishJdbcTemplateRepository implements WishFileRepository {
     }
 
     @Override
+    public Wish findByAppUserId(int app_userId) {
+        final String sql = "select wish_id, app_user_id, city_id, entertainment_id " +
+                "from wish " +
+                "where app_user_id = ?";
+
+        return jdbcTemplate.query(sql, new WishMapper(), app_userId).stream().findFirst().orElse(null);
+    }
+
+
+    @Override
     public List<Wish> findAll() {
         final String sql = "select wish_id, app_user_id, city_id, entertainment_id "
                 + "from wish;";
@@ -39,7 +49,7 @@ public class WishJdbcTemplateRepository implements WishFileRepository {
 
     @Override
     public Wish add(Wish wish) {
-     final String sql = "inter into wish (app_user_id, city_id, entertainment_id) " +
+     final String sql = "insert into wish (app_user_id, city_id, entertainment_id) " +
              "values (?, ?, ?);";
 
      KeyHolder keyHolder = new GeneratedKeyHolder();
