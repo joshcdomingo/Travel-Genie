@@ -38,7 +38,7 @@ public class EntertainmentService {
         return repository.findByCityId(cityId);
     }
 
-    List<Entertainment> findAll()  {
+    public List<Entertainment> findAll()  {
         return repository.findAll();
     }
 }

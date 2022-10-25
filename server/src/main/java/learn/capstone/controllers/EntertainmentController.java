@@ -1,9 +1,10 @@
 package learn.capstone.controllers;
 
 import learn.capstone.domain.EntertainmentService;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import learn.capstone.models.Entertainment;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @RestController
@@ -15,6 +16,16 @@ public class EntertainmentController {
 
     public EntertainmentController(EntertainmentService service) {
         this.service = service;
+    }
+
+    @GetMapping
+    public List<Entertainment> findAll() {
+        return service.findAll();
+    }
+
+    @GetMapping("/{entertainmentId}")
+    public Entertainment findById(@PathVariable int entertainmentId) {
+        return service.findById(entertainmentId).getPayload();
     }
 
 }
