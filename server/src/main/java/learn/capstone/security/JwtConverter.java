@@ -17,11 +17,9 @@ import java.util.stream.Collectors;
 public class JwtConverter {
 
     private Key key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
-<<<<<<< HEAD
     private final String ISSUER = "Travel-Genie";
-=======
-    private final String ISSUER = "solarfarm-api";
->>>>>>> 7b9fe75cab33e9a5787702ea2b512c2409f48a2f
+
+
     private final int EXPIRATION_MINUTES = 15;
     private final int EXPIRATION_MILLIS = EXPIRATION_MINUTES * 60 * 1000;
 
