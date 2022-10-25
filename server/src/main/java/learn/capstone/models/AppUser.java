@@ -11,6 +11,8 @@ public class AppUser implements UserDetails {
 
     private int appUserId;
     private String username;
+
+    private String nickname;
     private String password;
     private boolean enabled;
     private List<GrantedAuthority> authorities = new ArrayList<>();
@@ -18,6 +20,14 @@ public class AppUser implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return new ArrayList<>(authorities);
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 
     @Override
