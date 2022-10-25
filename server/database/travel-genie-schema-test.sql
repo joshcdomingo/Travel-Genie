@@ -1,6 +1,6 @@
-drop database if exists travel_genie;
-create database travel_genie;
-use travel_genie;
+drop database if exists travel_genie_test;
+create database travel_genie_test;
+use travel_genie_test;
 
 -- create tables and relationships
 create table app_user (
@@ -44,15 +44,15 @@ create table city (
 create table wish (
     wish_id int primary key auto_increment,
     app_user_id int not null,
-    constraint fk_wish_list_app_user_id
+    constraint fk_wish_app_user_id
         foreign key (app_user_id)
         references app_user(app_user_id),
     city_id int not null,
-    constraint fk_wish_list_city_id
+    constraint fk_wish_city_id
         foreign key (city_id)
         references city(city_id),
     entertainment_id int not null,    
-    constraint fk_wish_list_entertainment_id
+    constraint fk_wish_entertainment_id
         foreign key (entertainment_id)
         references entertainment(entertainment_id)
 );

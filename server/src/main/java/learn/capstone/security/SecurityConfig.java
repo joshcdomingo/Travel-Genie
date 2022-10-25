@@ -26,12 +26,11 @@ public class SecurityConfig {
         http.cors();
 
         http.authorizeRequests()
-                .antMatchers(HttpMethod.GET,
-                        "/api/travelgenie",
-                        "/api/travelgenie/*").permitAll()
-                .antMatchers(HttpMethod.POST, "/authenticate").permitAll()
-                .antMatchers(HttpMethod.POST, "/refresh").authenticated()
-                .antMatchers(HttpMethod.PUT, "/api/travelgenie/*").hasAnyAuthority("USER")
+                .antMatchers("/authenticate").permitAll()
+                .antMatchers("/create_account").permitAll()
+                .antMatchers(HttpMethod.GET, "/api/travelgenie", "/api/travelgenie/*").hasAnyAuthority("USER")
+                .antMatchers(HttpMethod.POST, "/api/travelgenie/wish/*").hasAnyAuthority("USER")
+                .antMatchers(HttpMethod.DELETE, "/api/travelgenie/wish/*").hasAnyAuthority("USER")
                 .antMatchers("/**").denyAll()
                 .and()
                 .addFilter(new JwtRequestFilter(manager(config), converter))

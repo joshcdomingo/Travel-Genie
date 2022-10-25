@@ -15,17 +15,20 @@ public class AppConfig {
         return new BCryptPasswordEncoder();
     }
 
+    // new...
     @Bean
     public WebMvcConfigurer corsConfigurer() {
 
         // Configure CORS globally versus
-        // controller-by-controller or method-by-method.
+        // controller-by-controller.
+        // Can be combined with @CrossOrigin.
         return new WebMvcConfigurer() {
+
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedMethods("DELETE", "GET", "POST", "PUT", "OPTIONS")
-                        .allowedOrigins("*");
+                        .allowedOrigins("http://localhost:3000")
+                        .allowedMethods("*");
             }
         };
     }
