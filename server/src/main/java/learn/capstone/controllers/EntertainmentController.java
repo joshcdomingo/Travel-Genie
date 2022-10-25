@@ -1,16 +1,18 @@
 package learn.capstone.controllers;
 
 import learn.capstone.domain.EntertainmentService;
+import learn.capstone.domain.Result;
+import learn.capstone.models.City;
 import learn.capstone.models.Entertainment;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
 @RestController
 @CrossOrigin(origins = {"http://localhost:3000"})
-//@CrossOrigin(origins = {"http://127.0.0.1:5500"})
-@RequestMapping("/api/travelgenie")
+@RequestMapping("/api/travelgenie/entertainment")
 public class EntertainmentController {
     private final EntertainmentService service;
 
@@ -24,8 +26,16 @@ public class EntertainmentController {
     }
 
     @GetMapping("/{entertainmentId}")
-    public Entertainment findById(@PathVariable int entertainmentId) {
-        return service.findById(entertainmentId).getPayload();
+    public ResponseEntity<? extends Object> findById(@PathVariable int entertainmentId) {
+        Result<Entertainment> result = service.findById(entertainmentId);
+        if (result.isSuccess()) {
+            return new ResponseEntity<>(result.getPayload(), HttpStatus.OK);
+        }
+        return ErrorResponse.build(result);
     }
 
+    @GetMapping("/city/{cityId}")
+    public List<Entertainment> findByCityId(@PathVariable int cityId) {
+        return service.findByCityId(cityId);
+    }
 }

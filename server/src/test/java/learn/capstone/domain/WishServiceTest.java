@@ -33,6 +33,33 @@ public class WishServiceTest {
     }
 
     @Test
+    void shouldNotAddNull() {
+        Result<Wish> actual = wishService.add(null);
+        assertEquals(ResultType.INVALID, actual.getType());
+    }
+
+    @Test
+    void shouldNotAddNonExistingAppUserId() {
+        Wish wish = new Wish(0, 0, 1, 1);
+        Result<Wish> actual = wishService.add(wish);
+        assertEquals(ResultType.INVALID, actual.getType());
+    }
+
+    @Test
+    void shouldNotAddNonExistingCityId() {
+        Wish wish = new Wish(0, 1, 0, 1);
+        Result<Wish> actual = wishService.add(wish);
+        assertEquals(ResultType.INVALID, actual.getType());
+    }
+
+    @Test
+    void shouldNotAddNonExistingEntertainmentId() {
+        Wish wish = new Wish(0, 1, 1, 0);
+        Result<Wish> actual = wishService.add(wish);
+        assertEquals(ResultType.INVALID, actual.getType());
+    }
+
+    @Test
     void shouldNotDeleteByInvalidId() {
         boolean actual = wishService.deleteById(999);
         assertFalse(actual);
