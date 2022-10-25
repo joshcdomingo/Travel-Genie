@@ -12,11 +12,27 @@ public class EntertainmentService {
         this.repository = repository;
     }
 
-    Entertainment findById(int entertainmentId)  {
-        return repository.findById(entertainmentId);
+    public Result<Entertainment> findById(int entertainmentId)  {
+        Result<Entertainment> result = new Result<>();
+
+        if (entertainmentId <=0) {
+            result.addMessage("Entertainment Id cannot be less or equal to zero.", ResultType.INVALID);
+            return result;
+        }
+
+        Entertainment entertainment = repository.findById(entertainmentId);
+
+        if (entertainment == null)
+        {
+            result.addMessage("Entertainment Id was not found.", ResultType.NOT_FOUND);
+            return result;
+        }
+
+        result.setPayload(entertainment);
+        return result;
     }
 
-    List<Entertainment> findByCityId(int cityId) {
+    public List<Entertainment> findByCityId(int cityId) {
         return repository.findByCityId(cityId);
     }
 
