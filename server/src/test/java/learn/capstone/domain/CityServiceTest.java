@@ -21,20 +21,22 @@ class CityServiceTest {
     CityFileRepository repository;
 
     @Test
-    void shouldFindAustin() {
-        City expected = makeCity();
-        when(repository.findById(1)).thenReturn(expected);
-        City actual = cityService.findById(1);
-        assertEquals(expected, actual);
+    void shouldNotFindByInvalidCityId() {
+        Result<City> actual = cityService.findById(0);
+        assertEquals(ResultType.INVALID, actual.getType());
     }
 
-    City makeCity() {
-        City city = new City();
-        city.setCityId(1);
-        city.setCityName("Austin");
-        city.setCountryName("America");
-        city.setScenery(Scenery.DESSERT);
-        return city;
+    @Test
+    void shouldNotFindByNoneExistingId() {
+        when(repository.findById(100)).thenReturn(null);
+        Result<City> actual = cityService.findById(100);
+        assertEquals(ResultType.NOT_FOUND, actual.getType());
+    }
+
+    @Test
+    void shouldNotFindByInvalidScenery() {
+        Result<City> actual = cityService.findByScenery("");
+        assertEquals(ResultType.NOT_FOUND, actual.getType());
     }
 
 }

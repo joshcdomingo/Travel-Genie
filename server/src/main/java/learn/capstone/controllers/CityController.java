@@ -26,9 +26,9 @@ public class CityController {
         return service.findAll();
     }
 
-    @GetMapping("/{cityId}")
-    public City findById(@PathVariable int cityId) {
-        return service.findById(cityId);
-    }
+//    @GetMapping("/{cityId}")
+//    public City findById(@PathVariable int cityId) {
+//        return service.findById(cityId);
+//    }
 
 }
