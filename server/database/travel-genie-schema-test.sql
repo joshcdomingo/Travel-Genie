@@ -94,24 +94,24 @@ begin
         (3, 'MOUNTAIN'),
         (4, 'DESSERT'),
         (5, 'SNOW');
-    
+
     insert into country (country_id, country_name) values
-        (1, 'American');
-        
+        (1, 'United States');
+
 	insert into entertainment (entertainment_id, entertainment_name, activity_level, price_range, kid_friendly) values
 		(1, 'Sun Bathing', 'LOW', '$', true),
         (2, 'Sight Seeing', 'MEDIUM', '$', true),
         (3, 'Hiking', 'HIGH', '$', false),
         (4, 'Casino', 'LOW', '$$$', false),
         (5, 'Ski', 'MEDIUM', '$$', true);
-        
+
 	insert into city (city_id, city_name, country_id, scenery_id) values
 		(1, 'Washington DC', 1, 1),
 		(2, 'Santa Monica', 1, 2),
 		(3, 'Ashville', 1, 3),
 		(4, 'Las Vegas', 1, 4),
 		(5, 'Portland', 1, 5);
-    
+
    insert into city_to_entertainment (city_id, entertainment_id) values
 		(1, 2),
         (2, 1),
@@ -123,11 +123,11 @@ begin
         (5, 2),
         (5, 3),
         (5, 5);
-        
+
     insert into wish (wish_id, app_user_id, city_id, entertainment_id) values
 		(1, 1, 1, 2),
 		(2, 2, 2, 1),
         (3, 3, 3, 3);
-        
+
 end //
 delimiter ;
