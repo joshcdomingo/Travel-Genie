@@ -21,6 +21,14 @@ class CityServiceTest {
     CityFileRepository repository;
 
     @Test
+    void shouldFindById() {
+        City expected = new City (1, "United State", Scenery.METROPOLITAN, "Washington DC");
+        when(repository.findById(1)).thenReturn(expected);
+        Result<City> actual = cityService.findById(1);
+        assertEquals(expected.getCityName(), actual.getPayload().getCityName());
+    }
+
+    @Test
     void shouldNotFindByInvalidCityId() {
         Result<City> actual = cityService.findById(0);
         assertEquals(ResultType.INVALID, actual.getType());

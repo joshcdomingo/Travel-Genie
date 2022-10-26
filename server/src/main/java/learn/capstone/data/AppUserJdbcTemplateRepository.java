@@ -65,17 +65,14 @@ public class AppUserJdbcTemplateRepository implements AppUserRepository{
 
     @Override
     @Transactional
-    public void update(AppUser user) {
+    public void update(int appUserId, String nickname) {
 
         final String sql = "update app_user set "
-                + "username = ?, "
-                + "enabled = ? "
+                + "nickname = ? "
                 + "where app_user_id = ?";
 
         jdbcTemplate.update(sql,
-                user.getUsername(), user.isEnabled(), user.getAppUserId());
-
-        updateRoles(user);
+                nickname, appUserId);
     }
 
     private void updateRoles(AppUser user) {

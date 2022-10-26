@@ -20,6 +20,14 @@ public class WishServiceTest {
     WishFileRepository repository;
 
     @Test
+    void shouldFindById() {
+        Wish expected = new Wish(1, 1, 1, 2);
+        when(repository.findById(1)).thenReturn(expected);
+        Result<Wish> actual = wishService.findById(1);
+        assertEquals(expected.getAppUserId(), actual.getPayload().getAppUserId());
+    }
+
+    @Test
     void shouldNotFindByInvalidId() {
         Result<Wish> actual = wishService.findById(0);
         assertEquals(ResultType.INVALID, actual.getType());
@@ -30,6 +38,14 @@ public class WishServiceTest {
         when(repository.findById(100)).thenReturn(null);
         Result<Wish> actual = wishService.findById(100);
         assertEquals(ResultType.NOT_FOUND, actual.getType());
+    }
+
+    @Test
+    void shouldAdd() {
+        Wish expected = new Wish (4, 4, 4, 4);
+        when(repository.add(expected)).thenReturn(expected);
+        Result<Wish> actual = wishService.add(expected);
+        assertEquals(expected.getAppUserId(), actual.getPayload().getAppUserId());
     }
 
     @Test
