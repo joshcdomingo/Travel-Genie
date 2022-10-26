@@ -53,11 +53,6 @@ public class WishService {
     }
 
     public boolean deleteById(int wishId) {
-        Result<Wish> result = new Result<>();
-        if (wishId <= 0) {
-            result.addMessage("Wish Id cannot be less than or equal to zero", ResultType.INVALID);
-            return result.isSuccess();
-        }
         return repository.deleteById(wishId);
     }
 

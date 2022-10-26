@@ -11,5 +11,5 @@ public interface AppUserRepository {
     AppUser create(AppUser user);
 
     @Transactional
-    void update(AppUser user);
+    void update(int appUserId, String nickname);
 }

@@ -1,4 +1,4 @@
-### log in with a preprogrammed user
+### log in with a pre-programmed user
 POST http://localhost:8080/authenticate HTTP/1.1
 Content-Type: application/json
 
@@ -7,12 +7,10 @@ Content-Type: application/json
     "password": "P@ssw0rd!"
 }
 
-@url = http://localhost:8080/api/travelgenie/city
-
 ### GET all city after token created
 
-GET {{url}} HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUcmF2ZWwtR2VuaWUiLCJzdWIiOiJ1c2VyMSIsImFwcF91c2VyX2lkIjoxLCJhdXRob3JpdGllcyI6IlVTRVIiLCJleHAiOjE2NjY3MzY4MTh9.S_tKbmayykL2ofU2AFtXV-AIwVjWR3B5XSOM6hPwwIo
+GET http://localhost:8080/api/travelgenie/city HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUcmF2ZWwtR2VuaWUiLCJzdWIiOiJOZXcgVXNlciIsImFwcF91c2VyX2lkIjo0LCJhdXRob3JpdGllcyI6IlVTRVIiLCJleHAiOjE2NjY4MDEzODB9.3G31NF57gy8GSdqfeRDQGLqO0GICzDCdhb_nUIRhKxs
 
 
 ### Creata new user
@@ -25,6 +23,52 @@ Content-Type: application/json
     "nickname": "New User",
     "password": "P@ssw0rd!"
 }
+
+### log in with a new user
+POST http://localhost:8080/authenticate HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "user4",
+    "password": "P@ssw0rd!"
+}
+
+
+### PUT update the nickname of the user thats logged in
+
+PUT http://localhost:8080/api/travelgenie/user/4 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUcmF2ZWwtR2VuaWUiLCJzdWIiOiJOZXcgVXNlciIsImFwcF91c2VyX2lkIjo0LCJhdXRob3JpdGllcyI6IlVTRVIiLCJleHAiOjE2NjY4MDIxOTR9.DYF8zSU1GfD_yq7lKwWHDayrC3d4JPTyXAuktaFiB0k
+Content-Type: application/json
+
+{
+    "appUserId": 4,
+    "nickname": "Mr. Awesome"
+}
+
+
+### PUT fails if the nickname is invalid
+
+PUT http://localhost:8080/api/travelgenie/user/4 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUcmF2ZWwtR2VuaWUiLCJzdWIiOiJOZXcgVXNlciIsImFwcF91c2VyX2lkIjo0LCJhdXRob3JpdGllcyI6IlVTRVIiLCJleHAiOjE2NjY4MDIxOTR9.DYF8zSU1GfD_yq7lKwWHDayrC3d4JPTyXAuktaFiB0k
+Content-Type: application/json
+
+{
+    "appUserId": 4,
+    "nickname": " "
+}
+
+
+### PUT fails if the appUserId is in conflict
+
+PUT http://localhost:8080/api/travelgenie/user/5 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUcmF2ZWwtR2VuaWUiLCJzdWIiOiJOZXcgVXNlciIsImFwcF91c2VyX2lkIjo0LCJhdXRob3JpdGllcyI6IlVTRVIiLCJleHAiOjE2NjY4MDIxOTR9.DYF8zSU1GfD_yq7lKwWHDayrC3d4JPTyXAuktaFiB0k
+Content-Type: application/json
+
+{
+    "appUserId": 4,
+    "nickname": "Mr.Awesome"
+}
+
 
 ### log in with the added user
 POST http://localhost:8080/authenticate HTTP/1.1

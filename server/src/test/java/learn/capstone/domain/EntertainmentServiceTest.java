@@ -1,7 +1,9 @@
 package learn.capstone.domain;
 
 import learn.capstone.data.EntertainmentFileRepository;
+import learn.capstone.models.ActivityLevel;
 import learn.capstone.models.Entertainment;
+import learn.capstone.models.PriceRange;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -18,6 +20,14 @@ class EntertainmentServiceTest {
 
     @MockBean
     EntertainmentFileRepository repository;
+
+    @Test
+    void shouldFindById() {
+        Entertainment expected = new Entertainment(1, "Sun Bathing", ActivityLevel.LOW, PriceRange.$, true);
+        when(repository.findById(1)).thenReturn(expected);
+        Result<Entertainment> actual = entertainmentService.findById(1);
+        assertEquals(expected.getEntertainmentName(), actual.getPayload().getEntertainmentName());
+    }
 
     @Test
     void shouldNotFindByInvalidId() {

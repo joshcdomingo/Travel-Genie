@@ -56,29 +56,42 @@ public class AppUserService implements UserDetailsService {
         return result;
     }
 
+    public Result<String> update (int appUserId, String nickname) {
+        Result<String> result = new Result<>();
+        if (nickname == null || nickname.isBlank()) {
+            result.addMessage("Nickname is required", ResultType.INVALID);
+            return result;
+        }
+        repository.update(appUserId, nickname);
+        result.setPayload(nickname);
+        return  result;
+    }
+
+
+
     private Result<AppUser> validate(String username, String nickname, String password) {
         Result<AppUser> result = new Result<>();
         if (username == null || username.isBlank()) {
-            result.addMessage("username is required", ResultType.INVALID);
+            result.addMessage("Username is required", ResultType.INVALID);
             return result;
         }
 
         if (nickname == null || nickname.isBlank()) {
-            result.addMessage("nickname is required", ResultType.INVALID);
+            result.addMessage("Nickname is required", ResultType.INVALID);
             return result;
         }
 
         if (password == null || password.isBlank()) {
-            result.addMessage("password is required", ResultType.INVALID);
+            result.addMessage("Password is required", ResultType.INVALID);
             return result;
         }
 
         if (username.length() > 50) {
-            result.addMessage("username must be less than 50 characters", ResultType.INVALID);
+            result.addMessage("Username must be less than 50 characters", ResultType.INVALID);
         }
 
         if (!isValidPassword(password)) {
-            result.addMessage("password must be at least 8 character and contain a digit," +
+            result.addMessage("Password must be at least 8 character and contain a digit," +
                             " a letter, and a non-digit/non-letter", ResultType.INVALID);
         }
 
