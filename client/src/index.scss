@@ -1,0 +1,32 @@
+// Variables
+
+// Mixins
+@mixin genie {
+    display: inline-block;
+    width: 400px;
+    height: 400px;
+    position: relative;
+    opacity: 0;
+    top: 0;
+    left: 335px;
+}
+
+@mixin lamp {
+    display: inline-block;
+    width: 350px;
+    height: 250px;
+    position: absolute;
+    top: 300px;
+}
+
+#genie {
+    @include genie;
+}
+
+#lamp {
+    @include lamp;
+}
+
+#animationText {
+    text-align: center;
+}
