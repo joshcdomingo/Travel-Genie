@@ -1,64 +1,106 @@
 package learn.capstone.data;
 
+import learn.capstone.data.mappers.AppUserMapper;
 import learn.capstone.models.AppUser;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.sql.ResultSet;
+import java.sql.PreparedStatement;
+import java.sql.Statement;
+import java.util.Collection;
 import java.util.List;
 
 @Repository
-public class AppUserJdbcTemplateRepository {
+public class AppUserJdbcTemplateRepository implements AppUserRepository{
 
     private final JdbcTemplate jdbcTemplate;
-
-    private RowMapper<AppUser> userMapper = (ResultSet rs, int rowIndex) -> {
-        AppUser user = new AppUser();
-        user.setAppUserId(rs.getInt("app_user_id"));
-        user.setUsername(rs.getString("username"));
-        user.setPassword(rs.getString("password_hash"));
-        user.setEnabled(rs.getBoolean("enabled"));
-        return user;
-    };
-
-    private RowMapper<GrantedAuthority> authorityMapper = (ResultSet rs, int index) -> {
-        SimpleGrantedAuthority authority = new SimpleGrantedAuthority(rs.getString("name"));
-        return authority;
-    };
 
     public AppUserJdbcTemplateRepository(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 
+    @Override
+    @Transactional
     public AppUser findByUsername(String username) {
+        List<String> roles = getRolesByUsername(username);
 
-        String sql = "select app_user_id, username, password_hash, enabled "
+        String sql = "select app_user_id, nickname, username, password_hash, enabled "
                 + "from app_user "
                 + "where username = ?;";
 
-        AppUser user = jdbcTemplate.query(sql, userMapper, username).stream()
+        AppUser user = jdbcTemplate.query(sql, new AppUserMapper(roles), username).stream()
                 .findFirst().orElse(null);
-
-        if (user != null) {
-            attachAuthorities(user);
-        }
 
         return user;
     }
 
-    private void attachAuthorities(AppUser user) {
+    @Override
+    @Transactional
+    public AppUser create(AppUser user) {
 
-        String sql = "select ar.`name` "
-                + "from app_user_role aur "
-                + "inner join app_role ar on aur.app_role_id = ar.app_role_id "
-                + "where aur.app_user_id = ?;";
+        final String sql = "insert into app_user (username, nickname, password_hash) values (?, ?, ?);";
 
-        List<GrantedAuthority> authorities = jdbcTemplate.query(sql,
-                authorityMapper, user.getAppUserId());
+        GeneratedKeyHolder keyHolder = new GeneratedKeyHolder();
+        int rowsAffected = jdbcTemplate.update(connection -> {
+            PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            ps.setString(1, user.getUsername());
+            ps.setString(2, user.getNickname());
+            ps.setString(3, user.getPassword());
+            return ps;
+        }, keyHolder);
 
-        user.setAuthorities(authorities);
+        if (rowsAffected <= 0) {
+            return null;
+        }
+
+        user.setAppUserId(keyHolder.getKey().intValue());
+
+        updateRoles(user);
+
+        return user;
+    }
+
+    @Override
+    @Transactional
+    public void update(AppUser user) {
+
+        final String sql = "update app_user set "
+                + "username = ?, "
+                + "enabled = ? "
+                + "where app_user_id = ?";
+
+        jdbcTemplate.update(sql,
+                user.getUsername(), user.isEnabled(), user.getAppUserId());
+
+        updateRoles(user);
+    }
+
+    private void updateRoles(AppUser user) {
+        // delete all roles, then re-add
+        jdbcTemplate.update("delete from app_user_role where app_user_id = ?;", user.getAppUserId());
+
+        Collection<GrantedAuthority> authorities = user.getAuthorities();
+
+        if (authorities == null) {
+            return;
+        }
+
+        for (GrantedAuthority role : authorities) {
+            String sql = "insert into app_user_role (app_user_id, app_role_id) "
+                    + "select ?, app_role_id from app_role where `name` = ?;";
+            jdbcTemplate.update(sql, user.getAppUserId(), role.getAuthority());
+        }
+    }
+
+    private List<String> getRolesByUsername(String username) {
+        final String sql = "select r.name "
+                + "from app_user_role ur "
+                + "inner join app_role r on ur.app_role_id = r.app_role_id "
+                + "inner join app_user au on ur.app_user_id = au.app_user_id "
+                + "where au.username = ?";
+        return jdbcTemplate.query(sql, (rs, rowId) -> rs.getString("name"), username);
     }
 }
