@@ -32,6 +32,7 @@ public class SecurityConfig {
                 .antMatchers(HttpMethod.POST, "/api/travelgenie/wish/*").hasAnyAuthority("USER")
                 .antMatchers(HttpMethod.PUT, "/api/travelgenie/user/*").hasAnyAuthority("USER")
                 .antMatchers(HttpMethod.DELETE, "/api/travelgenie/wish/*").hasAnyAuthority("USER")
+                .antMatchers(HttpMethod.POST, "/refresh").authenticated()
                 .antMatchers("/**").denyAll()
                 .and()
                 .addFilter(new JwtRequestFilter(manager(config), converter))
