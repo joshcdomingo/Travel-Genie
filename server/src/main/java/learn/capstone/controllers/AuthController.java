@@ -27,13 +27,16 @@ public class AuthController {
     private final AuthenticationManager authenticationManager;
     private final JwtConverter converter;
     private final AppUserService appUserService;
+    private final PasswordEncoder encoder;
 
     public AuthController(AuthenticationManager authenticationManager,
                           JwtConverter converter,
-                          AppUserService appUserService) {
+                          AppUserService appUserService,
+                          PasswordEncoder encoder) {
         this.authenticationManager = authenticationManager;
         this.converter = converter;
         this.appUserService = appUserService;
+        this.encoder = encoder;
     }
 
     @PostMapping("/authenticate")
@@ -78,5 +81,19 @@ public class AuthController {
         map.put("appUserId", result.getPayload().getAppUserId());
 
         return new ResponseEntity<>(map, HttpStatus.CREATED);
+    }
+
+    @PostMapping("/refresh")
+    public ResponseEntity<?> refresh(@AuthenticationPrincipal AppUser user) {
+        String jwt = converter.getTokenFromUser(user);
+        HashMap<String, String> body = new HashMap<>();
+        body.put("jwt", jwt);
+        return new ResponseEntity<>(body, HttpStatus.OK);
+    }
+
+    @PostMapping("/encode")
+    public void encode(@RequestBody HashMap<String, String> values) {
+        String encodedValue = encoder.encode(values.get("value"));
+        System.out.println(encodedValue);
     }
 }
