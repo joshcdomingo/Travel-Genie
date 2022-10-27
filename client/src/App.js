@@ -3,12 +3,13 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-d
 import { Link, useHistory } from "react-router-dom";
 import jwtDecode from "jwt-decode";
 import Welcome from "./components/Welcome";
+import Navigation from "./components/Navigation";
+import Login from "./components/Login";
+import Registration from "./components/Registration";
 import Home from "./components/Home";
 import WishList from "./components/WishList";
 import MakeWishForm from "./components/MakeWishForm";
 import NotFound from "./components/NotFound";
-import Navigation from "./components/Navigation";
-import Login from "./components/Login";
 import AuthContext from "./contexts/AuthContext";
 
 const LOCAL_STORAGE_TOKEN_KEY = "travelGenieToken";
@@ -81,6 +82,10 @@ function App() {
             
             <Route exact path="/login">
               {!user ? <Login /> : <Redirect to="/home" />}
+            </Route>
+
+            <Route exact path="/registration">
+              {!user ? <Registration /> : <Redirect to="/home" />}
             </Route>
             
             <Route exact path="/Home">
