@@ -2,21 +2,21 @@
 
 // Mixins
 @mixin genie {
-    display: inline-block;
+    display: block;
+    align-self: center;
     width: 400px;
     height: 400px;
-    position: relative;
     opacity: 0;
     top: 0;
     left: 335px;
 }
 
 @mixin lamp {
-    display: inline-block;
-    width: 350px;
-    height: 250px;
+    display: block;
+    align-self: center;
     position: absolute;
-    top: 300px;
+    width: 100px;
+    top: 325px;
 }
 
 #genie {

@@ -83,12 +83,14 @@ public class AuthController {
         return new ResponseEntity<>(map, HttpStatus.CREATED);
     }
 
-    @PostMapping("/refresh")
-    public ResponseEntity<?> refresh(@AuthenticationPrincipal AppUser user) {
-        String jwt = converter.getTokenFromUser(user);
-        HashMap<String, String> body = new HashMap<>();
-        body.put("jwt", jwt);
-        return new ResponseEntity<>(body, HttpStatus.OK);
+    @PostMapping("/refresh_token")
+    public ResponseEntity<Map<String, String>> refreshToken(@AuthenticationPrincipal AppUser user) {
+        String jwtToken = converter.getTokenFromUser(user);
+
+        HashMap<String, String> map = new HashMap<>();
+        map.put("jwt_token", jwtToken);
+
+        return new ResponseEntity<>(map, HttpStatus.OK);
     }
 
     @PostMapping("/encode")

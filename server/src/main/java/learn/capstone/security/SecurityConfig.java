@@ -28,6 +28,7 @@ public class SecurityConfig {
         http.authorizeRequests()
                 .antMatchers("/authenticate").permitAll()
                 .antMatchers("/create_account").permitAll()
+                .antMatchers("/refresh_token").authenticated()
                 .antMatchers(HttpMethod.GET, "/api/travelgenie", "/api/travelgenie/*").hasAnyAuthority("USER")
                 .antMatchers(HttpMethod.POST, "/api/travelgenie/wish/*").hasAnyAuthority("USER")
                 .antMatchers(HttpMethod.PUT, "/api/travelgenie/user/*").hasAnyAuthority("USER")

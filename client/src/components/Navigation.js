@@ -4,20 +4,21 @@ import AuthContext from "../contexts/AuthContext";
 
 function Navigation() {
 
-    const { user, logout } = useContext(AuthContext);
+    const auth = useContext(AuthContext);
 
     return (
-        <nav className="navbar navbar-dark bg-dark mb-2">
-            <div className="container">
-                <Link to="/" className="navbar-brand">Travel Genie</Link>
-                <div className="col d-flex justify-content-end">
-                    {user && <Link to="/add" className="btn btn-primary me-2">Add a Hero</Link>}
-                    {user ? <button className="btn btn-danger" onClick={logout}>Logout</button>
-                        : <Link to="/login" className="btn btn-success">Login</Link>
-                    }
-                </div>
+        <main>
+        {auth.user ? (
+            <nav className="navbar navbar-dark bg-dark mb-2">
+                <div className="container">
+                    <Link to="/Home" className="navbar-brand">Travel Genie</Link>
+                    <div className="col d-flex justify-content-end">
+                        <button className="btn btn-danger" onClick={() =>auth.logout()}>Logout</button>
+                        <Link to="/WishList" className="btn btn-warning">Wish List</Link>
+                    </div>
             </div>
-        </nav>
+        </nav>) : (<div></div>)}
+        </main>
     );
 }
 

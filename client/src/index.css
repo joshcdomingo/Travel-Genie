@@ -2,18 +2,22 @@ h1{
   text-align: center;
 }
 
+.logo {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
 img.center{
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-top: -10%;
   width: 50%;
   width: 150px;
   height: auto;
 }
 
 p.Introduction{
-  margin-top: 9%;
   text-align: center;
   font-size:6rem;
   font-weight: 800;
