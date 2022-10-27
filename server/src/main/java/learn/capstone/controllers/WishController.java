@@ -2,7 +2,6 @@ package learn.capstone.controllers;
 
 import learn.capstone.domain.Result;
 import learn.capstone.domain.WishService;
-import learn.capstone.models.City;
 import learn.capstone.models.Wish;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
