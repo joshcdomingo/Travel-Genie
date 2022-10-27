@@ -30,6 +30,7 @@ public class SecurityConfig {
                 .antMatchers("/create_account").permitAll()
                 .antMatchers("/refresh_token").authenticated()
                 .antMatchers(HttpMethod.GET, "/api/travelgenie", "/api/travelgenie/*").hasAnyAuthority("USER")
+                .antMatchers(HttpMethod.DELETE, "/api/travelgenie/city/scenery/*").hasAnyAuthority("USER")
                 .antMatchers(HttpMethod.POST, "/api/travelgenie/wish/*").hasAnyAuthority("USER")
                 .antMatchers(HttpMethod.PUT, "/api/travelgenie/user/*").hasAnyAuthority("USER")
                 .antMatchers(HttpMethod.DELETE, "/api/travelgenie/wish/*").hasAnyAuthority("USER")
