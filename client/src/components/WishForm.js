@@ -1,9 +1,26 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import AuthContext from "../contexts/AuthContext";
 
 function WishForm() {
 
+    const auth = useContext(AuthContext);
+    const appUserId = auth.user.userId;
+
     const [choice, setChoice] = useState({
+        wishId: 0,
+        appUserId: 0,
+        cityName: "",
+        countryName: "",
+        scenery: "BEACH",
+        entertainmentName: "",
+        activityLevel: "MEDIUM",
+        priceRange: "$",
+        kidFriendly: true
+    });
+
+    // test variable
+    const body = ({
         wishId: 0,
         appUserId: 0,
         cityName: "",
@@ -25,14 +42,14 @@ function WishForm() {
     const init = {
         method: "GET",
         headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${localStorage.getItem("jwt")}`
-        }
+              Authorization: `Bearer ${auth.user.token}`,
+             "Content-Type": "application/json",
+        },    
     };
         
 
-    const getMatch = () => {
-      fetch(endpoint, init)
+    const getMatch = async () => {
+      await fetch(endpoint, init)
         .then((res) => {
           if (res.status === 200) {
             return res.json();
@@ -63,10 +80,19 @@ function WishForm() {
     function handleSubmit(evt) {
         evt.preventDefault();
 
-        console.log(choice);
-        
 
-
+        //testing some things
+        if(choice.activityLevel === body.activityLevel){
+            console.log("similar");
+            console.log(choice);
+            console.log(body);
+            
+        }
+        else {
+            console.log("false");
+            console.log(choice);
+            console.log(body);
+        }
     }
 
     return (
@@ -91,9 +117,9 @@ function WishForm() {
                 <label htmlFor="activityLevel">Activity Level: </label>
                 <select id="activityLevel" name="activityLevel"
                     value={choice.activityLevel} onChange={handleChange}>
-                    <option>Low</option>
-                    <option>Medium</option>
-                    <option>High</option>
+                    <option>LOW</option>
+                    <option>MEDIUM</option>
+                    <option>HIGH</option>
                 </select>
             </div>
             <div>
