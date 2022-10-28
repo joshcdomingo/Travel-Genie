@@ -12,6 +12,7 @@ $smallSize: 130px;
 @mixin display {
     display: block;
     align-self: center;
+    text-align: center;
 }
 
 @mixin smallSize {
@@ -54,10 +55,4 @@ $smallSize: 130px;
 
 #animationText {
     text-align: center;
-}
-
-#bags {
-    display: inline;
-    width: 300px;
-    height: 300px;
 }

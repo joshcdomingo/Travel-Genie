@@ -14,7 +14,6 @@ function Welcome() {
           <LogoAnimation />
             <Link className="btn btn-info" to="/registration">Register</Link>
             <Link className="btn btn-info" to="/login">Login</Link>
-            <img id="bags" src="./images/bags.png" alt="cartoon luggage" />
         </div> ) : (<div></div>)}
     </main>    
   );
