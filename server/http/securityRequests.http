@@ -32,7 +32,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUcmF2ZWwtR2VuaWUiLCJzdWIiO
 ### GET all wish with specific user ID
 GET {{url}}/user/3 HTTP/1.1
 Origin: http://localhost:3000
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUcmF2ZWwtR2VuaWUiLCJzdWIiOiJKb3NoIiwiYXBwX3VzZXJfaWQiOjEsImF1dGhvcml0aWVzIjoiVVNFUiIsImV4cCI6MTY2Njk2ODM3MX0.bJBdC-Uxc5S3NhDB3JbFGqTsO38JwboO3mPJTWjtIDA
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUcmF2ZWwtR2VuaWUiLCJzdWIiOiJKb3NoIiwiYXBwX3VzZXJfaWQiOjEsImF1dGhvcml0aWVzIjoiVVNFUiIsImV4cCI6MTY2Njk3NDcxN30.5zOBefJFydF5UedHzQ71307YJ2gw_rSw5cBXsy17Z34
 
 ### GET empty list with invalid user ID
 GET {{url}}/user/999 HTTP/1.1
@@ -42,7 +42,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUcmF2ZWwtR2VuaWUiLCJzdWIiO
 ### GET all wish with matching fields
 GET {{url}}/match HTTP/1.1
 Origin: http://localhost:3000
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUcmF2ZWwtR2VuaWUiLCJzdWIiOiJKb3NoIiwiYXBwX3VzZXJfaWQiOjEsImF1dGhvcml0aWVzIjoiVVNFUiIsImV4cCI6MTY2Njk2ODM3MX0.bJBdC-Uxc5S3NhDB3JbFGqTsO38JwboO3mPJTWjtIDA
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUcmF2ZWwtR2VuaWUiLCJzdWIiOiJKb3NoIiwiYXBwX3VzZXJfaWQiOjEsImF1dGhvcml0aWVzIjoiVVNFUiIsImV4cCI6MTY2Njk3MjQ0Nn0.OQ0vSdwW9a82VBLnM896YvjKLQ6iqt9n0lQzEmsX3y8
 Content-Type: application/json
 
 {

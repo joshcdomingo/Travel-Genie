@@ -7,8 +7,7 @@ import Login from "./components/Login";
 import Registration from "./components/Registration";
 import Home from "./components/Home";
 import WishList from "./components/WishList";
-import SceneryForm from "./components/SceneryForm";
-import EntertainmentForm from "./components/EntertainmentForm";
+import WishForm from "./components/WishForm";
 import NotFound from "./components/NotFound";
 import AuthContext from "./contexts/AuthContext";
 
@@ -95,12 +94,8 @@ function App() {
               {user ? <WishList /> : <Redirect to="/" />}
             </Route>
 
-            <Route exact path="/Scenery">
-              {user ? <SceneryForm /> : <Redirect to="/" />}
-            </Route>
-
-            <Route exact path="/EntertainmentForm">
-              {user ? <EntertainmentForm /> : <Redirect to="/" />}
+            <Route exact path="/WishForm">
+              {user ? <WishForm /> : <Redirect to="/" />}
             </Route>
 
             <Route path="*">
