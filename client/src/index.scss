@@ -1,6 +1,10 @@
 // Variables
 
 // Mixins
+@mixin container {
+    padding: 2em;
+}
+
 @mixin genie {
     display: block;
     align-self: center;
@@ -17,6 +21,11 @@
     position: absolute;
     width: 100px;
     top: 325px;
+}
+
+// Styles
+.container {
+    @include container;
 }
 
 #genie {
