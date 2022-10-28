@@ -63,8 +63,7 @@ function WishForm() {
     function handleSubmit(evt) {
         evt.preventDefault();
 
-        const list = [choice];
-        console.log(list)
+        console.log(choice);
         
 
 
