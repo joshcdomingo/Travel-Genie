@@ -86,16 +86,17 @@ function App() {
               {!user ? <Registration /> : <Redirect to="/home" />}
             </Route>
             
-            <Route exact path="/Home">
+            <Route exact path="/home">
               {user ? <Home /> : <Redirect to="/" />}
             </Route>
 
-            <Route exact path="/WishList">
+            <Route exact path="/wishlist">
               {user ? <WishList /> : <Redirect to="/" />}
             </Route>
 
             <Route exact path="/WishForm">
               {user ? <WishForm /> : <Redirect to="/" />}
+
             </Route>
 
             <Route path="*">
