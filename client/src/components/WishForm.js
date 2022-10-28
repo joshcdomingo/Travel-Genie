@@ -5,6 +5,8 @@ import AuthContext from "../contexts/AuthContext";
 function WishForm() {
 
     const auth = useContext(AuthContext);
+    const endpoint = `http://localhost:8080/api/travelgenie/wish/match`;
+    const [matches, setMatches] = useState([]);
     const appUserId = auth.user.userId;
 
     const [choice, setChoice] = useState({
@@ -32,37 +34,34 @@ function WishForm() {
         kidFriendly: true
     });
 
-    const endpoint = "http://localhost:8080/api/travelgenie/wish/match";
-    const [destination, setDestination] = useState([]);
-  
     useEffect(() => {
-      getMatch();
-    }, []);
-  
-    const init = {
-        method: "GET",
-        headers: {
-              Authorization: `Bearer ${auth.user.token}`,
-             "Content-Type": "application/json",
-        },    
-    };
-        
-
-    const getMatch = async () => {
-      await fetch(endpoint, init)
-        .then((res) => {
-          if (res.status === 200) {
-            return res.json();
-          } else {
-            return Promise.reject(`Unexpected status code: ${res.status}`);
-          }
-        })
-        .then((data) => {
-          setDestination(data);
-          console.log(data);
-        })
-        .catch(console.error);
-    };
+        getMatches();
+      }, []);
+    
+      const init = {
+          method: "GET",
+          headers: {
+              Authorization: `Bearer ${auth.user.token}`
+          },
+          body: JSON.stringify({
+            ...body
+        }),
+      };
+    
+      const getMatches = () => {
+        fetch(endpoint, init)
+          .then((res) => {
+            if (res.status === 200) {
+              return res.json();
+            } else {
+              return Promise.reject(`Unexpected status code: ${res.status}`);
+            }
+          })
+          .then((data) => {
+            setMatches(data);
+          })
+          .catch(console.error);
+      };
 
     const [errs, setErrs] = useState([]);
 

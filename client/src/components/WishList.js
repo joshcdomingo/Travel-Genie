@@ -82,10 +82,10 @@ function WishList() {
     <tbody>
       {wishes.map((wish) => (
         <tr key={wish.wishId}>
-          <td>{wish.city}</td>
-          <td>{wish.country}</td>
+          <td>{wish.cityName}</td>
+          <td>{wish.countryName}</td>
           <td>{wish.scenery}</td>
-          <td>{wish.entertainment}</td>
+          <td>{wish.entertainmentName}</td>
           <td className="buttonContainer">
             <button
               className="btn btn-danger"
