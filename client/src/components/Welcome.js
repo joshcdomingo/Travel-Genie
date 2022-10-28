@@ -12,7 +12,6 @@ function Welcome() {
       {!auth.user ? (
         <div className="welcome_page">
           <LogoAnimation />
-            <p className="Introduction"> Travel Genie </p>
             <Link className="btn btn-info" to="/registration">Register</Link>
             <Link className="btn btn-info" to="/login">Login</Link>
         </div> ) : (<div></div>)}

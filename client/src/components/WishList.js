@@ -54,6 +54,7 @@ function WishList() {
 
     return (
         <>
+    <div className="container">
       <h2>Wish List</h2>
       <Link className="btn btn-primary" to="/wishes/add">
         Add Wish
@@ -93,6 +94,7 @@ function WishList() {
           ))}
         </tbody>
       </table>
+      </div>
     </>
   );
 }
