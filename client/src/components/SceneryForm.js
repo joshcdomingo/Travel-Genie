@@ -46,7 +46,7 @@ function SceneryForm() {
        if(city.scenery === "MOUNTAIN"){
         history.push("/EntertainmentForm");
        }
-       if(city.scenery === "DESSERT"){
+       if(city.scenery === "DESERT"){
         history.push("/EntertainmentForm");
        }
        if(city.scenery === "SNOW"){
@@ -69,7 +69,7 @@ function SceneryForm() {
                     <option>METROPOLITAN</option>
                     <option>BEACH</option>
                     <option>MOUNTAIN</option>
-                    <option>DESSERT</option>
+                    <option>DESERT</option>
                     <option>SNOW</option>
                 </select>
             </div>

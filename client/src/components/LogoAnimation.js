@@ -14,11 +14,6 @@ function LogoAnimation() {
     gsap.timeline()
         .from("#travelGenieText", { duration: 1.5, x: -600 })
   };
-
-  const animateBags = () => {
-    gsap.timeline()
-        .from("#bags", { duration: 1.5, x: 600 })
-  };
   
   return (
     <div className="flex-row">

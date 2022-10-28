@@ -87,19 +87,19 @@ function App() {
               {!user ? <Registration /> : <Redirect to="/home" />}
             </Route>
             
-            <Route exact path="/Home">
+            <Route exact path="/home">
               {user ? <Home /> : <Redirect to="/" />}
             </Route>
 
-            <Route exact path="/WishList">
+            <Route exact path="/wishlist">
               {user ? <WishList /> : <Redirect to="/" />}
             </Route>
 
-            <Route exact path="/Scenery">
+            <Route exact path="/scenery">
               {user ? <SceneryForm /> : <Redirect to="/" />}
             </Route>
 
-            <Route exact path="/EntertainmentForm">
+            <Route exact path="/entertainmentform">
               {user ? <EntertainmentForm /> : <Redirect to="/" />}
             </Route>
 

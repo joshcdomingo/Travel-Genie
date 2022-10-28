@@ -9,7 +9,7 @@ function Home() {
     return (
         <main>
             <h1>Your wish is my command Master {auth.user.nickname}!</h1>
-            <Link to="/Scenery" className="btn btn-dark">Make a Wish</Link>
+            <Link to="/scenery" className="btn btn-dark">Make a Wish</Link>
         </main>
     );
 }
