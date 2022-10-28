@@ -1,41 +1,63 @@
 // Variables
+$genieWidth: 400px;
+$genieHeight: 400px;
+$lampWidth: 100px;
+$smallSize: 130px;
 
 // Mixins
 @mixin container {
     padding: 2em;
 }
 
-@mixin genie {
+@mixin display {
     display: block;
     align-self: center;
-    width: 400px;
-    height: 400px;
+}
+
+@mixin smallSize {
+    width: $smallSize;
+    height: $smallSize;
+}
+
+@mixin genie {
+    @include display;
+    width: $genieWidth;
+    height: $genieHeight;
     opacity: 0;
     top: 0;
     left: 335px;
 }
 
 @mixin lamp {
-    display: block;
-    align-self: center;
+    @include display;
     position: absolute;
-    width: 100px;
+    width: $lampWidth;
     top: 325px;
 }
 
 // Styles
 .container {
-    @include container;
+    @include container();
+}
+
+#logo {
+    @include smallSize();
 }
 
 #genie {
-    @include genie;
+    @include genie();
 }
 
 #lamp {
-    @include lamp;
+    @include lamp();
 }
 
 #animationText {
     text-align: center;
+}
+
+#bags {
+    display: inline;
+    width: 300px;
+    height: 300px;
 }
