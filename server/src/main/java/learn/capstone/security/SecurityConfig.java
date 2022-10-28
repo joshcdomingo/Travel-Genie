@@ -31,7 +31,7 @@ public class SecurityConfig {
                 .antMatchers("/refresh_token").authenticated()
                 .antMatchers(HttpMethod.GET, "/api/travelgenie", "/api/travelgenie/*", "/api/travelgenie/wish", "/api/travelgenie/wish/*", "/api/travelgenie/wish/user/*", "/api/travelgenie/wish/match").hasAnyAuthority("USER")
                 .antMatchers(HttpMethod.POST, "/api/travelgenie/wish").hasAnyAuthority("USER")
-                .antMatchers(HttpMethod.PUT, "/api/travelgenie/user/*").hasAnyAuthority("USER")
+                .antMatchers(HttpMethod.PUT, "/api/travelgenie/user", "/api/travelgenie/user/updateAccount/*").hasAnyAuthority("USER")
                 .antMatchers(HttpMethod.DELETE, "/api/travelgenie/wish/*").hasAnyAuthority("USER")
                 .antMatchers(HttpMethod.POST, "/refresh").authenticated()
                 .antMatchers("/**").denyAll()

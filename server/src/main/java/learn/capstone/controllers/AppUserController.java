@@ -23,7 +23,7 @@ public class AppUserController {
 //    Failure (validation errors): 400 Bad Request
 //    Failure (route path ID and request body ID don't match): 409 Conflict
 
-    @PutMapping("/{appUserId}")
+    @PutMapping("/updateAccount/{appUserId}")
     public ResponseEntity<Object> update(@PathVariable int appUserId, @RequestBody Map<String, String> credentials) {
         int requestUserId = Integer.parseInt(credentials.get("appUserId"));
         String nickname = credentials.get("nickname");

@@ -1,16 +1,28 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import AuthContext from "../contexts/AuthContext";
+
+
 
 function WishList() {
-  const endpoint = "http://localhost:8080/api/travelgenie/wish";
+  const auth = useContext(AuthContext);
+  const endpoint = `http://localhost:8080/api/travelgenie/wish/user/${auth.user.userId}`;
   const [wishes, setWishes] = useState([]);
 
   useEffect(() => {
     getWishes();
   }, []);
 
+  const init = {
+      method: "GET",
+      headers: {
+          Authorization: `Bearer ${auth.user.token}`
+      }
+  };
+
   const getWishes = () => {
-    fetch(endpoint)
+    fetch(endpoint, init)
       .then((res) => {
         if (res.status === 200) {
           return res.json();
@@ -54,7 +66,7 @@ function WishList() {
     <>
 <div className="container">
   <h2>Wish List</h2>
-  <Link className="btn btn-primary" to="/scenery">
+  <Link className="btn btn-primary" to="/WishForm">
     Add Wish
   </Link>
   <table>

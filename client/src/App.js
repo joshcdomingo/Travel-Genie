@@ -6,10 +6,12 @@ import Navigation from "./components/Navigation";
 import Login from "./components/Login";
 import Registration from "./components/Registration";
 import Home from "./components/Home";
+import Account from "./components/Account";
 import WishList from "./components/WishList";
 import WishForm from "./components/WishForm";
 import NotFound from "./components/NotFound";
 import AuthContext from "./contexts/AuthContext";
+
 
 const LOCAL_STORAGE_TOKEN_KEY = "travelGenieToken";
 
@@ -75,7 +77,7 @@ function App() {
 
           <Switch>
             <Route exact path="/">
-              <Welcome />
+              {!user ? <Welcome /> : <Redirect to="/home" />}
             </Route>
             
             <Route exact path="/login">
@@ -90,13 +92,16 @@ function App() {
               {user ? <Home /> : <Redirect to="/" />}
             </Route>
 
+            <Route exact path="/Account">
+              {user ? <Account /> : <Redirect to="/" />}
+            </Route>
+
             <Route exact path="/wishlist">
               {user ? <WishList /> : <Redirect to="/" />}
             </Route>
 
             <Route exact path="/WishForm">
               {user ? <WishForm /> : <Redirect to="/" />}
-
             </Route>
 
             <Route path="*">
