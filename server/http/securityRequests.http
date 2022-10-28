@@ -42,6 +42,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUcmF2ZWwtR2VuaWUiLCJzdWIiO
 GET {{url}}/user/999 HTTP/1.1
 Origin: http://localhost:3000
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUcmF2ZWwtR2VuaWUiLCJzdWIiOiJqb3NoIiwiYXBwX3VzZXJfaWQiOjEsImF1dGhvcml0aWVzIjoiVVNFUiIsImV4cCI6MTY2Njk4MTgyNH0.MyN3R_8TbG8Q30-rgr03aCYgtks25dKJQaO3A5-SQgs
+
 ### GET all wish with matching fields
 GET {{url}}/match HTTP/1.1
 Origin: http://localhost:3000
