@@ -6,6 +6,7 @@ function WishForm() {
 
     const auth = useContext(AuthContext);
     const endpoint = `http://localhost:8080/api/travelgenie/wish/match`;
+    const [errs, setErrs] = useState([]);
     const [matches, setMatches] = useState([]);
     const appUserId = auth.user.userId;
 
@@ -36,34 +37,27 @@ function WishForm() {
 
     useEffect(() => {
         getMatches();
-      }, []);
+    }, []);
     
-      const init = {
-          method: "GET",
-          headers: {
-              Authorization: `Bearer ${auth.user.token}`
-          },
-          body: JSON.stringify({
-            ...body
-        }),
-      };
     
-      const getMatches = () => {
-        fetch(endpoint, init)
-          .then((res) => {
-            if (res.status === 200) {
-              return res.json();
-            } else {
-              return Promise.reject(`Unexpected status code: ${res.status}`);
-            }
-          })
-          .then((data) => {
-            setMatches(data);
-          })
-          .catch(console.error);
-      };
+    const getMatches = () => {
+        
+        const init = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${auth.user.token}`
+            },
+            body: JSON.stringify({
+                ...body
+            }),
+        };
 
-    const [errs, setErrs] = useState([]);
+        fetch(endpoint, init)
+          .then(res => res.json())
+          .then(data => setMatches(data))
+          .catch(console.error);
+    };
 
     function handleChange(evt) {
         const nextChoice = { ...choice };
@@ -79,6 +73,8 @@ function WishForm() {
     function handleSubmit(evt) {
         evt.preventDefault();
 
+        //debugging to see if match fetch is working
+        console.log(matches);
 
         //testing some things
         if(choice.activityLevel === body.activityLevel){

@@ -24,7 +24,7 @@ public class WishController {
         return service.findAll();
     }
 
-    @GetMapping("/match")
+    @PostMapping("/match")
     public List<Wish> findAllMatching(@RequestBody Wish wish) {
         return service.findAllMatching(wish);
     }
