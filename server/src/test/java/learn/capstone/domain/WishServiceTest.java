@@ -1,11 +1,16 @@
 package learn.capstone.domain;
 
 import learn.capstone.data.WishFileRepository;
+import learn.capstone.models.ActivityLevel;
+import learn.capstone.models.PriceRange;
+import learn.capstone.models.Scenery;
 import learn.capstone.models.Wish;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -21,9 +26,9 @@ public class WishServiceTest {
 
     @Test
     void shouldFindById() {
-        Wish expected = new Wish(1, 1, 1, 2);
-        when(repository.findById(1)).thenReturn(expected);
-        Result<Wish> actual = wishService.findById(1);
+        Wish expected = new Wish(6, 3, "Washington DC", "United States", Scenery.METROPOLITAN, "Sight Seeing", ActivityLevel.MEDIUM, PriceRange.$, true);
+        when(repository.findById(6)).thenReturn(expected);
+        Result<Wish> actual = wishService.findById(6);
         assertEquals(expected.getAppUserId(), actual.getPayload().getAppUserId());
     }
 
@@ -41,10 +46,47 @@ public class WishServiceTest {
     }
 
     @Test
+    void shouldFindAllMatching(){
+        List <Wish> wishList = List.of(new Wish(0, 0, "Las Vegas", "United States", Scenery.DESERT, "Casino", ActivityLevel.LOW, PriceRange.$$$, false),
+                                       new Wish(0, 0, "Portland", "United States", Scenery.SNOW, "Ski", ActivityLevel.MEDIUM, PriceRange.$$, true),
+                                       new Wish(0, 0, "Santa Monica", "United States", Scenery.BEACH, "Sun Bathing", ActivityLevel.LOW, PriceRange.$, true),
+                                       new Wish(0, 0, "Asheville", "United States", Scenery.MOUNTAIN, "Hiking", ActivityLevel.HIGH, PriceRange.$, false),
+                                       new Wish(0, 0, "Washington DC", "United States", Scenery.METROPOLITAN, "Museum", ActivityLevel.LOW, PriceRange.$, true),
+                                       new Wish(0, 0, "Washington DC", "United States", Scenery.METROPOLITAN, "Sight Seeing", ActivityLevel.MEDIUM, PriceRange.$, true));
+
+        Wish match = new Wish(0, 0, "", "", Scenery.METROPOLITAN, "", ActivityLevel.MEDIUM, PriceRange.$, true);
+
+        when(repository.findAllPotentialWish()).thenReturn(wishList);
+        List <Wish> actual = wishService.findAllMatching(match);
+
+        assertEquals(1, actual.size());
+
+    }
+
+    @Test
+    void shouldFindNoMatching(){
+        List <Wish> wishList = List.of(new Wish(0, 0, "Las Vegas", "United States", Scenery.DESERT, "Casino", ActivityLevel.LOW, PriceRange.$$$, false),
+                new Wish(0, 0, "Portland", "United States", Scenery.SNOW, "Ski", ActivityLevel.MEDIUM, PriceRange.$$, true),
+                new Wish(0, 0, "Santa Monica", "United States", Scenery.BEACH, "Sun Bathing", ActivityLevel.LOW, PriceRange.$, true),
+                new Wish(0, 0, "Asheville", "United States", Scenery.MOUNTAIN, "Hiking", ActivityLevel.HIGH, PriceRange.$, false),
+                new Wish(0, 0, "Washington DC", "United States", Scenery.METROPOLITAN, "Museum", ActivityLevel.LOW, PriceRange.$, true),
+                new Wish(0, 0, "Washington DC", "United States", Scenery.METROPOLITAN, "Sight Seeing", ActivityLevel.MEDIUM, PriceRange.$, true));
+
+        Wish match = new Wish(0, 0, "", "", Scenery.METROPOLITAN, "", ActivityLevel.MEDIUM, PriceRange.$$, true);
+
+        when(repository.findAllPotentialWish()).thenReturn(wishList);
+        List <Wish> actual = wishService.findAllMatching(match);
+
+        assertEquals(0, actual.size());
+
+    }
+
+    @Test
     void shouldAdd() {
-        Wish expected = new Wish (4, 4, 4, 4);
-        when(repository.add(expected)).thenReturn(expected);
-        Result<Wish> actual = wishService.add(expected);
+        Wish add = new Wish(0, 3, "Santa Monica", "United States", Scenery.BEACH, "Sight Seeing", ActivityLevel.MEDIUM, PriceRange.$$, true);
+        Wish expected = new Wish(7, 3, "Santa Monica", "United States", Scenery.BEACH, "Sight Seeing", ActivityLevel.MEDIUM, PriceRange.$$, true);
+        when(repository.add(add)).thenReturn(expected);
+        Result<Wish> actual = wishService.add(add);
         assertEquals(expected.getAppUserId(), actual.getPayload().getAppUserId());
     }
 
@@ -55,26 +97,82 @@ public class WishServiceTest {
     }
 
     @Test
+    void shouldNotAddNonZeroWishId() {
+        Wish wish = new Wish(7, 3, "Washington DC", "United States", Scenery.METROPOLITAN, "Sight Seeing", ActivityLevel.MEDIUM, PriceRange.$, true);
+        Result<Wish> actual = wishService.add(wish);
+        assertEquals(ResultType.INVALID, actual.getType());
+    }
+
+    @Test
     void shouldNotAddNonExistingAppUserId() {
-        Wish wish = new Wish(0, 0, 1, 1);
+        Wish wish = new Wish(0, 0, "Washington DC", "United States", Scenery.METROPOLITAN, "Sight Seeing", ActivityLevel.MEDIUM, PriceRange.$, true);
         Result<Wish> actual = wishService.add(wish);
         assertEquals(ResultType.INVALID, actual.getType());
     }
 
     @Test
-    void shouldNotAddNonExistingCityId() {
-        Wish wish = new Wish(0, 1, 0, 1);
+    void shouldNotAddNullCityName() {
+        Wish wish = new Wish(0, 3, null, "United States", Scenery.METROPOLITAN, "Sight Seeing", ActivityLevel.MEDIUM, PriceRange.$, true);
         Result<Wish> actual = wishService.add(wish);
         assertEquals(ResultType.INVALID, actual.getType());
     }
 
     @Test
-    void shouldNotAddNonExistingEntertainmentId() {
-        Wish wish = new Wish(0, 1, 1, 0);
+    void shouldNotAddEmptyCityName() {
+        Wish wish = new Wish(0, 3, "    ", "United States", Scenery.METROPOLITAN, "Sight Seeing", ActivityLevel.MEDIUM, PriceRange.$, true);
         Result<Wish> actual = wishService.add(wish);
         assertEquals(ResultType.INVALID, actual.getType());
     }
 
+
+    @Test
+    void shouldNotAddNullCountryName() {
+        Wish wish = new Wish(0, 3, "Washington DC", null, Scenery.METROPOLITAN, "Sight Seeing", ActivityLevel.MEDIUM, PriceRange.$, true);
+        Result<Wish> actual = wishService.add(wish);
+        assertEquals(ResultType.INVALID, actual.getType());
+    }
+
+    @Test
+    void shouldNotAddEmptyCountryName() {
+        Wish wish = new Wish(0, 3, "Washington DC", "     ", Scenery.METROPOLITAN, "Sight Seeing", ActivityLevel.MEDIUM, PriceRange.$, true);
+        Result<Wish> actual = wishService.add(wish);
+        assertEquals(ResultType.INVALID, actual.getType());
+    }
+
+    @Test
+    void shouldNotAddNullScenery() {
+        Wish wish = new Wish(0, 3, "Washington DC", "United States", null, "Sight Seeing", ActivityLevel.MEDIUM, PriceRange.$, true);
+        Result<Wish> actual = wishService.add(wish);
+        assertEquals(ResultType.INVALID, actual.getType());
+    }
+
+    @Test
+    void shouldNotAddNullEntertainmentName() {
+        Wish wish = new Wish(0, 3, "Washington DC", "United States", Scenery.METROPOLITAN, null, ActivityLevel.MEDIUM, PriceRange.$, true);
+        Result<Wish> actual = wishService.add(wish);
+        assertEquals(ResultType.INVALID, actual.getType());
+    }
+
+    @Test
+    void shouldNotAddEmptyEntertainmentName() {
+        Wish wish = new Wish(0, 3, "Washington DC", "United States", Scenery.METROPOLITAN, "     ", ActivityLevel.MEDIUM, PriceRange.$, true);
+        Result<Wish> actual = wishService.add(wish);
+        assertEquals(ResultType.INVALID, actual.getType());
+    }
+
+    @Test
+    void shouldNotAddNullActivityLevel() {
+        Wish wish = new Wish(0, 3, "Washington DC", "United States", Scenery.METROPOLITAN, "Sight Seeing", null, PriceRange.$, true);
+        Result<Wish> actual = wishService.add(wish);
+        assertEquals(ResultType.INVALID, actual.getType());
+    }
+
+    @Test
+    void shouldNotAddNullPriceRange() {
+        Wish wish = new Wish(0, 3, "Washington DC", "United States", Scenery.METROPOLITAN, "Sight Seeing", ActivityLevel.MEDIUM, null, true);
+        Result<Wish> actual = wishService.add(wish);
+        assertEquals(ResultType.INVALID, actual.getType());
+    }
     @Test
     void shouldNotDeleteByInvalidId() {
         boolean actual = wishService.deleteById(999);

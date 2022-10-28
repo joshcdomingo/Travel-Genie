@@ -24,6 +24,11 @@ public class WishController {
         return service.findAll();
     }
 
+    @GetMapping("/match")
+    public List<Wish> findAllMatching(@RequestBody Wish wish) {
+        return service.findAllMatching(wish);
+    }
+
 //    Success: 200 OK
 //    Invalid Input: 400 Bad Request
 //    Failure (cannot be found): 404 Not Found

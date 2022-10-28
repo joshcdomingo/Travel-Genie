@@ -5,13 +5,16 @@ import learn.capstone.models.Wish;
 import java.util.List;
 
 public interface WishFileRepository {
-    Wish findById(int wishId);
 
-    Wish add(Wish wish);
+    Wish findById(int app_userId);
 
     List<Wish> findByAppUserId(int app_userId);
 
     List<Wish> findAll();
 
-    boolean deleteById(int agentId);
+    List<Wish> findAllPotentialWish();
+
+    Wish add(Wish wish);
+
+    boolean deleteById(int wishId);
 }

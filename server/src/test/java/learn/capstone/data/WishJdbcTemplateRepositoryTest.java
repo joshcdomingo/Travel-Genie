@@ -1,5 +1,8 @@
 package learn.capstone.data;
 
+import learn.capstone.models.ActivityLevel;
+import learn.capstone.models.PriceRange;
+import learn.capstone.models.Scenery;
 import learn.capstone.models.Wish;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -31,6 +34,11 @@ class WishJdbcTemplateRepositoryTest {
     }
 
     @Test
+    void shouldFindAllPotentialWish() {
+        List<Wish> wishes = repository.findAllPotentialWish();
+        assertTrue(wishes.size() >=1 );
+    }
+    @Test
     void shouldFindById() {
         Wish actual = repository.findById(1);
         assertEquals(1, actual.getAppUserId());
@@ -45,7 +53,7 @@ class WishJdbcTemplateRepositoryTest {
     @Test
     void shouldFindByAppUserId() {
         List<Wish> actual = repository.findByAppUserId(1);
-        assertEquals(2, actual.get(0).getEntertainmentId());
+        assertEquals(1, actual.get(0).getAppUserId());
     }
 
     @Test
@@ -56,9 +64,9 @@ class WishJdbcTemplateRepositoryTest {
 
     @Test
     void shouldAdd() {
-        Wish expected = new Wish(0, 1, 2, 1);
+        Wish expected = new Wish(0, 3, "Santa Monica", "United States", Scenery.BEACH, "Sight Seeing", ActivityLevel.MEDIUM, PriceRange.$$, true);
         expected = repository.add(expected);
-        Wish actual = repository.findById(4);
+        Wish actual = repository.findById(7);
         assertNotNull(actual);
     }
 
@@ -70,6 +78,6 @@ class WishJdbcTemplateRepositoryTest {
 
     @Test
     void shouldNotDeleteByNoneExistingId() {
-        assertFalse(repository.deleteById(5));
+        assertFalse(repository.deleteById(100));
     }
 }
