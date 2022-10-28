@@ -18,12 +18,13 @@ function Account() {
         if (window.confirm(`Change nickname to ${nickname}?`)) {
             const body = {appUserId: appUserId, nickname: nickname};
             console.log(body);
+            
             const response = await fetch(`http://localhost:8080/api/travelgenie/user/updateAccount/${appUserId}`, {
      
-            method: "PUT",
+                method: "PUT",
                 headers: {
-                      Authorization: `Bearer ${auth.user.token}`,
-                     "Content-Type": "application/json",
+                    Authorization: `Bearer ${auth.user.token}`,
+                    "Content-Type": "application/json",
                 },    
                 body: JSON.stringify({
                     ...body

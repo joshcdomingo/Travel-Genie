@@ -6,34 +6,28 @@ import AuthContext from "../contexts/AuthContext";
 
 
 function WishList() {
+ 
   const auth = useContext(AuthContext);
-  const endpoint = `http://localhost:8080/api/travelgenie/wish/user/${auth.user.userId}`;
+  const endpoint = "http://localhost:8080/api/travelgenie/wish";
   const [wishes, setWishes] = useState([]);
 
   useEffect(() => {
-    getWishes();
+      getwish();
   }, []);
 
-  const init = {
-      method: "GET",
+  const getwish = () => {
+    
+    const init = {
       headers: {
-          Authorization: `Bearer ${auth.user.token}`
-      }
-  };
+        Authorization: `Bearer ${auth.user.token}`,
+      },
+    };
 
-  const getWishes = () => {
-    fetch(endpoint, init)
-      .then((res) => {
-        if (res.status === 200) {
-          return res.json();
-        } else {
-          return Promise.reject(`Unexpected status code: ${res.status}`);
-        }
-      })
-      .then((data) => {
-        setWishes(data);
-      })
+    fetch(`${endpoint}/user/${auth.user.userId}`, init)
+      .then(response => response.json())
+      .then(data => setWishes(data))
       .catch(console.error);
+
   };
 
   const handleDeleteWish = (wish_id) => {
@@ -53,7 +47,7 @@ function WishList() {
       fetch(`${endpoint}/${wish_id}`, init)
         .then((response) => {
           if (response.status === 204) {
-            getWishes();
+            getwish();
           } else {
             return Promise.reject(`Unexpected status code: ${response.status}`);
           }
