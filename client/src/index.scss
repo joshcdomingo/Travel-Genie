@@ -48,17 +48,26 @@ $backgroundColor: #25a1ea;
 
 @media (min-width: 320px) {
 // Styles
-html, 
-body {
+html {
+    padding: 0;
     height: 100%;
 }
 
 body {
     background-image: linear-gradient(to bottom, #fff, #25a1ea);
-    min-height: auto;
+    min-height: 100%;
 }
 
-h2 {
+html, body {
+    position: absolute; 
+    top: 0; 
+    bottom: 0; 
+    right: 0; 
+    left: 0;
+    overflow: auto;
+}
+
+h1, h2 {
     font-family: $headingFont;
     letter-spacing: $letterSpacing;
 }
