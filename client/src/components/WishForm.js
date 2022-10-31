@@ -129,9 +129,17 @@ function WishForm() {
                     <Link to="/Home" className="btn btn-danger">Cancel</Link>
                 </div>
             </form> 
+            
             : 
-            <div className="search-result">    
-                <table>
+
+            <div className="search-result">  
+                {matches.length == 0 ? (<div className="no-result">
+                                       <h2>Sorry, Master {auth.user.nickname}!</h2>
+                                       <h2> I have failed to find a suitable desitination.</h2>
+                                       <h2> Please try again!</h2>
+                                       <button onClick={resetState} className="btn btn-dark">Make a Wish</button></div>) 
+                    :
+                    (<table>
                     <thead>
                         <tr>
                             <th>City</th>
@@ -143,7 +151,7 @@ function WishForm() {
                     </thead>
                     <tbody>
                         {matches.map((wish) => (
-                            <tr key={wish.wishId}>
+                            <tr key={matches.indexOf(wish)}>
                                 <td>{wish.cityName}</td>
                                 <td>{wish.countryName}</td>
                                 <td>{wish.scenery}</td>
@@ -156,7 +164,8 @@ function WishForm() {
                             </tr>
                         ))}
                     </tbody>
-                </table>
+                </table>)
+                }
             </div>}
         </main> 
     );
