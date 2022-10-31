@@ -51,7 +51,7 @@ function Login() {
                 <input type="password" id="password" name="password" className="form-control"
                     value={password} onChange={(event) => setPassword(event.target.value)}></input>
             </div>
-            {errors.length != 0 ? (
+            {errors.length !== 0 ? (
                 <div className="alert alert-danger">
                     {[...errors]}
                 </div> ) : (<div></div>)}
