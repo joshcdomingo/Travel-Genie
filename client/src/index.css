@@ -90,9 +90,10 @@ div.alert.alert-danger{
   padding: 10px;
 }
 
-input#username.form-control{
-  font-family:'Times New Roman', Times, serif
+input{
+  font-family: Arial, Helvetica, sans-serif;
 }
+
 
 /* body{
   background-image: linear-gradient(to right, white,rgb(238, 203, 45));
