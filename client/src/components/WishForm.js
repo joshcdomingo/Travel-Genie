@@ -4,40 +4,26 @@ import AuthContext from "../contexts/AuthContext";
 
 function WishForm() {
 
+    const WISH_DEFAULT = {
+        scenery: "BEACH",
+        activityLevel: "MEDIUM",
+        priceRange: "$",
+        kidFriendly: true
+    };
+
     const auth = useContext(AuthContext);
     const endpoint = `http://localhost:8080/api/travelgenie/wish/match`;
-    const [errs, setErrs] = useState([]);
+    const [errs, setErrs] = useState({});
     const [matches, setMatches] = useState([]);
     const appUserId = auth.user.userId;
+    const [wish, setWish] = useState(WISH_DEFAULT);
+    const [list, setList] = useState(matches);
 
-    const [choice, setChoice] = useState({
-        wishId: 0,
-        appUserId: 0,
-        cityName: "",
-        countryName: "",
-        scenery: "BEACH",
-        entertainmentName: "",
-        activityLevel: "MEDIUM",
-        priceRange: "$",
-        kidFriendly: true
-    });
-
-    // test variable
-    const body = ({
-        wishId: 0,
-        appUserId: 0,
-        cityName: "",
-        countryName: "",
-        scenery: "BEACH",
-        entertainmentName: "",
-        activityLevel: "MEDIUM",
-        priceRange: "$",
-        kidFriendly: true
-    });
 
     useEffect(() => {
         getMatches();
     }, []);
+    
     
     
     const getMatches = () => {
@@ -48,9 +34,7 @@ function WishForm() {
                 "Content-Type": "application/json",
                 Authorization: `Bearer ${auth.user.token}`
             },
-            body: JSON.stringify({
-                ...body
-            }),
+            body: JSON.stringify(wish),
         };
 
         fetch(endpoint, init)
@@ -59,36 +43,27 @@ function WishForm() {
           .catch(console.error);
     };
 
+
+
     function handleChange(evt) {
-        const nextChoice = { ...choice };
+        const nextChoice = { ...wish };
         if (evt.target.name === "kidFriendly") {
             nextChoice.kidFriendly = evt.target.checked;
         }
         else {
             nextChoice[evt.target.name] = evt.target.value;
         }
-        setChoice(nextChoice);
+        setWish(nextChoice);
     }
 
     function handleSubmit(evt) {
         evt.preventDefault();
+         
+        console.log(matches)
+        
 
-        //debugging to see if match fetch is working
-        console.log(matches);
-
-        //testing some things
-        if(choice.activityLevel === body.activityLevel){
-            console.log("similar");
-            console.log(choice);
-            console.log(body);
-            
-        }
-        else {
-            console.log("false");
-            console.log(choice);
-            console.log(body);
-        }
     }
+
 
     return (
         <form onSubmit={handleSubmit}>
@@ -101,17 +76,18 @@ function WishForm() {
             <div>
                 <label htmlFor="scenery">Scenery: </label>
                 <select id="scenery" name="scenery"
-                    value={choice.scenery} onChange={handleChange}>
+                    value={wish.scenery} onChange={handleChange}>
                     <option>METROPOLITAN</option>
                     <option>BEACH</option>
                     <option>MOUNTAIN</option>
                     <option>DESSERT</option>
                     <option>SNOW</option>
+
                 </select>
                 <div className="form-group">
                 <label htmlFor="activityLevel">Activity Level: </label>
                 <select id="activityLevel" name="activityLevel"
-                    value={choice.activityLevel} onChange={handleChange}>
+                    value={wish.activityLevel} onChange={handleChange}>
                     <option>LOW</option>
                     <option>MEDIUM</option>
                     <option>HIGH</option>
@@ -120,12 +96,12 @@ function WishForm() {
             <div>
                 <label htmlFor="kidFriendly">KidFriendly?</label>
                 <input type="checkbox" id="kidFriendly" name="kidFriendly"
-                    checked={choice.kidFriendly} onChange={handleChange}></input>
+                    checked={wish.kidFriendly} onChange={handleChange}></input>
             </div>
             <div className="form-group">
             <label htmlFor="priceRange">Price Range: </label>
                 <select id="priceRange" name="priceRange"
-                    value={choice.priceRange} onChange={handleChange}>
+                    value={wish.priceRange} onChange={handleChange}>
                     <option>$</option>
                     <option>$$</option>
                     <option>$$$</option>
