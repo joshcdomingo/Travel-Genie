@@ -48,9 +48,8 @@ function Registration() {
 
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className="entireForm" onSubmit={handleSubmit}>
             <img id="welcomeDesert" src="/images/welcomeDesert.jpeg " alt="daytime cartoon desert with camel and sun"></img>
-        <form className="entireForm" onSubmit={handleSubmit}></form>
             <div className="loginHeader">Register</div>
             <div className="login mb-2">
                 <label htmlFor="username" className="form-label">Username</label>

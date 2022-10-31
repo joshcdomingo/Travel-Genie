@@ -31,11 +31,9 @@ function Login() {
             const { jwt_token } = await response.json();
             auth.login(jwt_token);
             history.push("/home");
-        } else if (response.status === 403) {
-            const err = await response.json();
-            setErrors([...err]);
-        } else {
-            setErrors(["Unknown error."]);
+        } 
+        else {
+            setErrors(["Log in Failed."]);
         }
     };
 
