@@ -49,7 +49,7 @@ function Account() {
             <h2>Account</h2>
             <h3>{auth.user.nickname}</h3>
             <form onSubmit={handleSubmit}>
-                <div className="mb-2">
+                <div className="Account mb-2">
                     <label htmlFor="nickname" className="form-label">Nickname</label>
                     <input type="text" id="nickname" name="password" className="form-control"
                         value={nickname} onChange={(event) => setNickname(event.target.value)}></input>
@@ -60,7 +60,7 @@ function Account() {
                     </div> ) : (<div></div>)}
                 <div>
                     <button className="btn btn-primary me-2" type="submit">Register</button>
-                    <Link className="btn btn-warning" to="/">Cancel</Link>
+                    <Link className="btn btn-warning ml-2" to="/">Cancel</Link>
                 </div>
             </form>
         </main>

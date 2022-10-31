@@ -52,17 +52,17 @@ function Registration() {
             <img id="welcomeDesert" src="/images/welcomeDesert.jpeg " alt="daytime cartoon desert with camel and sun"></img>
         <form className="entireForm" onSubmit={handleSubmit}></form>
             <div className="loginHeader">Register</div>
-            <div className="mb-2">
+            <div className="login mb-2">
                 <label htmlFor="username" className="form-label">Username</label>
                 <input type="text" id="username" name="username" className="form-control"
                     value={username} onChange={(event) => setUsername(event.target.value)}></input>
             </div>
-            <div className="mb-2">
+            <div className="login mb-2">
                 <label htmlFor="nickname" className="form-label">Nickname</label>
                 <input type="text" id="nickname" name="password" className="form-control"
                     value={nickname} onChange={(event) => setNickname(event.target.value)}></input>
             </div>
-            <div className="mb-2">
+            <div className="login mb-2">
                 <label htmlFor="password" className="form-label">Password</label>
                 <input type="password" id="password" name="password" className="form-control"
                     value={password} onChange={(event) => setPassword(event.target.value)}></input>
