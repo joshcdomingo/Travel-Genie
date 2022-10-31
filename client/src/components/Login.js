@@ -41,6 +41,7 @@ function Login() {
 
     return (
         <form className="entireForm" onSubmit={handleSubmit}>
+            <img id="welcomeDesert" src="/images/welcomeDesert.jpeg " alt="daytime cartoon desert with camel and sun"></img>
             <div className="loginHeader">Login</div>
             <div className="mb-2">
                 <label htmlFor="username" className="form-label">Username</label>
