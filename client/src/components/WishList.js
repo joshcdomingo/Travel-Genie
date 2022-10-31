@@ -58,7 +58,7 @@ function WishList() {
     <main>
       <div className="container">
       <h2>Wish List</h2>
-        <Link className="btn btn-primary" to="/WishForm">
+        <Link className="btn addWish" to="/WishForm">
           Add Wish
         </Link>
         <table>

@@ -1,8 +1,12 @@
 // Variables
+$headingFont: 'Lobster Two', cursive;
+$letterSpacing: .1rem;
 $genieWidth: 400px;
 $genieHeight: 400px;
 $lampWidth: 100px;
 $smallSize: 130px;
+$buttonColor: #ecce32;
+$backgroundColor: #25a1ea;
 
 // Mixins
 @mixin container {
@@ -36,8 +40,37 @@ $smallSize: 130px;
     top: 325px;
 }
 
+.navbar.navbar-dark.bg-dark {
+    background-color: #0c3f5c !important;
+}
+
 @media (min-width: 320px) {
-    // Styles
+// Styles
+h2 {
+    font-family: $headingFont;
+    letter-spacing: $letterSpacing;
+}
+
+h2:after {
+    content: "";
+    display: block;
+    font-family: $headingFont;
+    width: 100%;
+    max-width: 100%;
+    border-bottom: 0.1em solid #000;
+    padding-top: .5em;
+  }
+
+.home, .account, .wishList {
+    padding: 10px;
+    color: #fff;
+    font-size: 16px;
+}
+
+.wishList {
+    margin-right: 1em;
+}
+
 .container {
     @include container();
 }
@@ -67,7 +100,43 @@ $smallSize: 130px;
     min-height: 800px;
     position: absolute;
     z-index: -1;
-    } 
+} 
 
+.logout, .addWish {
+    background-color: $backgroundColor;
+    border: 1px solid $backgroundColor;
+}
+
+.logout:hover, .addWish:hover {
+    background-color: $buttonColor;
+    border: 1px solid $buttonColor;
+    transform: scale(1.05);
+}
+
+/* Table */
+
+table {
+    width: 100%;
+    margin-top: 2%;
+    border-radius: 3px;
+  }
+  
+  td, th {
+    margin: 2% 0;
+    padding-left: 3rem;
+    padding-bottom: 3rem;
+  }
+  
+  th {
+    padding-top: 3rem;
+  }
+  
+  .btn-column {
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+    padding-right: 3rem;
+  }
+  
 }
 
