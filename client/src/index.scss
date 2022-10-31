@@ -1,5 +1,6 @@
 // Variables
 $headingFont: 'Lobster Two', cursive;
+$paragraphFont: 'Lato', sans-serif;
 $letterSpacing: .1rem;
 $genieWidth: 400px;
 $genieHeight: 400px;
@@ -42,11 +43,31 @@ $backgroundColor: #25a1ea;
 
 .navbar.navbar-dark.bg-dark {
     background-color: #0c3f5c !important;
+    // background-image: linear-gradient(to bottom right, #c7683b 0%, #e78b4b 25%, #ecce32 50%,  #25a1ea 75%, #0c3f5c 100%);
 }
 
 @media (min-width: 320px) {
 // Styles
-h2 {
+html {
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    background-image: linear-gradient(to bottom, #fff, #25a1ea);
+    min-height: 100%;
+}
+
+html, body {
+    position: absolute; 
+    top: 0; 
+    bottom: 0; 
+    right: 0; 
+    left: 0;
+    overflow: auto;
+}
+
+h1, h2 {
     font-family: $headingFont;
     letter-spacing: $letterSpacing;
 }
@@ -61,10 +82,25 @@ h2:after {
     padding-top: .5em;
   }
 
+p {
+    font-family: $paragraphFont;
+}
+
 .home, .account, .wishList {
     padding: 10px;
     color: #fff;
     font-size: 16px;
+    font-family: $paragraphFont;
+}
+
+.home:hover, .account:hover, .wishList:hover {
+    text-decoration: none;
+    color: #25a1ea;
+}
+
+.home:active, .account:active, .wishList:active {
+    text-decoration: none;
+    color: #ecce32;
 }
 
 .wishList {
@@ -118,17 +154,13 @@ h2:after {
 table {
     width: 100%;
     margin-top: 2%;
-    border-radius: 3px;
+    font-family: $paragraphFont;
   }
   
   td, th {
     margin: 2% 0;
     padding-left: 3rem;
     padding-bottom: 3rem;
-  }
-  
-  th {
-    padding-top: 3rem;
   }
   
   .btn-column {
