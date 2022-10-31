@@ -61,7 +61,6 @@ div.mb-2{
 }
 
 div.loginButtons{
-  font-family: 'Lobster Two', cursive;
   margin-top: 4.5rem!important;
   margin-bottom: -4.5rem!important;
   margin: auto;
@@ -71,13 +70,28 @@ div.loginButtons{
 
 div.loginHeader{
   font-family: 'Lobster Two', cursive;
-  margin-top: -0.5rem!important;
-  margin-bottom: .5rem!important;
   margin: auto;
   width: 50%;
   font-size: 45px;
   text-align: center;
   padding: 10px;
+}
+
+p#animationText{
+  font-size: 20px;
+  font-family: 'Lobster Two', cursive;
+}
+
+div.alert.alert-danger{
+  margin-top: 4.5rem!important;
+  margin-bottom: -4.5rem!important;
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
+input#username.form-control{
+  font-family:'Times New Roman', Times, serif
 }
 
 /* body{
