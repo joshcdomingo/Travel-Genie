@@ -49,6 +49,7 @@ function Registration() {
 
     return (
         <form onSubmit={handleSubmit}>
+            <div className="loginHeader">Register</div>
             <div className="mb-2">
                 <label htmlFor="username" className="form-label">Username</label>
                 <input type="text" id="username" name="username" className="form-control"
@@ -68,9 +69,9 @@ function Registration() {
                 <div className="alert alert-danger">
                     {[...errors]}
                 </div> ) : (<div></div>)}
-            <div>
+            <div className="loginButtons">
                 <button className="btn btn-primary me-2" type="submit">Register</button>
-                <Link className="btn btn-warning" to="/">Cancel</Link>
+                <Link className="btn btn-warning ml-2" to="/">Cancel</Link>
             </div>
         </form>
     );
