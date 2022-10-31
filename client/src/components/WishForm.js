@@ -160,8 +160,11 @@ function WishForm() {
             <div>
                 <button type="submit" className="button" onClick={() => getMatches()}>Find Destination</button>
                 <Link to="/Home" className="btn btn-danger">Cancel</Link>
-                <h1> {matches.map(m => m.cityName)}</h1>
-                <h1> {matches.map(m => m.entertainmentName)}</h1> 
+                <div>
+                    <h1> {matches.map(m => m.countryName)}</h1>
+                    <h1> {matches.map(m => m.cityName)}</h1>
+                    <h1> {matches.map(m => m.entertainmentName)}</h1> 
+                </div>
                 <button
               className="btn btn-success"
               onClick={() => handleAddWish(wish.wishId)}
