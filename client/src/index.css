@@ -1,4 +1,4 @@
-h1{
+h1 {
   text-align: center;
 }
 
@@ -8,7 +8,7 @@ h1{
   justify-content: center;
 }
 
-img.center{
+img.center {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -17,17 +17,35 @@ img.center{
   height: auto;
 }
 
-p.Introduction{
+p.Introduction {
   text-align: center;
   font-size:6rem;
   font-weight: 800;
 }
 
-a.btn.btn-info{
+a.btn.btn-light {
   margin-top: 3% !important;
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 300px;
   height: auto;
+  background-color: #25a1ea;
+  border: 1px solid #25a1ea;
+}
+
+a.btn.btn-dark {
+  margin-top: 3% !important;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+  height: auto;
+  background-color: #0c3f5c;
+}
+
+a.btn.btn-dark:hover, a.btn.btn-light:hover {
+  background-color: #ecce32;
+  border: 1px solid #ecce32;
+  transform: scale(1.05);
 }
