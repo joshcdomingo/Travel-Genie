@@ -65,10 +65,10 @@ public class WishJdbcTemplateRepository implements WishFileRepository {
 
     @Override
     public Wish add(Wish wish) {
-     final String sql = "insert into wish (app_user_id, city_name, country_name, scenery_name, entertainment_name, activity_level, price_range, kid_friendly) " +
-             "values (?, ?, ?, ?, ?, ?, ?, ?);";
+        final String sql = "insert into wish (app_user_id, city_name, country_name, scenery_name, entertainment_name, activity_level, price_range, kid_friendly) " +
+                "values (?, ?, ?, ?, ?, ?, ?, ?);";
 
-     KeyHolder keyHolder = new GeneratedKeyHolder();
+        KeyHolder keyHolder = new GeneratedKeyHolder();
         int rowsAffected = jdbcTemplate.update(connection -> {
             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             statement.setInt(1, wish.getAppUserId());

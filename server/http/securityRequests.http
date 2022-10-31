@@ -12,34 +12,34 @@ Content-Type: application/json
 ### GET all wishes
 GET {{url}} HTTP/1.1
 Origin: http://localhost:3000
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUcmF2ZWwtR2VuaWUiLCJzdWIiOiJhdWRyZXkiLCJhcHBfdXNlcl9pZCI6MiwiYXV0aG9yaXRpZXMiOiJVU0VSIiwiZXhwIjoxNjY3MDEzNTI4fQ._5ut7f6o49MXLRVaXyyunSYP_y75beohbY9cezmvR8I
-### GET a wish by ID
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUcmF2ZWwtR2VuaWUiLCJzdWIiOiJhdWRyZXkiLCJhcHBfdXNlcl9pZCI6MiwiYXV0aG9yaXRpZXMiOiJVU0VSIiwiZXhwIjoxNjY3MjI5MzM1fQ.H35vraVQxPVKH8ExyGRbc_QuGBrn5Ta7LFh0m65uaJY
+
 GET {{url}}/1 HTTP/1.1
 Origin: http://localhost:3000
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUcmF2ZWwtR2VuaWUiLCJzdWIiOiJhdWRyZXkiLCJhcHBfdXNlcl9pZCI6MiwiYXV0aG9yaXRpZXMiOiJVU0VSIiwiZXhwIjoxNjY3MDEzNTI4fQ._5ut7f6o49MXLRVaXyyunSYP_y75beohbY9cezmvR8I
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUcmF2ZWwtR2VuaWUiLCJzdWIiOiJhdWRyZXkiLCJhcHBfdXNlcl9pZCI6MiwiYXV0aG9yaXRpZXMiOiJVU0VSIiwiZXhwIjoxNjY3MjI5MzM1fQ.H35vraVQxPVKH8ExyGRbc_QuGBrn5Ta7LFh0m65uaJY
 
 ### GET return a 400 if id is invalid
 GET {{url}}/0 HTTP/1.1
 Origin: http://localhost:3000
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUcmF2ZWwtR2VuaWUiLCJzdWIiOiJhdWRyZXkiLCJhcHBfdXNlcl9pZCI6MiwiYXV0aG9yaXRpZXMiOiJVU0VSIiwiZXhwIjoxNjY3MDEzNTI4fQ._5ut7f6o49MXLRVaXyyunSYP_y75beohbY9cezmvR8I
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUcmF2ZWwtR2VuaWUiLCJzdWIiOiJhdWRyZXkiLCJhcHBfdXNlcl9pZCI6MiwiYXV0aG9yaXRpZXMiOiJVU0VSIiwiZXhwIjoxNjY3MjI5MzM1fQ.H35vraVQxPVKH8ExyGRbc_QuGBrn5Ta7LFh0m65uaJY
 
 ### GET return a 404 if city is not found
 GET {{url}}/999 HTTP/1.1
 Origin: http://localhost:3000
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUcmF2ZWwtR2VuaWUiLCJzdWIiOiJhdWRyZXkiLCJhcHBfdXNlcl9pZCI6MiwiYXV0aG9yaXRpZXMiOiJVU0VSIiwiZXhwIjoxNjY3MDEzNTI4fQ._5ut7f6o49MXLRVaXyyunSYP_y75beohbY9cezmvR8I
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUcmF2ZWwtR2VuaWUiLCJzdWIiOiJhdWRyZXkiLCJhcHBfdXNlcl9pZCI6MiwiYXV0aG9yaXRpZXMiOiJVU0VSIiwiZXhwIjoxNjY3MjI5MzM1fQ.H35vraVQxPVKH8ExyGRbc_QuGBrn5Ta7LFh0m65uaJY
 
 ### GET all wish with specific user ID
 GET {{url}}/user/3 HTTP/1.1
 Origin: http://localhost:3000
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUcmF2ZWwtR2VuaWUiLCJzdWIiOiJhdWRyZXkiLCJhcHBfdXNlcl9pZCI6MiwiYXV0aG9yaXRpZXMiOiJVU0VSIiwiZXhwIjoxNjY3MDEzNTI4fQ._5ut7f6o49MXLRVaXyyunSYP_y75beohbY9cezmvR8I
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUcmF2ZWwtR2VuaWUiLCJzdWIiOiJhdWRyZXkiLCJhcHBfdXNlcl9pZCI6MiwiYXV0aG9yaXRpZXMiOiJVU0VSIiwiZXhwIjoxNjY3MjI5MTc3fQ.REBXoqngztIZJH7B_LgZU8ZGbAcsgfTXiJALBT6D5eY
 ### GET empty list with invalid user ID
 GET {{url}}/user/999 HTTP/1.1
 Origin: http://localhost:3000
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUcmF2ZWwtR2VuaWUiLCJzdWIiOiJhdWRyZXkiLCJhcHBfdXNlcl9pZCI6MiwiYXV0aG9yaXRpZXMiOiJVU0VSIiwiZXhwIjoxNjY3MDEzNTI4fQ._5ut7f6o49MXLRVaXyyunSYP_y75beohbY9cezmvR8I
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUcmF2ZWwtR2VuaWUiLCJzdWIiOiJhdWRyZXkiLCJhcHBfdXNlcl9pZCI6MiwiYXV0aG9yaXRpZXMiOiJVU0VSIiwiZXhwIjoxNjY3MjI5MTc3fQ.REBXoqngztIZJH7B_LgZU8ZGbAcsgfTXiJALBT6D5eY
 ### GET all wish with matching fields
 GET {{url}}/match HTTP/1.1
 Origin: http://localhost:3000
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUcmF2ZWwtR2VuaWUiLCJzdWIiOiJhdWRyZXkiLCJhcHBfdXNlcl9pZCI6MiwiYXV0aG9yaXRpZXMiOiJVU0VSIiwiZXhwIjoxNjY3MDEzNTI4fQ._5ut7f6o49MXLRVaXyyunSYP_y75beohbY9cezmvR8I
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUcmF2ZWwtR2VuaWUiLCJzdWIiOiJhdWRyZXkiLCJhcHBfdXNlcl9pZCI6MiwiYXV0aG9yaXRpZXMiOiJVU0VSIiwiZXhwIjoxNjY3MjI5MTc3fQ.REBXoqngztIZJH7B_LgZU8ZGbAcsgfTXiJALBT6D5eY
 
 Content-Type: application/json
 
@@ -58,7 +58,7 @@ Content-Type: application/json
 ### GET empty list with not matching fields
 GET {{url}}/match HTTP/1.1
 Origin: http://localhost:3000
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUcmF2ZWwtR2VuaWUiLCJzdWIiOiJhdWRyZXkiLCJhcHBfdXNlcl9pZCI6MiwiYXV0aG9yaXRpZXMiOiJVU0VSIiwiZXhwIjoxNjY3MDEzNTI4fQ._5ut7f6o49MXLRVaXyyunSYP_y75beohbY9cezmvR8I
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUcmF2ZWwtR2VuaWUiLCJzdWIiOiJhdWRyZXkiLCJhcHBfdXNlcl9pZCI6MiwiYXV0aG9yaXRpZXMiOiJVU0VSIiwiZXhwIjoxNjY3MjI5MTc3fQ.REBXoqngztIZJH7B_LgZU8ZGbAcsgfTXiJALBT6D5eY
 Content-Type: application/json
 
 {
@@ -75,7 +75,7 @@ Content-Type: application/json
 
 ### POST a wish
 POST {{url}} HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUcmF2ZWwtR2VuaWUiLCJzdWIiOiJhdWRyZXkiLCJhcHBfdXNlcl9pZCI6MiwiYXV0aG9yaXRpZXMiOiJVU0VSIiwiZXhwIjoxNjY3MDEzNTI4fQ._5ut7f6o49MXLRVaXyyunSYP_y75beohbY9cezmvR8I
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUcmF2ZWwtR2VuaWUiLCJzdWIiOiJhdWRyZXkiLCJhcHBfdXNlcl9pZCI6MiwiYXV0aG9yaXRpZXMiOiJVU0VSIiwiZXhwIjoxNjY3MjI5MTc3fQ.REBXoqngztIZJH7B_LgZU8ZGbAcsgfTXiJALBT6D5eY
         
 {
   "appUserId": 3,
@@ -90,7 +90,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUcmF2ZWwtR2VuaWUiLCJzdWIiO
 
 ### POST return a 400 if wish is invalid
 POST {{url}} HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUcmF2ZWwtR2VuaWUiLCJzdWIiOiJhdWRyZXkiLCJhcHBfdXNlcl9pZCI6MiwiYXV0aG9yaXRpZXMiOiJVU0VSIiwiZXhwIjoxNjY3MDEzNTI4fQ._5ut7f6o49MXLRVaXyyunSYP_y75beohbY9cezmvR8I
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUcmF2ZWwtR2VuaWUiLCJzdWIiOiJhdWRyZXkiLCJhcHBfdXNlcl9pZCI6MiwiYXV0aG9yaXRpZXMiOiJVU0VSIiwiZXhwIjoxNjY3MjI5MTc3fQ.REBXoqngztIZJH7B_LgZU8ZGbAcsgfTXiJALBT6D5eY
 Content-Type: application/json
 
 {
@@ -106,7 +106,7 @@ Content-Type: application/json
 
 ### DELETE a wish by ID
 DELETE {{url}}/7 HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUcmF2ZWwtR2VuaWUiLCJzdWIiOiJhdWRyZXkiLCJhcHBfdXNlcl9pZCI6MiwiYXV0aG9yaXRpZXMiOiJVU0VSIiwiZXhwIjoxNjY3MDEzNTI4fQ._5ut7f6o49MXLRVaXyyunSYP_y75beohbY9cezmvR8I
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUcmF2ZWwtR2VuaWUiLCJzdWIiOiJhdWRyZXkiLCJhcHBfdXNlcl9pZCI6MiwiYXV0aG9yaXRpZXMiOiJVU0VSIiwiZXhwIjoxNjY3MjI5MTc3fQ.REBXoqngztIZJH7B_LgZU8ZGbAcsgfTXiJALBT6D5eY
 ### DELETE Return a 404 if the wish is not found
 DELETE {{url}}/999 HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUcmF2ZWwtR2VuaWUiLCJzdWIiOiJhdWRyZXkiLCJhcHBfdXNlcl9pZCI6MiwiYXV0aG9yaXRpZXMiOiJVU0VSIiwiZXhwIjoxNjY3MDEzNTI4fQ._5ut7f6o49MXLRVaXyyunSYP_y75beohbY9cezmvR8I
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUcmF2ZWwtR2VuaWUiLCJzdWIiOiJhdWRyZXkiLCJhcHBfdXNlcl9pZCI6MiwiYXV0aG9yaXRpZXMiOiJVU0VSIiwiZXhwIjoxNjY3MjI5MTc3fQ.REBXoqngztIZJH7B_LgZU8ZGbAcsgfTXiJALBT6D5eY

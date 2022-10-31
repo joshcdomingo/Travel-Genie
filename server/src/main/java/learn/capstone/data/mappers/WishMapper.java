@@ -34,4 +34,3 @@ public class WishMapper implements RowMapper<Wish> {
         return wish;
     }
 }
-
