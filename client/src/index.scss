@@ -36,7 +36,8 @@ $smallSize: 130px;
     top: 325px;
 }
 
-// Styles
+@media (min-width: 320px) {
+    // Styles
 .container {
     @include container();
 }
@@ -56,3 +57,17 @@ $smallSize: 130px;
 #animationText {
     text-align: center;
 }
+
+#travelGenieText {
+    max-width: 100%;
+}
+
+#welcomeDesert {
+    max-width: 100%;
+    min-height: 800px;
+    position: absolute;
+    z-index: -1;
+    } 
+
+}
+
