@@ -47,8 +47,9 @@ function Account() {
     return (
         <main>
             <h2>Account</h2>
-            <h3>{auth.user.nickname}</h3>
-            <form onSubmit={handleSubmit}>
+            <h3 className="nickName">Nickname:</h3>
+            <h4>{auth.user.nickname}</h4>
+            <form className="Account" onSubmit={handleSubmit}>
                 <div className="Account mb-2">
                     <label htmlFor="nickname" className="form-label">Nickname</label>
                     <input type="text" id="nickname" name="password" className="form-control"
@@ -58,7 +59,7 @@ function Account() {
                     <div className="alert alert-danger">
                         {[...errors]}
                     </div> ) : (<div></div>)}
-                <div>
+                <div className ="loginButtons">
                     <button className="btn btn-primary me-2" type="submit">Register</button>
                     <Link className="btn btn-warning ml-2" to="/">Cancel</Link>
                 </div>

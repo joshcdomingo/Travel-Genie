@@ -125,7 +125,7 @@ function WishForm() {
                 <h2>Wish Form</h2>
                 <div className="form-group">
                     <div className="scenery-select">
-                        <h3>Scenery</h3>
+                        <h3 className="wishFormLabel">Scenery</h3>
                         <label htmlFor="scenery">Metropolitan</label>
                         <input type="radio" id="scenery" name="scenery" value="METROPOLITAN" checked={wishScenery==='METROPOLITAN'} onChange={handleChange}></input>
                         <label htmlFor="scenery">Beach</label>
