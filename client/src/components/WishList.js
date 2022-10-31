@@ -37,11 +37,14 @@ function WishList() {
 
     if (
       window.confirm(
-        `Delete wish ${wish.city} ${wish.country}?`
+        `Delete wish ${wish.cityName} ${wish.countryName}?`
       )
     ) {
       const init = {
         method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${auth.user.token}`
+        }
       };
 
       fetch(`${endpoint}/${wish_id}`, init)
