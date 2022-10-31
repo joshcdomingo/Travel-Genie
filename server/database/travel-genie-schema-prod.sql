@@ -117,32 +117,47 @@ create table city_to_entertainment (
         (2, 'Sight Seeing', 'MEDIUM', '$', true),
         (3, 'Hiking', 'HIGH', '$', false),
         (4, 'Casino', 'LOW', '$$$', false),
-        (5, 'Ski', 'MEDIUM', '$$', true),
-        (6, 'Museum', 'LOW', '$', true);
+        (5, 'Ski', 'HIGH', '$$', true),
+        (6, 'Museum', 'LOW', '$', true),
+        (7, 'Surfing', 'HIGH', '$$', true),
+        (8, 'Food Tour', 'LOW', '$$', true),
+        (9, 'Camping', 'MEDIUM', '$', true),
+        (10, 'Zoo', 'MEDIUM', '$$', true),
+        (11, 'Aquarium', 'MEDIUM', '$$', true),
+        (12, 'Night Clubs', 'MEDIUM', '$$$', false),
+        (13, 'Golf', 'LOW', '$$', false),
+        (14, 'Snow Boarding', 'HIGH', '$$', true),
+        (15, 'Shopping', 'LOW', '$$$', false),
+        (16, 'Fishing', 'LOW', '$', false);
+        
 
 	insert into city (city_id, city_name, country_id, scenery_id) values
 		(1, 'Washington DC', 1, 1),
 		(2, 'Santa Monica', 1, 2),
 		(3, 'Asheville', 1, 3),
 		(4, 'Las Vegas', 1, 4),
-		(5, 'Portland', 1, 5);
+		(5, 'Portland', 1, 5),
+        (6, 'Honolulu', 1, 2),
+        (7, 'Austin', 1, 1),
+        (8, 'Aspen', 1, 5),
+        (9, 'Palm Springs', 1, 4),
+        (10, 'Stow', 1, 3);
 
    insert into city_to_entertainment (city_id, entertainment_id) values
-		(1, 2),
-        (1, 6),
-        (2, 1),
-        (2, 2),
-        (3, 2),
-        (3, 3),
-        (4, 2),
-        (4, 4),
-        (5, 2),
-        (5, 3),
-        (5, 5);
+		(1, 2),(1, 6),(1, 8),(1, 10),(1, 11),(1, 12),(1, 15),
+        (2, 1),(2, 2),(2, 7),(2, 8),(2, 10),(2, 11),(2, 12),(2, 15),(2, 16),
+        (3, 2),(3, 3),(3, 8),(3, 9),(3, 13),(3,14),(3, 15),(3, 16),
+        (4, 2),(4, 4),(4, 8),(4, 12),(4, 13),(4, 15),
+        (5, 2),(5, 3),(5, 5),(5, 8),(5, 10),(5, 11),(5, 12),(5, 13),(5, 14),(5, 15),
+        (6, 1),(6, 2),(6, 3),(6, 7),(6, 8),(6, 10),(6, 11),(6, 12),(6, 13),(6, 15),(6, 16),
+        (7, 2),(7, 6),(7, 8),(7, 10),(7, 11),(7, 12),(7, 13),(7, 15),
+        (8, 2),(8, 3),(8, 5),(8, 8),(8, 9),(8, 14),(8, 16),
+        (9, 2),(9, 3),(9, 6),(9, 8),(9, 12),(9, 15),
+        (10, 2),(10, 3),(10, 5),(10, 6),(10, 8),(10, 9),(10, 13),(10, 14),(10, 16);
 
     insert into wish (wish_id, app_user_id, city_name, country_name, scenery_name, entertainment_name, activity_level, price_range, kid_friendly) values
 		(1, 1, 'Las Vegas', 'United States', 'DESERT', 'Casino', 'LOW', '$$$', false),
-        (2, 1, 'Portland', 'United States', 'SNOW', 'Ski', 'MEDIUM', '$$', true),
+        (2, 1, 'Portland', 'United States', 'SNOW', 'Ski', 'HIGH', '$$', true),
 		(3, 2, 'Santa Monica', 'United States', 'BEACH', 'Sun Bathing', 'LOW', '$', true),
         (4, 2, 'Asheville', 'United States', 'MOUNTAIN', 'Hiking', 'HIGH', '$', false),
         (5, 3, 'Washington DC', 'United States', 'METROPOLITAN', 'Museum', 'LOW', '$', true),
