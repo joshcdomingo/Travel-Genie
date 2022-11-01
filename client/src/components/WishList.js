@@ -57,7 +57,7 @@ function WishList() {
   return (
     <main>
       <div className="container">
-      <h2>Wish List</h2>
+      <h2 id="wishListH2">Wish List</h2>
         <Link className="btn addWish" to="/WishForm">
           Add Wish
         </Link>

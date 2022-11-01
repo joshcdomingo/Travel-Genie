@@ -77,11 +77,8 @@ div.Account.mb-2{
 } */
 
 h3.nickName{
-  text-align: center;
   font-family: 'Lobster Two', cursive;
-}
-h4{
-  text-align: center;
+  padding-top: 1em;
 }
 
 div.loginButtons{

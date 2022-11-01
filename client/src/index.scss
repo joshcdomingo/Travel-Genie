@@ -72,7 +72,15 @@ h1, h2 {
     letter-spacing: $letterSpacing;
 }
 
-h2:after {
+h3 {
+    font-size: 20px;
+}
+
+#homeH2 {
+    margin-top: 1.5em;
+}
+
+#wishListH2:after {
     content: "";
     display: block;
     font-family: $headingFont;
@@ -81,6 +89,10 @@ h2:after {
     border-bottom: 0.1em solid #000;
     padding-top: .5em;
   }
+
+#homeH2 {
+    text-align: center;
+}
 
 p {
     font-family: $paragraphFont;
@@ -157,18 +169,23 @@ table {
     font-family: $paragraphFont;
   }
   
-  td, th {
+td, th {
     margin: 2% 0;
     padding-left: 3rem;
     padding-bottom: 3rem;
-  }
+}
+
+tr {
+    font-family: $paragraphFont;
+    font-weight: 700;
+}
   
-  .btn-column {
+.btn-column {
     text-align: center;
     display: flex;
     justify-content: space-evenly;
     padding-right: 3rem;
-  }
+}
   
 }
 

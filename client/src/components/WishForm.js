@@ -122,6 +122,7 @@ function WishForm() {
         <main>
         {!submitted ?
             <form onSubmit={handleSubmit}>
+                <div className="container">
                 <h2>Wish Form</h2>
                 <div className="form-group">
                     <div className="scenery-select">
@@ -166,6 +167,7 @@ function WishForm() {
 
                     <button type="submit" className="btn btn-primary">Find Destination</button>
                     <Link to="/Home" className="btn btn-danger">Cancel</Link>
+                </div>
                 </div>
             </form> 
             

@@ -8,7 +8,7 @@ function Home() {
 
     return (
         <main>
-            <h2>Your wish is my command Master {auth.user.nickname}!</h2>
+            <h2 id="homeH2">Your wish is my command, Master {auth.user.nickname}!</h2>
             <Link to="/WishForm" className="btn btn-dark">Make a Wish</Link>
         </main>
     );

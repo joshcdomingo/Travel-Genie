@@ -17,11 +17,13 @@ function NotFound() {
   }, notFound);
 
   return (
-    <div className="notFound" ref={notFound}>
-      <h2 className="animate">404</h2>
-      <p className="animate3">
-        Click <Link to="/home">here</Link> to go back home.
-      </p>
+    <div className="container">
+      <div className="notFound" ref={notFound}>
+        <h2 className="animate">404</h2>
+        <p className="animate3">
+          Click <Link to="/home">here</Link> to go back home.
+        </p>
+      </div>
     </div>
   );
 }
