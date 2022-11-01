@@ -30,13 +30,14 @@ public class EntertainmentJdbcTemplateRepository implements EntertainmentFileRep
     }
 
     @Override
-    public List<Entertainment> findByCityId(int cityId) {
+    public List<Entertainment> findByCityName(String cityName) {
         final String sql = "select e.entertainment_id, e.entertainment_name, e.activity_level, e.price_range, e.kid_friendly "
                 + "from entertainment e "
-                + "inner join city_to_entertainment c on c.entertainment_id = e.entertainment_id "
-                + "where c.city_id = ?;";
+                + "inner join city_to_entertainment ce on ce.entertainment_id = e.entertainment_id "
+                + "inner join city c on ce.city_id = c.city_id "
+                + "where c.city_name = ?;";
 
-        return jdbcTemplate.query(sql, new EntertainmentMapper(), cityId);
+        return jdbcTemplate.query(sql, new EntertainmentMapper(), cityName);
     }
 
     @Override

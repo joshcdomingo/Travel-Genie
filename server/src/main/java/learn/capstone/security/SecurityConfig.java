@@ -29,7 +29,7 @@ public class SecurityConfig {
                 .antMatchers("/authenticate").permitAll()
                 .antMatchers("/create_account").permitAll()
                 .antMatchers("/refresh_token").authenticated()
-                .antMatchers(HttpMethod.GET, "/api/travelgenie", "/api/travelgenie/*", "/api/travelgenie/wish", "/api/travelgenie/wish/*", "/api/travelgenie/wish/user","/api/travelgenie/wish/user/*").hasAnyAuthority("USER")
+                .antMatchers(HttpMethod.GET, "/api/travelgenie", "/api/travelgenie/*", "/api/travelgenie/wish", "/api/travelgenie/wish/*", "/api/travelgenie/wish/user","/api/travelgenie/wish/user/*", "/api/travelgenie/entertainment/city/*").hasAnyAuthority("USER")
                 .antMatchers(HttpMethod.POST, "/api/travelgenie/wish", "/api/travelgenie/wish/match").hasAnyAuthority("USER")
                 .antMatchers(HttpMethod.PUT, "/api/travelgenie/user", "/api/travelgenie/user/updateAccount/*").hasAnyAuthority("USER")
                 .antMatchers(HttpMethod.DELETE, "/api/travelgenie/wish/*").hasAnyAuthority("USER")

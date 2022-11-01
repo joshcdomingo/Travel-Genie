@@ -46,14 +46,14 @@ class EntertainmentJdbcTemplateRepositoryTest {
     }
 
     @Test
-    void shouldFindByCityId() {
-        List<Entertainment> actual = repository.findByCityId(1);
-        assertEquals(1, actual.size());
+    void shouldFindByCityName() {
+        List<Entertainment> actual = repository.findByCityName("Washington DC");
+        assertEquals(2, actual.size());
     }
 
     @Test
     void shouldNotFindByNoneExitingCityId() {
-        List<Entertainment> actual = repository.findByCityId(0);
+        List<Entertainment> actual = repository.findByCityName("Fake City");
         assertEquals(0, actual.size());
     }
 }

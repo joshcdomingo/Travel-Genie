@@ -34,8 +34,8 @@ public class EntertainmentController {
         return ErrorResponse.build(result);
     }
 
-    @GetMapping("/city/{cityId}")
-    public List<Entertainment> findByCityId(@PathVariable int cityId) {
-        return service.findByCityId(cityId);
+    @GetMapping("/city/{cityName}")
+    public List<Entertainment> findByCityId(@PathVariable String cityName) {
+        return service.findByCityName(cityName);
     }
 }
