@@ -210,6 +210,16 @@ img#travelGenieText{
   filter: drop-shadow(0 0 0.75rem rgb(26, 44, 204));
 }
 
+
+img#genie{
+  filter: drop-shadow(0 0 0.75rem rgb(26, 44, 204));
+}
+
+img#cityImage {
+  width: 100%;
+  padding-bottom: 5%;
+}
+
 h3.nickName{
   border-bottom: 0.1em solid #000;
   margin: auto;

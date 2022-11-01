@@ -71,8 +71,10 @@ function WishList() {
             <tr>
               <th>City</th>
               <th>Country</th>
-              <th>Scenery</th>
               <th>Entertainment</th>
+              <th>Activity Level</th>
+              <th>Price Range</th>
+              <th>Kids Friendly</th>
               <th>&nbsp;</th>
               <th>&nbsp;</th>
             </tr>
@@ -82,8 +84,10 @@ function WishList() {
               <tr key={wish.wishId}>
                 <td>{wish.cityName}</td>
                 <td>{wish.countryName}</td>
-                <td>{wish.scenery}</td>
                 <td>{wish.entertainmentName}</td>
+                <td>{wish.activityLevel}</td>
+                <td>{wish.priceRange}</td>
+                <td>{wish.kidFriendly ? "Yes" : "No"}</td>
                 <td className="buttonContainer">
                   <Link className="btn btn-primary" to={`/${wish.cityName}`}>
                     City Details

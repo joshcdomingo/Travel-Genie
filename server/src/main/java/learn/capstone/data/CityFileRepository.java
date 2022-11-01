@@ -5,7 +5,7 @@ import learn.capstone.models.City;
 import java.util.List;
 
 public interface CityFileRepository {
-    City findById(int cityId);
+    City findByName(String cityName);
 
     List<City> findByScenery(String sceneryName);
 

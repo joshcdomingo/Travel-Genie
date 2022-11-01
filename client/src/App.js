@@ -109,6 +109,10 @@ function App() {
               {user ? <CityDetail /> : <Redirect to="/" />}
             </Route>
 
+            <Route path="/404">
+              {user ? <NotFound /> : <Redirect to="/" />}
+            </Route>
+
             <Route path="*">
               {user ? <NotFound /> : <Redirect to="/" />}
             </Route>

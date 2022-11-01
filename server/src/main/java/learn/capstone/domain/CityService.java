@@ -20,15 +20,15 @@ public class CityService {
         return repository.findAll();
     }
 
-    public Result<City> findById(int cityId) {
+    public Result<City> findByName(String cityName) {
         Result<City> result = new Result<>();
 
-        if(cityId <= 0){
-            result.addMessage("city id cannot be a 0 or negative", ResultType.INVALID);
+        if(cityName == null || cityName.trim().isEmpty()){
+            result.addMessage("city name cannot be null or emoty", ResultType.INVALID);
             return result;
         }
 
-        City city = repository.findById(cityId);
+        City city = repository.findByName(cityName);
 
         if(city == null){
             result.addMessage("city cannot be null", ResultType.NOT_FOUND);
