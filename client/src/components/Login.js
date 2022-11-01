@@ -57,7 +57,7 @@ function Login() {
                 </div> ) : (<div></div>)}
             <div className="loginButtons">
                 <button className="btn btn-primary me-2" type="submit">Login</button>
-                <Link className="btn btn-warning ml-2" to="/">Cancel</Link>
+                <Link className="btn btn-danger ml-2" to="/">Cancel</Link>
             </div>
         </form>
     );
