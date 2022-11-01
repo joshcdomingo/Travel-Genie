@@ -56,7 +56,7 @@ div.login.mb-2{
   margin-top: 4.5rem!important;
   margin-bottom: -4.5rem!important;
   margin: auto;
-  width: 50%;
+  width: 30%;
   padding: 10px;
 }
 
@@ -76,11 +76,15 @@ h3.nickName{
 }
 
 div.loginButtons{
-  margin-top: 4.5rem!important;
+  margin-top: 5rem!important;
   margin-bottom: -4.5rem!important;
   margin: auto;
-  width: 50%;
+  width: 30%;
   padding: 10px;
+}
+
+form.Account{
+  margin-top: -4rem!important;
 }
 
 div.loginHeader{
@@ -98,14 +102,50 @@ p#animationText{
 }
 
 div.alert.alert-danger{
-  margin-top: 4.5rem!important;
+  margin-top: 5rem!important;
   margin-bottom: -4.5rem!important;
   margin: auto;
-  width: 50%;
+  width: 30%;
   padding: 10px;
 }
 
 input{
   font-family: Arial, Helvetica, sans-serif;
 }
+
+label{
+  margin-right: 2rem!important;
+}
+
+input#scenery{
+  margin-left: -1.5rem!important;
+  margin-right: 7rem!important;
+}
+
+h3{
+  font-family: 'Lobster Two', cursive;
+  font-size: 28px!important;
+}
+
+input#price-range{
+  margin-left: -1.5rem!important;
+  margin-right: 7rem!important;
+}
+
+input#activity-level{
+  margin-left: -1.5rem!important;
+  margin-right: 7rem!important;
+}
+
+input#kidFriendly{
+  margin-left: -1.5rem!important;
+  margin-right: 7rem!important;
+}
+
+div.kidFriendly-select.mb-5{
+  font-family: 'Lobster Two', cursive;
+  font-weight: 500;
+  font-size: 28px;
+}
+
 

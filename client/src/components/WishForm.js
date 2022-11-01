@@ -125,7 +125,7 @@ function WishForm() {
                 <div className="container">
                 <h2>Wish Form</h2>
                 <div className="form-group">
-                    <div className="scenery-select">
+                    <div className="scenery-select mb-5 mt-4">
                         <h3 className="wishFormLabel">Scenery</h3>
                         <label htmlFor="scenery">Metropolitan</label>
                         <input type="radio" id="scenery" name="scenery" value="METROPOLITAN" checked={wishScenery==='METROPOLITAN'} onChange={handleChange}></input>
@@ -139,7 +139,7 @@ function WishForm() {
                         <input type="radio" id="scenery" name="scenery" value="SNOW" checked={wishScenery==='SNOW'} onChange={handleChange}></input>
                     </div>
 
-                    <div className="activity-levle-select">
+                    <div className="activity-level-select mb-5">
                         <h3>Activity Level</h3>
                         <label htmlFor="activity-level">Relaxed</label>
                         <input type="radio" id="activity-level" name="activity-level" value="LOW" checked={wishActivityLevel==='LOW'} onChange={handleChange}></input>
@@ -150,7 +150,7 @@ function WishForm() {
                     </div>
                     
 
-                    <div className="price-range-select">
+                    <div className="price-range-select mb-5">
                         <h3>Price Range</h3>
                         <label htmlFor="price-range">$</label>
                         <input type="radio" id="price-range" name="price-range" value="$" checked={wishPriceRange==='$'} onChange={handleChange}></input>
@@ -160,13 +160,14 @@ function WishForm() {
                         <input type="radio" id="price-range" name="price-range" value="$$$" checked={wishPriceRange==='$$$'} onChange={handleChange}></input>                    
                     </div>
 
-                    <div className="kidFriendly-select">  
+                    <div className="kidFriendly-select mb-5">  
                         <label htmlFor="kidFriendly">KidFriendly?</label>
                         <input type="checkbox" id="kidFriendly" name="kidFriendly" checked={wish.kidFriendly} onChange={handleChange}></input>
                     </div>
-
+                    <div>
                     <button type="submit" className="btn btn-primary">Find Destination</button>
-                    <Link to="/Home" className="btn btn-danger">Cancel</Link>
+                    <Link to="/Home" className="btn btn-danger ml-2">Cancel</Link>
+                    </div>
                 </div>
                 </div>
             </form> 
