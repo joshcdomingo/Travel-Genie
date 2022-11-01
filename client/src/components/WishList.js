@@ -4,6 +4,7 @@ import { useContext } from "react";
 import AuthContext from "../contexts/AuthContext";
 
 
+
 function WishList() {
  
   const auth = useContext(AuthContext);
@@ -34,12 +35,16 @@ function WishList() {
       (wish) => wish.wishId === wish_id
     );
 
-    if (window.confirm(`Delete wish ${wish.cityName} ${wish.countryName}?`)) {
+    if (
+      window.confirm(
+        `Delete wish ${wish.cityName} ${wish.countryName}?`
+      )
+    ) {
       const init = {
         method: "DELETE",
         headers: {
-          Authorization: `Bearer ${auth.user.token}`,
-        }  
+          Authorization: `Bearer ${auth.user.token}`
+        }
       };
 
       fetch(`${endpoint}/${wish_id}`, init)
