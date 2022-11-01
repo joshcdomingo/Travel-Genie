@@ -34,8 +34,8 @@ public class EntertainmentService {
         return result;
     }
 
-    public List<Entertainment> findByCityId(int cityId) {
-        return repository.findByCityId(cityId);
+    public List<Entertainment> findByCityName(String cityName) {
+        return repository.findByCityName(cityName);
     }
 
     public List<Entertainment> findAll()  {

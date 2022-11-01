@@ -9,6 +9,7 @@ import Home from "./components/Home";
 import Account from "./components/Account";
 import WishList from "./components/WishList";
 import WishForm from "./components/WishForm";
+import CityDetail from "./components/CityDetail";
 import NotFound from "./components/NotFound";
 import AuthContext from "./contexts/AuthContext";
 
@@ -102,6 +103,10 @@ function App() {
 
             <Route exact path="/WishForm">
               {user ? <WishForm /> : <Redirect to="/" />}
+            </Route>
+
+            <Route exact path="/:handle">
+              {user ? <CityDetail /> : <Redirect to="/" />}
             </Route>
 
             <Route path="*">

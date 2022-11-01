@@ -74,6 +74,7 @@ function WishList() {
               <th>Scenery</th>
               <th>Entertainment</th>
               <th>&nbsp;</th>
+              <th>&nbsp;</th>
             </tr>
           </thead>
           <tbody>
@@ -83,6 +84,11 @@ function WishList() {
                 <td>{wish.countryName}</td>
                 <td>{wish.scenery}</td>
                 <td>{wish.entertainmentName}</td>
+                <td className="buttonContainer">
+                  <Link className="btn btn-info" to={`/${wish.cityName}`}>
+                    City Details
+                  </Link>
+                </td>
                 <td className="buttonContainer">
                   <button className="btn btn-danger" onClick={() => handleDeleteWish(wish.wishId)}>
                     Delete
