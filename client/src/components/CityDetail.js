@@ -62,11 +62,9 @@ function CityDetail() {
         <main>
             {city == null ? <NotFound /> : 
                 <div className="container">
-                    <h2>{city.cityName}, {city.countryName}</h2>
-                    <h5>{city.scenery}</h5>
-                    <Link className="btn btn-primary" to="/WishList">
-                        Back to Wish List
-                    </Link>
+                    <img id="cityImage" src={`./images/${city.cityId}.jpeg`} alt="genie" />
+                    <h2 id="wishListH2">{city.cityName}, {city.countryName}</h2>
+                    <h5>Things To Do</h5>
                     <table>
                         <thead>
                             <tr>
@@ -87,6 +85,9 @@ function CityDetail() {
                             ))}
                         </tbody>
                     </table>
+                    <Link className="btn btn-primary" to="/WishList">
+                        Back to Wish List
+                    </Link>
                 </div>
             }
         </main>
