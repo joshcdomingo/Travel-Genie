@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
 import AuthContext from "../contexts/AuthContext";
+import { gsap } from "gsap";
 
 function WishForm() {
 
@@ -117,6 +118,18 @@ function WishForm() {
         setErrs([]);
         setSubmitted(false);
     };
+
+    const animateGenie = () => {
+        gsap.timeline()
+        .from("#genieForm", { opacity: -1, scale: 0 })
+        .to("#genieForm", { duration: 1.5, opacity: 1, scale: 1});
+      };
+
+      const animateGenie2 = () => {
+        gsap.timeline()
+        .from("#genieForm2", { opacity: -1, scale: 0 })
+        .to("#genieForm2", { duration: 1.5, opacity: 1, scale: 1});
+      };
       
     return (
         <main>
@@ -170,6 +183,9 @@ function WishForm() {
                     </div>
                 </div>
                 </div>
+                <div className="logo">
+            <img id="genieForm" src="./images/genie.png" alt="genie" onLoad={animateGenie} />
+        </div>
             </form> 
             
             : 
@@ -213,6 +229,9 @@ function WishForm() {
                         <button onClick={resetState} className="btn btn-dark">Start Over</button>
                     </div>)
                 }
+                <div className="logo">
+            <img id="genieForm2" src="./images/genie.png" alt="genie" onLoad={animateGenie2} />
+        </div>
             </div>}
         </main> 
     );
