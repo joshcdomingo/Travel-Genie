@@ -52,7 +52,7 @@ function Account() {
                 <h4>{auth.user.nickname}</h4>
                 <form className="Account" onSubmit={handleSubmit}>
                     <div className="Account mb-2">
-                        <label htmlFor="nickname" className="form-label nickNameLabel">Nickname</label>
+                        <label htmlFor="nickname" className="form-label nickNameLabel">New Nickname</label>
                         <input type="text" id="nickname" name="password" className="form-control"
                             value={nickname} onChange={(event) => setNickname(event.target.value)}></input>
                     </div>

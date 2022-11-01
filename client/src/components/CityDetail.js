@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import { useLocation} from "react-router-dom";
+import { Link, useLocation} from "react-router-dom";
 import AuthContext from "../contexts/AuthContext";
 
 function CityDetail() {
@@ -34,6 +34,9 @@ function CityDetail() {
         <main>
         <div className="container">
         <h2>Entertainments in {cityName}</h2>
+        <Link className="btn btn-primary" to="/WishList">
+          Back to Wish List
+        </Link>
         <table>
           <thead>
             <tr>
@@ -49,7 +52,7 @@ function CityDetail() {
                 <td>{entertainment.entertainmentName}</td>
                 <td>{entertainment.activityLevel}</td>
                 <td>{entertainment.priceRange}</td>
-                <td>{entertainment.kidFriendy ? "Yes" : "No"}</td>
+                <td>{entertainment.kidFriendly ? "Yes" : "No"}</td>
              </tr>
            ))}
           </tbody>

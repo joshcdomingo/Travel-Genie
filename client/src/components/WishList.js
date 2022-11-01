@@ -85,7 +85,7 @@ function WishList() {
                 <td>{wish.scenery}</td>
                 <td>{wish.entertainmentName}</td>
                 <td className="buttonContainer">
-                  <Link className="btn btn-info" to={`/${wish.cityName}`}>
+                  <Link className="btn btn-primary" to={`/${wish.cityName}`}>
                     City Details
                   </Link>
                 </td>
