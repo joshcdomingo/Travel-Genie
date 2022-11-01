@@ -29,9 +29,9 @@ public class CityController {
 //    Success: 200 OK
 //    Invalid Input: 400 Bad Request
 //    Failure (cannot be found): 404 Not Found
-    @GetMapping("/{cityId}")
-    public ResponseEntity<?> findById(@PathVariable int cityId) {
-        Result<City> result = service.findById(cityId);
+    @GetMapping("/{cityName}")
+    public ResponseEntity<?> findByName(@PathVariable String cityName) {
+        Result<City> result = service.findByName(cityName);
         if (result.isSuccess()) {
             return new ResponseEntity<>(result.getPayload(), HttpStatus.OK);
         }

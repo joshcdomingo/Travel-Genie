@@ -23,21 +23,21 @@ class CityServiceTest {
     @Test
     void shouldFindById() {
         City expected = new City (1, "United State", Scenery.METROPOLITAN, "Washington DC");
-        when(repository.findById(1)).thenReturn(expected);
-        Result<City> actual = cityService.findById(1);
+        when(repository.findByName("Washington DC")).thenReturn(expected);
+        Result<City> actual = cityService.findByName("Washington DC");
         assertEquals(expected.getCityName(), actual.getPayload().getCityName());
     }
 
     @Test
-    void shouldNotFindByInvalidCityId() {
-        Result<City> actual = cityService.findById(0);
+    void shouldNotFindByInvalidCityName() {
+        Result<City> actual = cityService.findByName(null);
         assertEquals(ResultType.INVALID, actual.getType());
     }
 
     @Test
-    void shouldNotFindByNoneExistingId() {
-        when(repository.findById(100)).thenReturn(null);
-        Result<City> actual = cityService.findById(100);
+    void shouldNotFindByNoneExistingName() {
+        when(repository.findByName("Fake City")).thenReturn(null);
+        Result<City> actual = cityService.findByName("Fake City");
         assertEquals(ResultType.NOT_FOUND, actual.getType());
     }
 

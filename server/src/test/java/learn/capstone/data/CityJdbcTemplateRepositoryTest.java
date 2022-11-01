@@ -32,15 +32,15 @@ class CityJdbcTemplateRepositoryTest {
     }
 
     @Test
-    void shouldFindById() {
-        City actual = repository.findById(1);
+    void shouldFindByName() {
+        City actual = repository.findByName("Washington DC");
 
         assertNotNull(actual);
     }
 
     @Test
-    void shouldNotFindByNoneExistingId() {
-        City actual = repository.findById(0);
+    void shouldNotFindByNoneExistingName() {
+        City actual = repository.findByName("Fake City");
 
         assertNull(actual);
     }
