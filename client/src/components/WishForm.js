@@ -127,41 +127,41 @@ function WishForm() {
                 <div className="form-group">
                     <div className="scenery-select mb-5 mt-4">
                         <h3 className="wishFormLabel">Scenery</h3>
-                        <label htmlFor="scenery">Metropolitan</label>
                         <input type="radio" id="scenery" name="scenery" value="METROPOLITAN" checked={wishScenery==='METROPOLITAN'} onChange={handleChange}></input>
-                        <label htmlFor="scenery">Beach</label>
+                        <label htmlFor="scenery">Metropolitan</label>
                         <input type="radio" id="scenery" name="scenery" value="BEACH" checked={wishScenery==='BEACH'} onChange={handleChange}></input>
-                        <label htmlFor="scenery">Mountains</label>
+                        <label htmlFor="scenery">Beach</label>
                         <input type="radio" id="scenery" name="scenery" value="MOUNTAIN" checked={wishScenery==='MOUNTAIN'} onChange={handleChange}></input>
-                        <label htmlFor="scenery">Desert</label>
+                        <label htmlFor="scenery">Mountains</label>
                         <input type="radio" id="scenery" name="scenery" value="DESERT" checked={wishScenery==='DESERT'} onChange={handleChange}></input>
-                        <label htmlFor="scenery">Snow</label>
+                        <label htmlFor="scenery">Desert</label>
                         <input type="radio" id="scenery" name="scenery" value="SNOW" checked={wishScenery==='SNOW'} onChange={handleChange}></input>
+                        <label htmlFor="scenery">Snow</label>
                     </div>
 
                     <div className="activity-level-select mb-5">
                         <h3>Activity Level</h3>
-                        <label htmlFor="activity-level">Relaxed</label>
                         <input type="radio" id="activity-level" name="activity-level" value="LOW" checked={wishActivityLevel==='LOW'} onChange={handleChange}></input>
-                        <label htmlFor="activity-level">Take some effort</label>
+                        <label htmlFor="activity-level">Relaxed</label>
                         <input type="radio" id="activity-level" name="activity-level" value="MEDIUM" checked={wishActivityLevel==='MEDIUM'} onChange={handleChange}></input>
-                        <label htmlFor="activity-level">Sweat it out</label>
+                        <label htmlFor="activity-level">Take some effort</label>
                         <input type="radio" id="activity-level" name="activity-level" value="HIGH" checked={wishActivityLevel==='HIGH'} onChange={handleChange}></input>                    
+                        <label htmlFor="activity-level">Sweat it out</label>
                     </div>
                     
 
                     <div className="price-range-select mb-5">
                         <h3>Price Range</h3>
-                        <label htmlFor="price-range">$</label>
                         <input type="radio" id="price-range" name="price-range" value="$" checked={wishPriceRange==='$'} onChange={handleChange}></input>
-                        <label htmlFor="price-range">$$</label>
+                        <label htmlFor="price-range">$</label>
                         <input type="radio" id="price-range" name="price-range" value="$$" checked={wishPriceRange==='$$'} onChange={handleChange}></input>
-                        <label htmlFor="price-range">$$$</label>
+                        <label htmlFor="price-range">$$</label>
                         <input type="radio" id="price-range" name="price-range" value="$$$" checked={wishPriceRange==='$$$'} onChange={handleChange}></input>                    
+                        <label htmlFor="price-range">$$$</label>
                     </div>
 
                     <div className="kidFriendly-select mb-5">  
-                        <label htmlFor="kidFriendly">KidFriendly?</label>
+                        <label htmlFor="kidFriendly">Kid Friendly?</label>
                         <input type="checkbox" id="kidFriendly" name="kidFriendly" checked={wish.kidFriendly} onChange={handleChange}></input>
                     </div>
                     <div>
@@ -175,7 +175,7 @@ function WishForm() {
             : 
 
             <div className="search-result">  
-                {matches.length == 0 ? (<div className="no-result">
+                {matches.length === 0 ? (<div className="no-result">
                                        <h2>Sorry, Master {auth.user.nickname}!</h2>
                                        <h2> I have failed to find a suitable desitination.</h2>
                                        <h2> Please try again!</h2>

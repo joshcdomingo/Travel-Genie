@@ -114,32 +114,21 @@ input{
 }
 
 label{
-  margin-right: 2rem!important;
+  margin-right: 2rem !important;
 }
 
-input#scenery{
-  margin-left: -1.5rem!important;
-  margin-right: 7rem!important;
+input#scenery, input#price-range, input#activity-level {
+  margin-left: 1.5rem !important;
+  margin-right: 1rem !important;
 }
 
 h3{
   font-family: 'Lobster Two', cursive;
-  font-size: 28px!important;
-}
-
-input#price-range{
-  margin-left: -1.5rem!important;
-  margin-right: 7rem!important;
-}
-
-input#activity-level{
-  margin-left: -1.5rem!important;
-  margin-right: 7rem!important;
+  font-size: 28px !important;
 }
 
 input#kidFriendly{
-  margin-left: -1.5rem!important;
-  margin-right: 7rem!important;
+  margin-right: 5rem!important;
 }
 
 div.kidFriendly-select.mb-5{
