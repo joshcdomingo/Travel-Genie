@@ -60,8 +60,8 @@ function Account() {
                         <div className="alert alert-danger">
                             {[...errors]}
                         </div> ) : (<div></div>)}
-                    <div className ="loginButtons">
-                        <button className="btn btn-primary me-2" type="submit">Register</button>
+                    <div className ="accountButtons">
+                        <button className="btn btn-primary me-2" type="submit">Save</button>
                         <Link className="btn btn-warning ml-2" to="/">Cancel</Link>
                     </div>
                 </form>

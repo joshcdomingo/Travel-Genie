@@ -42,6 +42,7 @@ a.btn.btn-dark {
   width: 300px;
   height: auto;
   background-color: #0c3f5c;
+  margin-bottom: 1%;
 }
 
 a.btn.btn-dark:hover, a.btn.btn-light:hover {
@@ -80,6 +81,14 @@ div.loginButtons{
   margin-bottom: -4.5rem!important;
   margin: auto;
   width: 30%;
+  padding: 10px;
+}
+
+div.accountButtons{
+  margin-top: 5rem!important;
+  margin-bottom: -4.5rem!important;
+  margin: auto;
+  width: 50%;
   padding: 10px;
 }
 
@@ -148,4 +157,84 @@ div.kidFriendly-select.mb-5{
   font-size: 28px;
 }
 
+div.loginButtons{
+  margin-top: 5rem!important;
+  margin-bottom: -4.5rem!important;
+  margin: auto;
+  width: 30%;
+  padding: 10px;
+}
 
+img#lamp {
+  animation: wiggle 2s linear infinite;
+
+}
+
+/* Keyframes */
+@keyframes wiggle {
+  0%, 7% {
+    transform: rotateZ(0);
+  }
+  15% {
+    transform: rotateZ(-15deg);
+  }
+  20% {
+    transform: rotateZ(10deg);
+  }
+  25% {
+    transform: rotateZ(-10deg);
+  }
+  30% {
+    transform: rotateZ(6deg);
+  }
+  35% {
+    transform: rotateZ(-4deg);
+  }
+  40%, 100% {
+    transform: rotateZ(0);
+  }
+}
+
+img#lamp {
+  position: absolute;
+  border: none;
+  border-radius: 0 0 0.2em 0.2em;
+  color: #fff;
+  font-family: Helvetica, Arial, Sans-serif;
+  font-size: 1em;
+  transform-origin: 50% 5em;
+  filter: drop-shadow(0 0 0.75rem rgb(80, 68, 0));
+}
+
+img#travelGenieText{
+  filter: drop-shadow(0 0 0.75rem rgb(26, 44, 204));
+}
+
+img#genie{
+  filter: drop-shadow(0 0 0.75rem rgb(26, 44, 204));
+}
+
+h3.nickName{
+  border-bottom: 0.1em solid #000;
+  margin: auto;
+  width: 50%;
+  font-size: 45px;
+  text-align: center;
+  padding: 10px;
+}
+
+h4{
+  margin: auto;
+  width: 50%;
+  font-size: 30px;
+  text-align: center;
+  padding: 10px;
+}
+
+img#lampHome{
+  position: absolute;
+    width: 100px;
+    margin-top: 330px;
+    filter: drop-shadow(0 0 0.75rem rgb(80, 68, 0));
+    animation: wiggle 2s linear infinite;
+}
