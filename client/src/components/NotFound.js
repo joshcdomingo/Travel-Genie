@@ -9,8 +9,9 @@ function NotFound() {
   useEffect(() => {
 
     let ctx = gsap.context(() => {
-      gsap.from(".animate", {x: -100, duration: 1, ease: "bounce"});
-      gsap.from(".animate3", {opacity: 0, duration: 1, delay: 1});
+        gsap.timeline()
+            .from("#notFoundCloud", { opacity: 0, scale: 0 })
+            .to("#notFoundCloud", { duration: 2, opacity: 1, scale: 1});
     }, notFound);
 
     return () => ctx.revert();
@@ -19,9 +20,11 @@ function NotFound() {
   return (
     <div className="container">
       <div className="notFound" ref={notFound}>
-        <h2 className="animate">404</h2>
+        <h1 id="notFoundH1">404</h1>
+        <img id="notFoundCloud" src="./images/404Cloud.svg" alt="Dark blue cloud"></img>
+        <img className="notFoundLamp" src="./images/lamp2.png" alt="lamp" />
         <p className="animate3">
-          Click <Link to="/home">here</Link> to go back home.
+          Click <Link id="hereLink" to="/home">here</Link> to go back home.
         </p>
       </div>
     </div>

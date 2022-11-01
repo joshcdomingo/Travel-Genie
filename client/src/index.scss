@@ -79,6 +79,40 @@ $backgroundColor: #25a1ea;
         font-size: 20px;
     }
 
+    #notFoundH1 {
+        position: absolute;
+        top: 42%;
+        left: 47%;
+        transform: translate(-50%, -50%);
+        color: #fff;
+        font-size: 6em;
+        z-index: 1;
+    }
+
+    .notFound {
+        position: relative;
+        text-align: center;
+    }
+
+    p.animate3 {
+        text-align: center;
+    }
+
+    #notFoundCloud {
+        display: block;
+        width: 50%;
+        height: 50%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .notFoundLamp {
+        position: absolute;
+        width: $lampWidth;
+        top: 70%;
+        left: 70%;
+    }
+
     #homeH2 {
         margin-top: 1.5em;
     }
@@ -99,6 +133,15 @@ $backgroundColor: #25a1ea;
 
     p {
         font-family: $paragraphFont;
+    }
+
+    #hereLink {
+        color: #0c3f5c;
+    }
+
+    #hereLink:hover {
+        color: #ecce32;
+        text-decoration: none;
     }
 
     .home, .account, .wishList {
@@ -211,4 +254,3 @@ $backgroundColor: #25a1ea;
         padding-right: 3rem;
     }
 }
-
