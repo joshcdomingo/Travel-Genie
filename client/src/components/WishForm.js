@@ -174,11 +174,11 @@ function WishForm() {
             
             : 
 
-            <div className="search-result">  
+            <div className="search-result container">  
                 {matches.length === 0 ? (<div className="no-result">
-                                       <h2>Sorry, Master {auth.user.nickname}!</h2>
-                                       <h2> I have failed to find a suitable desitination.</h2>
-                                       <h2> Please try again!</h2>
+                                       <h3>Sorry, Master {auth.user.nickname}!</h3>
+                                       <p> I have failed to find a suitable desitination.</p>
+                                       <p> Please try again!</p>
                                        <button onClick={resetState} className="btn btn-dark">Make a Wish</button></div>) 
                     :
                     (<div className="yes-result">
