@@ -135,7 +135,7 @@ function WishForm() {
         {!submitted ?
             <form onSubmit={handleSubmit}>
                 <div className="container">
-                <h2>Wish Form</h2>
+                <h2>What is your wish?</h2>
                 <div className="form-group">
                     <div className="scenery-select mb-5 mt-4">
                         <h3 className="wishFormLabel">Scenery</h3>
