@@ -25,7 +25,7 @@ function Home() {
 
       const animateText = () => {
         gsap.timeline()
-            .to("#homeHover", { duration: 1.4, opacity: 1, scale: 1})
+            .to("#homeHover", { duration: 1, opacity: 1, scale: 1})
       };
 
       const animateTex2 = () => {
