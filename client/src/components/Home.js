@@ -23,11 +23,22 @@ function Home() {
             .from("#homeCloud2", { duration: .5, y: 600 })
       };
 
+      const animateText = () => {
+        gsap.timeline()
+            .to("#homeHover", { duration: 1.4, opacity: 1, scale: 1})
+      };
+
+      const animateTex2 = () => {
+        gsap.timeline()
+            .to("#homeHover", { opacity: -1, opacity: 0, scale: 0 });
+      };
+
     return (
         <main>
-            <h2 id="homeH2">Your wish is my command, Master {auth.user.nickname}!</h2>
-            <Link to="/WishForm" className="btn btn-dark">Make a Wish</Link>
+            <h2 id="homeH2">Greetings Master {auth.user.nickname}!</h2>
+            <Link onMouseLeave={animateTex2} onMouseOver={animateText} to="/WishForm" className="btn btn-dark">Make a Wish</Link>
             <div>
+            <h2 id="homeHover">Your wish is my command!</h2>
             <img id="homeCloud" src="./images/404Cloud.svg" alt="Dark blue cloud" onLoad={animateHomeCloud}></img>
             </div>
             <div>
