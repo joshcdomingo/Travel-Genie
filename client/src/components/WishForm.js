@@ -121,7 +121,7 @@ function WishForm() {
 
     const animateGenie = () => {
         gsap.timeline()
-        .from("#genieForm", { duration: 1.5, x: -600 })
+        .from("#genieForm", { duration: 1, x: -600 })
       };
 
       const animateGenie2 = () => {
