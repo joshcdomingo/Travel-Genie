@@ -238,6 +238,7 @@ h4{
 }
 
 img#genieHome{
+  margin-top: -3rem;
   width: 30%;
   height: 30%;
   filter: drop-shadow(0 0 0.75rem rgb(26, 44, 204));
@@ -264,13 +265,13 @@ img#homeCloud{
   filter: drop-shadow(0 0 0.75rem rgb(255, 255, 255));
   transform: scaleX(-1);
   margin-right: 8.5%!important;
-  margin-top: -8% !important;
+  margin-top: -1% !important;
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 300px;
   height: auto;
-  margin-bottom: -43%;
+  margin-bottom: -46%;
   width: 30%;
   height: 30%;
 }
@@ -279,13 +280,13 @@ img#homeCloud2{
   opacity: 50%;
   filter: drop-shadow(0 0 0.75rem rgb(255, 255, 255));
   margin-right: 61.5%!important;
-  margin-top: -1% !important;
+  margin-top: 18% !important;
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 300px;
   height: auto;
-  margin-bottom: -34%;
+  margin-bottom: -23%;
   width: 30%;
   height: 30%;
 }

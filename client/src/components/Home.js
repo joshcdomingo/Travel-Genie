@@ -27,8 +27,12 @@ function Home() {
         <main>
             <h2 id="homeH2">Your wish is my command, Master {auth.user.nickname}!</h2>
             <Link to="/WishForm" className="btn btn-dark">Make a Wish</Link>
+            <div>
             <img id="homeCloud" src="./images/404Cloud.svg" alt="Dark blue cloud" onLoad={animateHomeCloud}></img>
+            </div>
+            <div>
             <img id="homeCloud2" src="./images/404Cloud.svg" alt="Dark blue cloud" onLoad={animateHomeCloud2}></img>
+            </div>
         <div className="logo">
             <img id="genieHome" src="./images/genie.png" alt="genie" onLoad={animateGenie} />
         </div>
