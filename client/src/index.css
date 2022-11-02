@@ -346,12 +346,11 @@ p.sorry{
 }
 
 button, a.btn {
-  font-family: 'Gloria Hallelujah', cursive!important;
+  font-family: "Lato", sans-serif;
   border: 0;
-  font-size: 20px!important;
+  font-size: 18px!important;
   border-radius: 56px!important;
   cursor: pointer;
-  font-family: system-ui,-apple-system,system-ui,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",sans-serif;
   outline: 0;
   position: relative;
   text-align: center;
