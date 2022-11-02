@@ -8,6 +8,10 @@ h1 {
   justify-content: center;
 }
 
+.navbar > .container {
+  padding: 0 !important;
+}
+
 img.center {
   display: block;
   margin-left: auto;
@@ -253,7 +257,6 @@ img#genieForm2{
 }
 
 img#genieForm3{
-  margin-right: 10%;
   margin-top: -1rem;
   width: 30%;
   height: 30%;
