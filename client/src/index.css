@@ -346,12 +346,27 @@ p.sorry{
 }
 
 button, a.btn {
-  font-family: 'Gloria Hallelujah', cursive!important;
+  font-family: "Lato", sans-serif;
   border: 0;
-  font-size: 20px!important;
+  font-size: 18px!important;
   border-radius: 56px!important;
   cursor: pointer;
-  font-family: system-ui,-apple-system,system-ui,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",sans-serif;
+  outline: 0;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: all .3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+a.home, a.wishList, a.account {
+  font-family: "Lato", sans-serif;
+  border: 0;
+  font-size: 18px!important;
+  border-radius: 56px!important;
+  cursor: pointer;
   outline: 0;
   position: relative;
   text-align: center;
@@ -376,9 +391,11 @@ button:before, a.btn:before {
   width: 92%;
 }
 
-button:hover, a.btn:hover {
+button:hover, a.btn:hover, a:hover {
   box-shadow: rgba(255, 255, 255, .2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
   transform: scale(1.05);
 }
+
+
 
 
