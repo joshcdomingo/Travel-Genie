@@ -62,7 +62,7 @@ function WishList() {
 
   const animateGenie3 = () => {
     gsap.timeline()
-        .from("#genieForm3", { duration: 1, x: -600 })
+    .from("#genieForm3", { duration: 1, x: -600 })
   };
 
   return (
