@@ -12,7 +12,6 @@ $primaryButton: #0c3f5c;
 $dangerButton: #e78b4b;
 $dangerHover: #c7683b;
 $backgroundColor: #25a1ea;
-$visitedColor: #4e8eb3;
 
 // Mixins
 @mixin container {
@@ -46,11 +45,28 @@ $visitedColor: #4e8eb3;
     top: 325px;
 }
 
+@mixin notFoundCloud {
+    display: block;
+    width: 50%;
+    height: 50%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@mixin notFoundLamp {
+    position: absolute;
+    width: $lampWidth;
+    top: 90%;
+    left: 75%;
+}
+
+// navigation
 .navbar.navbar-dark.bg-dark {
     background-color: $primaryButton !important;
 }
 
 @media (min-width: 320px) {
+    // html/body
     html {
         padding: 0;
         height: 100%;
@@ -71,6 +87,7 @@ $visitedColor: #4e8eb3;
         overflow: auto;
     }
 
+    // headings
     h1, h2 {
         font-family: $headingFont;
         letter-spacing: $letterSpacing;
@@ -80,6 +97,22 @@ $visitedColor: #4e8eb3;
         font-size: 20px;
     }
 
+    #homeH2 {
+        margin-top: 1.5em;
+        text-align: center;
+    }
+
+    #wishListH2:after {
+        content: "";
+        display: block;
+        font-family: $headingFont;
+        width: 100%;
+        max-width: 100%;
+        border-bottom: 0.1em solid #000;
+        padding-top: .5em;
+    }
+
+    // not found
     #notFoundH1 {
         position: absolute;
         top: 42%;
@@ -100,42 +133,19 @@ $visitedColor: #4e8eb3;
     }
 
     #notFoundCloud {
-        display: block;
-        width: 50%;
-        height: 50%;
-        margin-right: auto;
-        margin-left: auto;
+        @include notFoundCloud();
     }
 
     .notFoundLamp {
-        position: absolute;
-        width: $lampWidth;
-        top: 90%;
-        left: 75%;
+        @include notFoundLamp();
     }
 
-    #homeH2 {
-        margin-top: 1.5em;
-    }
-
-    #wishListH2:after {
-        content: "";
-        display: block;
-        font-family: $headingFont;
-        width: 100%;
-        max-width: 100%;
-        border-bottom: 0.1em solid #000;
-        padding-top: .5em;
-    }
-
-    #homeH2 {
-        text-align: center;
-    }
-
+    // paragraphs
     p {
         font-family: $paragraphFont;
     }
 
+    // links
     #hereLink {
         color: #0c3f5c;
     }
@@ -143,28 +153,6 @@ $visitedColor: #4e8eb3;
     #hereLink:hover {
         color: #ecce32;
         text-decoration: none;
-    }
-
-    .home, .account, .wishList {
-        padding: 10px;
-        color: #fff;
-        font-size: 16px;
-        font-family: $paragraphFont;
-    }
-
-    .home:hover, .account:hover, .wishList:hover {
-        text-decoration: none;
-        color: $backgroundColor;
-    }
-
-    .home:active, .account:active, .wishList:active {
-        text-decoration: none;
-        color: $warningButton;
-    }
-
-    .home:visited, .account:visited, .wishList:visited {
-        text-decoration: none;
-        color: $visitedColor;
     }
 
     .wishList {
@@ -199,7 +187,7 @@ $visitedColor: #4e8eb3;
     #welcomeDesert {
         max-width: 100%;
         min-height: 800px;
-        height: 120vh;
+        height: 100vh;
         position: absolute;
         z-index: -1;
     } 
