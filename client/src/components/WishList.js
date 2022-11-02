@@ -100,7 +100,7 @@ function WishList() {
                 <td>{wish.kidFriendly ? "Yes" : "No"}</td>
                 <td className="buttonContainer">
                   <Link className="btn btn-primary" to={`/${wish.cityName}`}>
-                    City Details
+                    Details
                   </Link>
                 </td>
                 <td className="buttonContainer">
