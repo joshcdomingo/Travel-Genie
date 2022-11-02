@@ -67,6 +67,10 @@ function WishList() {
 
   return (
     <main>
+      {wishes.length==0 ? <div>
+                          <h2 id="homeH2">You don't have any wishes, Master {auth.user.nickname}!</h2>
+                          <Link to="/WishForm" className="btn btn-dark">Make a Wish</Link>
+                          </div> :
       <div className="container">
       <h2 id="wishListH2">Wish List</h2>
         <Link className="btn addWish" to="/WishForm">
@@ -108,7 +112,7 @@ function WishList() {
            ))}
           </tbody>
        </table>
-    </div>
+    </div> }
     <div className="logo">
             <img id="genieForm3" src="./images/genie.png" alt="genie" onLoad={animateGenie3} />
         </div>

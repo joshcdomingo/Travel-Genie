@@ -8,6 +8,10 @@ h1 {
   justify-content: center;
 }
 
+.navbar > .container {
+  padding: 0 !important;
+}
+
 img.center {
   display: block;
   margin-left: auto;
@@ -162,6 +166,10 @@ img#lamp {
 
 }
 
+img.notFoundLamp {
+  animation: wiggle 2s linear infinite; 
+}
+
 /* Keyframes */
 @keyframes wiggle {
   0%, 7% {
@@ -184,6 +192,45 @@ img#lamp {
   }
   40%, 100% {
     transform: rotateZ(0);
+  }
+}
+
+@keyframes move {
+  0%{
+    scale: 1;
+    opacity: 1;
+  }
+  15% {
+    scale: 0.85;
+    opacity: 0.75;
+  }
+  25% {
+    scale: 0.75;
+    opacity: 0.5;
+  }
+  35% {
+    scale: 0.65;
+    opacity: 0.25;
+  }
+  50% {
+    scale: 0.5;
+    opacity: 0;
+  }
+  65% {
+    scale: 0.65;
+    opacity: 0.25;
+  }
+  75%{
+    scale: 0.75;
+    opacity: 0.5;
+  }
+  85% {
+    scale: 0.85;
+    opacity: 0.75;
+  }
+  100% {
+    scale: 1;
+    opacity: 1;
   }
 }
 
@@ -234,6 +281,7 @@ img#genieHome{
   width: 30%;
   height: 30%;
   filter: drop-shadow(0 0 0.75rem rgb(26, 44, 204));
+  animation: move 4s linear infinite; 
 }
 
 img#genieForm{
@@ -242,22 +290,23 @@ img#genieForm{
   width: 30%;
   height: 30%;
   filter: drop-shadow(0 0 0.75rem rgb(26, 44, 204));
+  animation: move 4s linear infinite; 
 }
 
 img#genieForm2{
-  margin-right: 10%;
   margin-top: -1rem;
   width: 50%;
   height: 50%;
   filter: drop-shadow(0 0 0.75rem rgb(26, 44, 204));
+  animation: move 4s linear infinite; 
 }
 
 img#genieForm3{
-  margin-right: 10%;
   margin-top: -1rem;
   width: 30%;
   height: 30%;
   filter: drop-shadow(0 0 0.75rem rgb(26, 44, 204));
+  animation: move 4s linear infinite; 
 }
 
 img#homeCloud{
