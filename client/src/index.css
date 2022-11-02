@@ -361,7 +361,8 @@ button, a.btn {
   touch-action: manipulation;
 }
 
-a.home, a.wishList, a.account {
+a.nav, a.nav.active {
+  margin-right: 1rem;
   font-family: "Lato", sans-serif;
   border: 0;
   font-size: 18px!important;

@@ -14,9 +14,9 @@ function Navigation() {
                 <div className="container">
                     <Link to="/Home" className="navbar-brand"><img id="logo" src="./images/TravelGenieLogo.png" alt="Travel Genie logo" /></Link>
                     <div className="col d-flex justify-content-end">
-                        <NavLink to='/Home' activeClassName="active" activeStyle={{color: "#ecce32"}} style={{textDecoration: "none", padding: "10px", color: "#fff"}}>Home</NavLink>
-                        <NavLink to='/Account' activeClassName="active" activeStyle={{color: "#ecce32"}} style={{textDecoration: "none", padding: "10px", color: "#fff"}}>Account</NavLink>
-                        <NavLink to='/WishList' activeClassName="active" activeStyle={{color: "#ecce32"}} style={{textDecoration: "none", padding: "10px", color: "#fff"}}>Wish List</NavLink>
+                        <NavLink to='/Home' className="nav" activeClassName="active" activeStyle={{color: "#ecce32"}} style={{textDecoration: "none", padding: "10px", color: "#fff"}}>Home</NavLink>
+                        <NavLink to='/Account' className="nav" activeClassName="active" activeStyle={{color: "#ecce32"}} style={{textDecoration: "none", padding: "10px", color: "#fff"}}>Account</NavLink>
+                        <NavLink to='/WishList' className="nav" activeClassName="active" activeStyle={{color: "#ecce32"}} style={{textDecoration: "none", padding: "10px", color: "#fff"}}>Wish List</NavLink>
                         <button className="btn btn-light logout" onClick={() =>auth.logout()}>Log Out</button>
                     </div>
             </div>
