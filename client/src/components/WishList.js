@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import AuthContext from "../contexts/AuthContext";
+import { gsap } from "gsap";
 
 
 
@@ -59,6 +60,11 @@ function WishList() {
     }
   };
 
+  const animateGenie3 = () => {
+    gsap.timeline()
+        .from("#genieForm3", { duration: 1, x: -600 })
+  };
+
   return (
     <main>
       <div className="container">
@@ -103,6 +109,9 @@ function WishList() {
           </tbody>
        </table>
     </div>
+    <div className="logo">
+            <img id="genieForm3" src="./images/genie.png" alt="genie" onLoad={animateGenie3} />
+        </div>
   </main>
   );
 }

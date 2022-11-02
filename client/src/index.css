@@ -76,14 +76,6 @@ h3.nickName{
   padding-top: 1em;
 }
 
-div.loginButtons{
-  margin-top: 5rem!important;
-  margin-bottom: -4.5rem!important;
-  margin: auto;
-  width: 30%;
-  padding: 10px;
-}
-
 div.accountButtons{
   margin-top: 5rem!important;
   margin-bottom: -4.5rem!important;
@@ -246,7 +238,7 @@ img#genieHome{
 
 img#genieForm{
   margin-right: -30%;
-  margin-top: -31rem;
+  margin-top: -30rem;
   width: 30%;
   height: 30%;
   filter: drop-shadow(0 0 0.75rem rgb(26, 44, 204));
@@ -257,6 +249,15 @@ img#genieForm2{
   margin-top: -1rem;
   width: 50%;
   height: 50%;
+  filter: drop-shadow(0 0 0.75rem rgb(26, 44, 204));
+}
+
+img#genieForm3{
+  transform: scaleX(1);
+  margin-right: 10%;
+  margin-top: -1rem;
+  width: 30%;
+  height: 30%;
   filter: drop-shadow(0 0 0.75rem rgb(26, 44, 204));
 }
 
@@ -289,4 +290,9 @@ img#homeCloud2{
   margin-bottom: -23%;
   width: 30%;
   height: 30%;
+}
+
+p.sorry{
+  font-family: 'Lobster Two', cursive;
+  font-size: 25px;
 }
