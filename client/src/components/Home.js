@@ -30,7 +30,7 @@ function Home() {
 
       const animateTex2 = () => {
         gsap.timeline()
-            .to("#homeHover", { opacity: -1, opacity: 0, scale: 0 });
+            .to("#homeHover", { opacity: 0, scale: 0 });
       };
 
     return (
