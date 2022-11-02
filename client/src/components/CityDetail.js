@@ -122,7 +122,7 @@ function CityDetail() {
         <main>
             {city.length==0 ? <NotFound /> : 
                 <div className="container">
-                    <img id="cityImage" src={`./images/${city.cityId}.jpeg`} alt="genie" />
+                    <img id="cityImage" src={`./images/${city.cityId}.png`} alt="genie" />
                     <h2 id="wishListH2">{city.cityName}, {city.countryName}</h2>
                     <h5>Things To Do</h5>
                     <table>

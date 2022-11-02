@@ -12,6 +12,7 @@ $primaryButton: #0c3f5c;
 $dangerButton: #e78b4b;
 $dangerHover: #c7683b;
 $backgroundColor: #25a1ea;
+$visitedColor: #4e8eb3;
 
 // Mixins
 @mixin container {
@@ -47,7 +48,6 @@ $backgroundColor: #25a1ea;
 
 .navbar.navbar-dark.bg-dark {
     background-color: $primaryButton !important;
-    // background-image: linear-gradient(to bottom right, #c7683b 0%, #e78b4b 25%, #ecce32 50%,  #25a1ea 75%, #0c3f5c 100%);
 }
 
 @media (min-width: 320px) {
@@ -59,6 +59,7 @@ $backgroundColor: #25a1ea;
     body {
         background-image: linear-gradient(to bottom, #fff, #25a1ea);
         min-height: 100%;
+        height: 100vh;
     }
 
     html, body {
@@ -159,6 +160,11 @@ $backgroundColor: #25a1ea;
     .home:active, .account:active, .wishList:active {
         text-decoration: none;
         color: $warningButton;
+    }
+
+    .home:visited, .account:visited, .wishList:visited {
+        text-decoration: none;
+        color: $visitedColor;
     }
 
     .wishList {
