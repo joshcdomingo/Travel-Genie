@@ -141,7 +141,7 @@ create table city_to_entertainment (
         (7, 'Austin', 1, 1),
         (8, 'Aspen', 1, 5),
         (9, 'Palm Springs', 1, 4),
-        (10, 'Stow', 1, 3);
+        (10, 'Stowe', 1, 3);
 
    insert into city_to_entertainment (city_id, entertainment_id) values
 		(1, 2),(1, 6),(1, 8),(1, 10),(1, 11),(1, 12),(1, 15),
