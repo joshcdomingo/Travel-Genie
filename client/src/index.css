@@ -398,6 +398,17 @@ button:hover, a.btn:hover, a:hover {
 }
 
 h2#homeHover{
+  text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px rgb(26, 44, 204),
+      0 0 82px  rgb(26, 44, 204),
+      0 0 92px  rgb(26, 44, 204),
+      0 0 102px  rgb(26, 44, 204),
+      0 0 151px  rgb(26, 44, 204);
+  font-size: 25px;
+  font-style: italic;
   opacity: 0;
   margin-top: 3rem;
   text-align: center;
